@@ -109,6 +109,8 @@ paths:
       post:
         tags:
           - boarding-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Create or Update Location
         summary: Create or Update Location
         description: Creates or Updates a location, if the location ID matches an existing
           location - the location is updated. If it doesn't a new location is created
