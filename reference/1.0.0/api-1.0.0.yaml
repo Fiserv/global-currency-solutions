@@ -1,0 +1,1541 @@
+---
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: 1.0.0
+servers:
+  - url: http://qa.openfx-nonprod.aws.fisv.cloud
+    description: Generated server url
+paths:
+    /fx/v1/boarding/clients/{clientID}/locations:
+      get:
+        tags:
+          - boarding-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Get All Client Locations
+        summary: Provides a list of all locations associated with the sub client
+        description: Provides a list of all locations associated with the sub client
+        operationId: getAllExternalLocations
+        parameters:
+          - name: Apikey
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: clientID
+            in: path
+            required: true
+            schema:
+              type: string
+          - name: pageNumber
+            in: query
+            required: false
+            schema:
+              type: integer
+              format: int32
+              default: 0
+          - name: pageSize
+            in: query
+            required: false
+            schema:
+              type: integer
+              format: int32
+              default: 100
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/ProcessingLocationDetail"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+      post:
+        tags:
+          - boarding-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Create or Update Location
+        summary: Create or Update Location
+        description: Creates or Updates a location, if the location ID matches an existing
+          location - the location is updated. If it doesn't a new location is created
+        operationId: createExternalLocation
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: clientID
+            in: path
+            required: true
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProcessingLocation"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/LocationResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+    /fx/v1/boarding/clients/{clientID}/locations/{locationID}:
+      get:
+        tags:
+          - boarding-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Get Client Location
+        summary: Provides the exact location detail associated with the sub client
+        description: Provides the exact location detail associated with the sub client
+        operationId: getLocation
+        parameters:
+          - name: Apikey
+            in: header
+            description: API and Secret key will be provided as part of service boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: clientID
+            in: path
+            required: true
+            schema:
+              type: string
+          - name: locationID
+            in: path
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/ProcessingLocationDetail"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+    /fx/v1/boarding/clients/locations/{locationID}:
+      get:
+        tags:
+          - boarding-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Get Location Detail
+        summary: Provides the location details
+        description: Provides a list of all locations associated with the sub client
+        operationId: getExternalLocation
+        parameters:
+          - name: Apikey
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: locationID
+            in: path
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/ProcessingLocationDetail"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+    /fx/v1/boarding/agents/{agentID}/clients:
+      post:
+        tags:
+          - boarding-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Create or Update Client
+        summary: Create or Update Client
+        description: Creates or Updates a client, if the client ID matches an existing
+          client - the client is updated. If it doesn't a new client is created
+        operationId: createExternalSubClient
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: agentID
+            in: path
+            required: true
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProcessingClient"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/ProcessingClientResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+    /fx/v1/pricing/transactions:
+      post:
+        tags:
+          - exchange-rate-controller
+        x-group-name: Exchange Rate APIS
+        x-proxy-name: Transaction Acknowledgement
+        summary: Transaction Acknowledgement API
+        description: Provides the rates information for country currency pair and scheme.
+        operationId: rateExchangeAcknowledgement
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: Client-Request-ID
+            in: header
+            required: true
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/AcknowledgementRequest"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/AcknowledgementResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+    /fx/v1/pricing/request:
+      post:
+        tags:
+          - exchange-rate-controller
+        x-group-name: Boarding APIS
+        x-proxy-name: Exchange Price
+        summary: Get Price API
+        description: Provides the rates information for country currency pair and scheme.
+        operationId: rateExchange
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: Client-Request-ID
+            in: header
+            required: true
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ExchangeRateRequest"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/ExchangeRateResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  type: string
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  type: string
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  type: string
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  type: string
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  type: string
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  type: string
+    /fx/v1/pricing/request/allrates:
+      post:
+        tags:
+          - exchange-rate-controller
+        x-group-name: Exchange Rate APIS
+        x-proxy-name: Get All Prices
+        summary: Get Price API
+        description: Provides the rates information for country currency pair and scheme.
+        operationId: getAllRates
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: Client-Request-ID
+            in: header
+            required: true
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ExchangeAllRateRequest"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/ExchangeRateResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+
+    /fx/v1/pricing/getCurrentTimestamp:
+      get:
+        tags:
+          - exchange-rate-controller
+        x-group-name: Exchange Rate APIS
+        x-proxy-name: Get Current Timestamp
+        summary: Get Current Timestamp API
+        description: Timestamp of current time and date in epoch format.
+        operationId: getCurrentTimestamp
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+          - name: Client-Request-ID
+            in: header
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/CurrentTimestampResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  type: string
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  type: string
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  type: string
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  type: string
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  type: string
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  type: string
+    /fx/v1/pricing/rates:
+      post:
+        tags:
+          - pricing-controller
+        x-group-name: Pricing APIS
+        x-proxy-name: Get Rates information
+        summary: Get Rates information API.
+        description: Get Rates information for a source and list of target currency
+          pair.
+        operationId: getRates
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RatesRequest"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    "$ref": "#/components/schemas/Rate"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+    /fx/v1/pricing/getPrice:
+      post:
+        tags:
+          - pricing-controller
+        x-group-name: Pricing APIS
+        x-proxy-name: Get Price
+        summary: Get Price API
+        description: Provides the rates information for country currency pair and scheme.
+        operationId: getPrice
+        parameters:
+          - name: Api-Key
+            in: header
+            description: API and Secret key will be provided as part of servicer boarding.
+            required: true
+            schema:
+              type: string
+          - name: Timestamp
+            in: header
+            description: Epoch timestamp in the request initiating system
+            required: true
+            schema:
+              type: string
+          - name: Authorization
+            in: header
+            description: Authorization information for the request. use API key and secret
+              to build the HMAC signature Format- HMAC {hmacToken}
+            required: true
+            schema:
+              type: string
+          - name: Client-Request-Id
+            in: header
+            description: A unique random number for each request.
+            required: true
+            schema:
+              type: number
+        requestBody:
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/PricingRequest"
+          required: true
+        responses:
+          '200':
+            description: Created
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/PricingResponse"
+          '400':
+            description: The request cannot be validated
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '401':
+            description: The request was unauthorized
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '404':
+            description: The request resource does not exist
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '500':
+            description: An unexpected internal server error occurred
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '503':
+            description: The service was unavailable
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+          '504':
+            description: The request timed out while waiting for a response
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/DefaultResponse"
+components:
+  schemas:
+  ##-------------------------------------
+  ## Response Model
+  ##-------------------------------------
+    ServiceModel:
+      required:
+        - overrideMargin
+      type: object
+      properties:
+        overrideMargin:
+          type: boolean
+          description: Value must be set to true if margin has to be overridden at
+            the location level
+          example: true
+        marginInfo:
+          "$ref": "#/components/schemas/MarginDistribution"
+      description: Rate model associated with the location - for the associated type
+    MarginDistribution:
+      required:
+        - agent
+        - client
+        - location
+        - servicer
+      type: object
+      properties:
+        servicer:
+          type: number
+          description: Servicer margin in BPS
+          format: double
+          example: 10
+        agent:
+          type: number
+          description: Agent margin in BPS
+          format: double
+          example: 0
+        client:
+          type: number
+          description: Sub Client margin in BPS
+          format: double
+          example: 30
+        location:
+          type: number
+          description: Location margin in BPS
+          format: double
+          example: 50
+        scheme:
+          type: string
+          description: Scheme will be optional and valid values are Any,Visa, Mastercard
+          example: '20'
+          enum:
+            - Visa
+            - Mastercard
+        sourceCurrency:
+          type: string
+          description: Source currency will be optional ISO 4217 Currency Alpha Code
+          example: '5'
+        targetCurrency:
+          type: string
+          description: Target currency will be optional ISO 4217 Currency Alpha Code
+          example: '5'
+      description: Margin distribution for the location
+    LocationResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Status code associated with the response
+          format: int32
+        message:
+          type: string
+          description: Status message associated with the response
+          example: Some message from the service
+        locationId:
+          type: string
+    DefaultResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Status code associated with the response
+          format: int32
+        message:
+          type: string
+          description: Status message associated with the response
+          example: Some message from the service
+      description: Default response
+    ProcessingLocationDetail:
+      required:
+        - country
+        - crossRefID1
+        - id
+        - mcc
+        - name
+        - sourceCurrencies
+        - timezone
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID associated with the location
+          example: '7377372727'
+        crossRefID1:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id aks location Id. Use this filed for LocationId/XREF.
+          example: HGJ8838983
+        crossRefID2:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id associated with the location. Use this field
+            for VendorReferenceId
+          example: '0009999'
+        name:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Name associated with the location
+          example: My Pizza Shop
+        streetAddress:
+          maxLength: 75
+          type: string
+          description: Address associated with the location
+          example: "#449 Fiserv drive"
+        city:
+          maxLength: 50
+          type: string
+          description: City associated with the location
+          example: Berkley Heights
+        state:
+          maxLength: 2
+          type: string
+          description: State associated with the location
+          example: NJ
+        country:
+          maxLength: 3
+          minLength: 3
+          type: string
+          description: Country associated with the location, Valid ISO3 Country Code
+          example: USA
+    ProcessingLocation:
+      required:
+        - country
+        - crossRefID1
+        - mcc
+        - name
+        - timezone
+      type: object
+      properties:
+        crossRefID1:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id aks location Id. Use this filed for LocationId/XREF.
+          example: HGJ8838983
+        crossRefID2:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id associated with the location. Use this field
+            for VendorReferenceId
+          example: '0009999'
+        name:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Name associated with the location
+          example: My Pizza Shop
+        streetAddress:
+          maxLength: 75
+          type: string
+          description: Address associated with the location
+          example: "#449 Fiserv drive"
+        city:
+          maxLength: 50
+          type: string
+          description: City associated with the location
+          example: Berkley Heights
+        state:
+          maxLength: 2
+          type: string
+          description: State associated with the location
+          example: NJ
+        country:
+          maxLength: 3
+          minLength: 3
+          type: string
+          description: Country associated with the location
+          example: USA
+    ProcessingClient:
+      required:
+        - crossRefID1
+        - crossRefID2
+        - name
+      type: object
+      properties:
+        crossRefID1:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: crossRefID1 for Client must be 'Global Client Reference Id/Platform
+            Id'.
+          example: NORSS/OP020
+        crossRefID2:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: crossRefID2 for Client must be 'Hierarchy Id' for MCP.
+          example: HGJ8838983
+        name:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Name associated with the Client
+          example: My Pizza Shop
+        dccTransactionalFX:
+          "$ref": "#/components/schemas/ServiceModel"
+        dccSpotFX:
+          "$ref": "#/components/schemas/ServiceModel"
+        dccPeriodicalFX:
+          "$ref": "#/components/schemas/ServiceModel"
+        mcp:
+          "$ref": "#/components/schemas/ServiceModel"
+    ProcessingClientResponse:
+      type: object
+      properties:
+        clientID:
+          type: string
+        message:
+          type: string
+    AcknowledgementRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+        rateId:
+          type: string
+        tranType:
+          type: string
+        rateType:
+          type: string
+        sourceAmount:
+          type: number
+          format: double
+        targetAmount:
+          type: number
+          format: double
+        status:
+          type: string
+        client:
+          type: string
+        xref:
+          type: string
+    AcknowledgementResponse:
+      type: object
+      properties:
+        id:
+          type: string
+    ExchangeRateRequest:
+      type: object
+      properties:
+        source:
+          type: string
+          enum:
+            - Unknown
+            - USA
+        rateType:
+          type: string
+        client:
+          type: string
+        xref:
+          type: string
+        bin:
+          type: string
+        sourceAmount:
+          type: number
+          format: double
+    ExchangeRateResponse:
+      type: object
+      properties:
+        eligibility:
+          type: string
+          enum:
+            - Y
+            - N
+            - D
+        id:
+          type: string
+        margin:
+          type: number
+          format: double
+        sourceAmount:
+          type: string
+        targetAmount:
+          type: string
+        rate:
+          "$ref": "#/components/schemas/ExchangeRate"
+    Currency:
+      type: object
+      properties:
+        alpha:
+          type: string
+        numeric:
+          type: integer
+          format: int32
+        minorUnits:
+          type: integer
+          format: int32
+        symbol:
+          type: string
+    ExchangeRate:
+      type: object
+      properties:
+        provider:
+          type: string
+        rate:
+          type: number
+          format: double
+        id:
+          type: string
+        start:
+          type: string
+        end:
+          type: string
+        rateType:
+          type: string
+        source:
+          "$ref": "#/components/schemas/Currency"
+        target:
+          "$ref": "#/components/schemas/Currency"
+    ExchangeAllRateRequest:
+      type: object
+      properties:
+        source:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        rateType:
+          type: string
+        client:
+          type: string
+        xref:
+          type: string
+        target:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        sourceAmount:
+          type: number
+          format: double
+    CurrentTimestampResponse:
+      type: object
+      properties:
+        currentTimestamp:
+          type: string
+        clientRequestId:
+          type: string
+    RatesRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+          enum:
+            - Visa
+            - Mastercard
+            - Oanda
+            - Azul
+            - GlobalBlue
+            - LBG
+            - PlanetPayment
+            - PlanetPayment_Visa
+            - PlanetPayment_Mastercard
+            - BanaBTC
+            - ECB
+            - ButterField
+            - Fexco
+            - FCIB
+            - NatWest_E2E_FDEL
+            - NatWest_NE2E_FDEL
+            - NatWest_E2E_FDGMBH
+            - NatWest_NE2E_FDGMBH
+            - GMA_Visa
+            - GMA_Mastercard
+        source:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        targets:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Unknown
+              - USD
+    Rate:
+      type: object
+      properties:
+        rateId:
+          type: string
+        rateProvider:
+          type: string
+          enum:
+            - Visa
+            - Mastercard
+            - Oanda
+            - Azul
+            - GlobalBlue
+            - LBG
+            - PlanetPayment
+            - PlanetPayment_Visa
+            - PlanetPayment_Mastercard
+            - BanaBTC
+            - ECB
+            - ButterField
+            - Fexco
+            - FCIB
+            - NatWest_E2E_FDEL
+            - NatWest_NE2E_FDEL
+            - NatWest_E2E_FDGMBH
+            - NatWest_NE2E_FDGMBH
+            - GMA_Visa
+            - GMA_Mastercard
+        source:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        target:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        sellRate:
+          type: number
+          format: double
+        buyRate:
+          type: number
+          format: double
+        midRate:
+          type: number
+          format: double
+        rateTimestamp:
+          type: integer
+          format: int64
+        rateDateUTC:
+          type: integer
+          format: int32
+        derived:
+          type: boolean
+        expiryTimestamp:
+          type: integer
+          format: int64
+        systemDate:
+          type: integer
+          format: int64
+    PricingRequest:
+      type: object
+      properties:
+        bin:
+          type: string
+        source:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        sourceAmount:
+          type: number
+          format: double
+        pricingType:
+          type: string
+          enum:
+            - DCC
+            - MCP
+            - DCP
+            - DCS
+        clientCrossRef1:
+          type: string
+        locationCrossRef1:
+          type: string
+        locationID:
+          type: string
+
+    PricingResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        sourceAmount:
+          type: number
+          format: double
+        targetAmount:
+          type: number
+          format: double
+        rate:
+          type: number
+          format: double
+        wholesaleRate:
+          type: number
+        margin:
+          type: number
+          format: double
+        reason:
+          type: string
+          enum:
+            - RateSupplied
+            - NoLocationInfo
+            - SourceCurrencyInExclusion
+            - TargetCurrencyInExclusion
+            - SourceCurrencyNotSupported
+            - TargetCurrencyNotSupported
+            - TargetCurrencyNotConfigured
+            - NoRateProvidersSetup
+            - NoRatesAvailable
+            - UnknownPricingStrategy
+            - InvalidRequest
+            - NoSourceCurrencySpecified
+            - InvalidSourceAmount
+            - NoBinInfoAvailable
+            - BinNotSupported
+            - CountryNotSupported
+            - CardBrandNotSupported
+            - NoPricingTypeSpecified
+            - PricingTypeNotSupported
+            - SourceAndTargetCannotBeSame
+        sourceRef:
+          "$ref": "#/components/schemas/CurrencyReferenceInfo"
+        targetRef:
+          "$ref": "#/components/schemas/CurrencyReferenceInfo"
+        sourceCountry:
+          type: string
+          enum:
+            - Unknown
+            - USA
+        targetCountry:
+          type: string
+          enum:
+            - Unknown
+            - USA
+    CurrencyReferenceInfo:
+      type: object
+      properties:
+        currency:
+          type: string
+          enum:
+            - Unknown
+            - USD
+        isoNumeric:
+          type: string
+        minorUnits:
+          type: integer
+          format: int32
+        precision:
+          type: integer
+          format: int32
+        name:
+          type: string
+        euroZone:
+          type: boolean
+    #-------------------------------------
+    # response Models
+    #-------------------------------------
+
