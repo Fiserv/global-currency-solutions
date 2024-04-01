@@ -1025,11 +1025,11 @@ components:
             - Visa
             - Mastercard
         sourceCurrency:
-          type: string
+          "$ref": "#/components/schemas/CurrencyCodes"
           description: Source currency will be optional ISO 4217 Currency Alpha Code
           example: '5'
         targetCurrency:
-          type: string
+          "$ref": "#/components/schemas/CurrencyCodes"
           description: Target currency will be optional ISO 4217 Currency Alpha Code
           example: '5'
       description: Margin distribution for the location
@@ -1108,11 +1108,7 @@ components:
           description: State associated with the location
           example: NJ
         country:
-          maxLength: 3
-          minLength: 3
-          type: string
-          description: Country associated with the location, Valid ISO3 Country Code
-          example: USA
+          "$ref": "#/components/schemas/CountryCodes"
     ProcessingLocation:
       required:
         - country
@@ -1157,11 +1153,8 @@ components:
           description: State associated with the location
           example: NJ
         country:
-          maxLength: 3
-          minLength: 3
-          type: string
-          description: Country associated with the location
-          example: USA
+          "$ref": "#/components/schemas/CountryCodes"
+
     ProcessingClient:
       required:
         - crossRefID1
@@ -1235,10 +1228,7 @@ components:
       type: object
       properties:
         source:
-          type: string
-          enum:
-            - Unknown
-            - USA
+          "$ref": "#/components/schemas/CountryCodes"
         rateType:
           type: string
         client:
@@ -1307,10 +1297,7 @@ components:
       type: object
       properties:
         source:
-          type: string
-          enum:
-            - Unknown
-            - USD
+          "$ref": "#/components/schemas/CurrencyCodes"
         rateType:
           type: string
         client:
@@ -1318,10 +1305,7 @@ components:
         xref:
           type: string
         target:
-          type: string
-          enum:
-            - Unknown
-            - USD
+          "$ref": "#/components/schemas/CurrencyCodes"
         sourceAmount:
           type: number
           format: double
@@ -1359,18 +1343,12 @@ components:
             - GMA_Visa
             - GMA_Mastercard
         source:
-          type: string
-          enum:
-            - Unknown
-            - USD
+          "$ref": "#/components/schemas/CurrencyCodes"
         targets:
           uniqueItems: true
           type: array
           items:
-            type: string
-            enum:
-              - Unknown
-              - USD
+            "$ref": "#/components/schemas/CurrencyCodes"
     Rate:
       type: object
       properties:
@@ -1400,15 +1378,9 @@ components:
             - GMA_Visa
             - GMA_Mastercard
         source:
-          type: string
-          enum:
-            - Unknown
-            - USD
+          "$ref": "#/components/schemas/CurrencyCodes"
         target:
-          type: string
-          enum:
-            - Unknown
-            - USD
+          "$ref": "#/components/schemas/CurrencyCodes"
         sellRate:
           type: number
           format: double
@@ -1506,23 +1478,14 @@ components:
         targetRef:
           "$ref": "#/components/schemas/CurrencyReferenceInfo"
         sourceCountry:
-          type: string
-          enum:
-            - Unknown
-            - USA
+          "$ref": "#/components/schemas/CountryCodes"
         targetCountry:
-          type: string
-          enum:
-            - Unknown
-            - USA
+          "$ref": "#/components/schemas/CountryCodes"
     CurrencyReferenceInfo:
       type: object
       properties:
         currency:
-          type: string
-          enum:
-            - Unknown
-            - USD
+          "$ref": "#/components/schemas/CurrencyCodes"
         isoNumeric:
           type: string
         minorUnits:
@@ -1535,6 +1498,468 @@ components:
           type: string
         euroZone:
           type: boolean
+    CountryCodes :
+      maxLength: 3
+      minLength: 3
+
+      description: Country associated with the location, Valid ISO3 Country Code
+      example: USA
+      type: string
+      enum:
+        - Unknown
+        - USA
+        - AFG
+        - ALB
+        - DZA
+        - AND
+        - AGO
+        - ATG
+        - AZE
+        - ARG
+        - AUS
+        - AUT
+        - BHS
+        - BHR
+        - BGD
+        - ARM
+        - BRB
+        - BEL
+        - BMU
+        - BTN
+        - BOL
+        - BIH
+        - BWA
+        - BRA
+        - BLZ
+        - SLB
+        - VGB
+        - BRN
+        - BGR
+        - MMR
+        - BLR
+        - KHM
+        - CMR
+        - CAN
+        - CPV
+        - CYM
+        - LKA
+        - TCD
+        - CHL
+        - CHN
+        - TWN
+        - COL
+        - COM
+        - MYT
+        - COG
+        - COD
+        - COK
+        - CRI
+        - HRV
+        - CUB
+        - CYP
+        - CZE
+        - BEN
+        - DNK
+        - DMA
+        - DOM
+        - ECU
+        - SLV
+        - GNQ
+        - ETH
+        - ERI
+        - EST
+        - FRO
+        - FJI
+        - FIN
+        - FRA
+        - GUF
+        - PYF
+        - DJI
+        - GEO
+        - GMB
+        - PSE
+        - DEU
+        - GHA
+        - GIB
+        - GRC
+        - GRD
+        - GLP
+        - GUM
+        - GTM
+        - GIN
+        - GUY
+        - VAT
+        - HND
+        - HKG
+        - HUN
+        - ISL
+        - IND
+        - IDN
+        - IRQ
+        - IRL
+        - ISR
+        - ITA
+        - CIV
+        - JAM
+        - JPN
+        - KAZ
+        - JOR
+        - KEN
+        - KOR
+        - KWT
+        - KGZ
+        - LAO
+        - LBN
+        - LSO
+        - LVA
+        - LBR
+        - LIE
+        - LTU
+        - LUX
+        - MAC
+        - MDG
+        - MWI
+        - MYS
+        - MDV
+        - MLT
+        - MTQ
+        - MRT
+        - MUS
+        - MEX
+        - MCO
+        - MNG
+        - MDA
+        - MNE
+        - MSR
+        - MAR
+        - MOZ
+        - OMN
+        - NAM
+        - NPL
+        - NLD
+        - CUW
+        - ABW
+        - SXM
+        - BES
+        - NCL
+        - VUT
+        - NZL
+        - NIC
+        - NGA
+        - NOR
+        - PLW
+        - PAK
+        - PAN
+        - PNG
+        - PRY
+        - PER
+        - PHL
+        - POL
+        - PRT
+        - PRI
+        - QAT
+        - REU
+        - ROU
+        - RUS
+        - RWA
+        - KNA
+        - AIA
+        - LCA
+        - VCT
+        - SMR
+        - SAU
+        - SEN
+        - SRB
+        - SYC
+        - SLE
+        - SGP
+        - SVK
+        - VNM
+        - SVN
+        - SOM
+        - ZAF
+        - ZWE
+        - ESP
+        - SUR
+        - SWZ
+        - SWE
+        - CHE
+        - TJK
+        - THA
+        - TGO
+        - TTO
+        - ARE
+        - TUN
+        - TUR
+        - TCA
+        - UGA
+        - UKR
+        - MKD
+        - EGY
+        - GBR
+        - GGY
+        - JEY
+        - IMN
+        - TZA
+        - VIR
+        - BFA
+        - ASM
+        - BDI
+        - CAF
+        - SGS
+        - GAB
+        - KIR
+        - GRL
+        - HTI
+        - LBY
+        - MLI
+        - NRU
+        - ANT
+        - NER
+        - MNP
+        - UMI
+        - FSM
+        - GNB
+        - TLS
+        - BLM
+        - STP
+        - SSD
+        - TON
+        - TKM
+        - URY
+        - UZB
+        - VEN
+        - WSM
+        - YEM
+        - ZMB
+        - ATA
+        - BVT
+        - CXR
+        - CCK
+        - FLK
+        - ALA
+        - ATF
+        - HMD
+        - IRN
+        - PRK
+        - NIU
+        - NFK
+        - MHL
+        - PCN
+        - SHN
+        - MAF
+        - SPM
+        - SDN
+        - ESH
+        - SJM
+        - SYR
+        - TKL
+        - TUV
+        - WLF
+        - IOT
+        - ROM
+        - ZAR
+        - TMP
+        - QZZ
+    CurrencyCodes:
+      type: string
+      description: ISO 4217 Currency Alpha Code
+      example: USD
+      enum:
+        - Unknown
+        - USD
+        - AFN
+        - DZD
+        - ARS
+        - AMD
+        - AWG
+        - AUD
+        - AZN
+        - BSD
+        - BHD
+        - THB
+        - PAB
+        - BBD
+        - BYR
+        - BZD
+        - BMD
+        - VEF
+        - BOB
+        - BRL
+        - BND
+        - BGN
+        - BIF
+        - CAD
+        - CVE
+        - KYD
+        - XOF
+        - XAF
+        - XPF
+        - CLP
+        - COP
+        - KMF
+        - BAM
+        - NIO
+        - CRC
+        - HRK
+        - CUP
+        - CZK
+        - GMD
+        - DKK
+        - MKD
+        - DJF
+        - STD
+        - DOP
+        - VND
+        - XCD
+        - EGP
+        - SVC
+        - ETB
+        - EUR
+        - FKP
+        - FJD
+        - HUF
+        - CDF
+        - GHS
+        - GIP
+        - HTG
+        - PYG
+        - GNF
+        - GWP
+        - GYD
+        - HKD
+        - UAH
+        - ISK
+        - INR
+        - IRR
+        - IQD
+        - JMD
+        - JOD
+        - KES
+        - PGK
+        - LAK
+        - KWD
+        - MWK
+        - ZMK
+        - AOA
+        - MMK
+        - GEL
+        - LVL
+        - LBP
+        - ALL
+        - HNL
+        - SLL
+        - LRD
+        - LYD
+        - SZL
+        - LTL
+        - LSL
+        - MGA
+        - MYR
+        - MUR
+        - MZN
+        - MXN
+        - MXV
+        - MDL
+        - MAD
+        - BOV
+        - NGN
+        - ERN
+        - NAD
+        - NPR
+        - ANG
+        - ILS
+        - RON
+        - TWD
+        - TRY
+        - NZD
+        - BTN
+        - KPW
+        - NOK
+        - PEN
+        - MRO
+        - TOP
+        - PKR
+        - MOP
+        - UYU
+        - PHP
+        - GBP
+        - BWP
+        - QAR
+        - GTQ
+        - ZAR
+        - OMR
+        - KHR
+        - MVR
+        - IDR
+        - RUB
+        - RWF
+        - SHP
+        - SAR
+        - XDR
+        - RSD
+        - SCR
+        - SGD
+        - SBD
+        - KGS
+        - SOS
+        - TJS
+        - LKR
+        - SDG
+        - SRD
+        - SEK
+        - CHF
+        - SYP
+        - BDT
+        - WST
+        - TZS
+        - KZT
+        - TTD
+        - MNT
+        - TND
+        - AED
+        - UGX
+        - COU
+        - CLF
+        - UYI
+        - USN
+        - USS
+        - UZS
+        - VUV
+        - CHE
+        - CHW
+        - KRW
+        - YER
+        - JPY
+        - CNY
+        - PLN
+        - XBA
+        - XTS
+        - XBB
+        - XBD
+        - XBC
+        - XAU
+        - XPD
+        - XPT
+        - XAG
+        - XXX
+        - XFU
+        - TMT
+        - ZWL
+        - CUC
+        - SSP
+        - XUA
+        - XSU
+        - BYN
+        - VES
+        - ZMW
+        - MRU
+        - STN
+        - SLE
+        - BRC
+        - ARX
+
+
     #-------------------------------------
     # response Models
     #-------------------------------------
