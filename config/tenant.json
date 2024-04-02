@@ -16,7 +16,7 @@
       "versionType": "major",
       "releaseNotesPath": "docs/release-notes/2022/march.md",
       "apiSpecFileNames": [
-        "boarding.yaml", "fx-rates.yaml"
+        "boarding", "fx-rates"
       ]
     }
   ],
