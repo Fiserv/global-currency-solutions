@@ -16,7 +16,7 @@
       "versionType": "major",
       "releaseNotesPath": "docs/release-notes/2022/march.md",
       "apiSpecFileNames": [
-        "api-1.0.0"
+        "boarding", "fx-rates"
       ]
     }
   ],

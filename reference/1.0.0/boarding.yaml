@@ -1,0 +1,7021 @@
+openapi: 3.0.1
+info:
+  title: Boarding APIs definition
+  version: v 1.0
+servers:
+  - url: https://int.api.fiservapps.com
+  - url: https://cert.api.fiservapps.com
+  - url: https://prod.api.fiservapps.com
+    description: Generated server url
+paths:
+  /fx/v1/boarding/clients/{clientID}/locations:
+    post:
+      tags:
+        - Boarding
+      x-group-name: Boarding
+      x-proxy-name: Create or Update Location
+      summary: Create or Update Location
+      description: Creates or Updates a location, if the location ID matches an existing location - the location is updated. If it doesn't a new location is created
+      operationId: createExternalLocation
+      parameters:
+        - name: Api-Key
+          in: header
+          description: API and Secret key will be provided as part of servicer boarding.
+          required: true
+          schema:
+            type: string
+        - name: Timestamp
+          in: header
+          description: Epoch timestamp in the request initiating system
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          required: true
+          schema:
+            type: string
+        - name: Client-Request-Id
+          in: header
+          description: A unique random number for each request.
+          required: true
+          schema:
+            type: number
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessingLocation'
+        required: true
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationResponse'
+        '400':
+          description: The request cannot be validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '401':
+          description: The request was unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: The request resource does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: The service was unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '504':
+          description: The request timed out while waiting for a response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+    get:
+      tags:
+        - Boarding
+      x-group-name: Boarding
+      x-proxy-name: Get All sub Client Locations
+      summary: Provides a list of all locations associated with the sub client
+      description: Provides a list of all locations associated with the sub client
+      operationId: getAllExternalLocations
+      parameters:
+        - name: Apikey
+          in: header
+          description: API and Secret key will be provided as part of servicer boarding.
+          required: true
+          schema:
+            type: string
+        - name: Timestamp
+          in: header
+          description: Epoch timestamp in the request initiating system
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          required: true
+          schema:
+            type: string
+        - name: Client-Request-Id
+          in: header
+          description: A unique random number for each request.
+          required: true
+          schema:
+            type: number
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageNumber
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProcessingLocationDetail'
+        '400':
+          description: The request cannot be validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '401':
+          description: The request was unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: The request resource does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: The service was unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '504':
+          description: The request timed out while waiting for a response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+
+  /fx/v1/boarding/clients/{clientID}/locations/{locationID}:
+    get:
+      tags:
+        - Boarding
+      x-group-name: Boarding
+      x-proxy-name: Get Client Location
+      summary: Provides the exact location detail associated with the sub client
+      description: Provides the exact location detail associated with the sub client
+      operationId: getLocation
+      parameters:
+        - name: Apikey
+          in: header
+          description: API and Secret key will be provided as part of servicer boarding.
+          required: true
+          schema:
+            type: string
+        - name: Timestamp
+          in: header
+          description: Epoch timestamp in the request initiating system
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          required: true
+          schema:
+            type: string
+        - name: Client-Request-Id
+          in: header
+          description: A unique random number for each request.
+          required: true
+          schema:
+            type: number
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: locationID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProcessingLocationDetail'
+        '400':
+          description: The request cannot be validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '401':
+          description: The request was unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: The request resource does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: The service was unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '504':
+          description: The request timed out while waiting for a response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+
+  /fx/v1/boarding/agents/{agentID}/clients:
+    post:
+      tags:
+        - Boarding
+      x-group-name: Boarding
+      x-proxy-name: Create or Update Client
+      summary: Create or Update Client
+      description: Creates or Updates a client, if the client ID matches an existing client - the client is updated. If it doesn't a new client is created
+      operationId: createExternalSubClient
+      parameters:
+        - name: Api-Key
+          in: header
+          description: API and Secret key will be provided as part of servicer boarding.
+          required: true
+          schema:
+            type: string
+        - name: Timestamp
+          in: header
+          description: Epoch timestamp in the request initiating system
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          required: true
+          schema:
+            type: string
+        - name: Client-Request-Id
+          in: header
+          description: A unique random number for each request.
+          required: true
+          schema:
+            type: number
+        - name: agentID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessingClient'
+        required: true
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessingClientResponse'
+        '400':
+          description: The request cannot be validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '401':
+          description: The request was unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: The request resource does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: The service was unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '504':
+          description: The request timed out while waiting for a response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+
+components:
+  schemas:
+    FxDccPlatformIdentifier:
+      type: object
+      properties:
+        platformId:
+          type: string
+        acquirerId:
+          type: string
+    ApiResponseVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+    BaseNode:
+      type: object
+      properties:
+        nodeType:
+          type: string
+          enum:
+            - Root
+            - Enterprise
+            - Servicer
+            - Agent
+            - SubClient
+            - Location
+        id:
+          type: string
+        parentID:
+          type: string
+        name:
+          type: string
+        createTimestamp:
+          type: integer
+          format: int64
+        crossRefID1:
+          type: string
+        crossRefID2:
+          type: string
+        mcp:
+          type: boolean
+        dcc:
+          type: boolean
+        dcp:
+          type: boolean
+        dcs:
+          type: boolean
+        dpt:
+          type: boolean
+        dpp:
+          type: boolean
+    BillingSetupWithOverride:
+      type: object
+      properties:
+        billingType:
+          type: string
+          enum:
+            - MAPS_MERSUM
+            - MISC
+            - CPR
+            - NONE
+        overridden:
+          type: boolean
+    CountryListWithOverride:
+      type: object
+      properties:
+        countries:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Unknown
+              - USA
+              - AFG
+              - ALB
+              - DZA
+              - AND
+              - AGO
+              - ATG
+              - AZE
+              - ARG
+              - AUS
+              - AUT
+              - BHS
+              - BHR
+              - BGD
+              - ARM
+              - BRB
+              - BEL
+              - BMU
+              - BTN
+              - BOL
+              - BIH
+              - BWA
+              - BRA
+              - BLZ
+              - SLB
+              - VGB
+              - BRN
+              - BGR
+              - MMR
+              - BLR
+              - KHM
+              - CMR
+              - CAN
+              - CPV
+              - CYM
+              - LKA
+              - TCD
+              - CHL
+              - CHN
+              - TWN
+              - COL
+              - COM
+              - MYT
+              - COG
+              - COD
+              - COK
+              - CRI
+              - HRV
+              - CUB
+              - CYP
+              - CZE
+              - BEN
+              - DNK
+              - DMA
+              - DOM
+              - ECU
+              - SLV
+              - GNQ
+              - ETH
+              - ERI
+              - EST
+              - FRO
+              - FJI
+              - FIN
+              - FRA
+              - GUF
+              - PYF
+              - DJI
+              - GEO
+              - GMB
+              - PSE
+              - DEU
+              - GHA
+              - GIB
+              - GRC
+              - GRD
+              - GLP
+              - GUM
+              - GTM
+              - GIN
+              - GUY
+              - VAT
+              - HND
+              - HKG
+              - HUN
+              - ISL
+              - IND
+              - IDN
+              - IRQ
+              - IRL
+              - ISR
+              - ITA
+              - CIV
+              - JAM
+              - JPN
+              - KAZ
+              - JOR
+              - KEN
+              - KOR
+              - KWT
+              - KGZ
+              - LAO
+              - LBN
+              - LSO
+              - LVA
+              - LBR
+              - LIE
+              - LTU
+              - LUX
+              - MAC
+              - MDG
+              - MWI
+              - MYS
+              - MDV
+              - MLT
+              - MTQ
+              - MRT
+              - MUS
+              - MEX
+              - MCO
+              - MNG
+              - MDA
+              - MNE
+              - MSR
+              - MAR
+              - MOZ
+              - OMN
+              - NAM
+              - NPL
+              - NLD
+              - CUW
+              - ABW
+              - SXM
+              - BES
+              - NCL
+              - VUT
+              - NZL
+              - NIC
+              - NGA
+              - NOR
+              - PLW
+              - PAK
+              - PAN
+              - PNG
+              - PRY
+              - PER
+              - PHL
+              - POL
+              - PRT
+              - PRI
+              - QAT
+              - REU
+              - ROU
+              - RUS
+              - RWA
+              - KNA
+              - AIA
+              - LCA
+              - VCT
+              - SMR
+              - SAU
+              - SEN
+              - SRB
+              - SYC
+              - SLE
+              - SGP
+              - SVK
+              - VNM
+              - SVN
+              - SOM
+              - ZAF
+              - ZWE
+              - ESP
+              - SUR
+              - SWZ
+              - SWE
+              - CHE
+              - TJK
+              - THA
+              - TGO
+              - TTO
+              - ARE
+              - TUN
+              - TUR
+              - TCA
+              - UGA
+              - UKR
+              - MKD
+              - EGY
+              - GBR
+              - GGY
+              - JEY
+              - IMN
+              - TZA
+              - VIR
+              - BFA
+              - ASM
+              - BDI
+              - CAF
+              - SGS
+              - GAB
+              - KIR
+              - GRL
+              - HTI
+              - LBY
+              - MLI
+              - NRU
+              - ANT
+              - NER
+              - MNP
+              - UMI
+              - FSM
+              - GNB
+              - TLS
+              - BLM
+              - STP
+              - SSD
+              - TON
+              - TKM
+              - URY
+              - UZB
+              - VEN
+              - WSM
+              - YEM
+              - ZMB
+              - ATA
+              - BVT
+              - CXR
+              - CCK
+              - FLK
+              - ALA
+              - ATF
+              - HMD
+              - IRN
+              - PRK
+              - NIU
+              - NFK
+              - MHL
+              - PCN
+              - SHN
+              - MAF
+              - SPM
+              - SDN
+              - ESH
+              - SJM
+              - SYR
+              - TKL
+              - TUV
+              - WLF
+              - IOT
+              - ROM
+              - ZAR
+              - TMP
+              - QZZ
+        overridden:
+          type: boolean
+    CurrencyList:
+      type: object
+      properties:
+        currencies:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Unknown
+              - USD
+              - AFN
+              - DZD
+              - ARS
+              - AMD
+              - AWG
+              - AUD
+              - AZN
+              - BSD
+              - BHD
+              - THB
+              - PAB
+              - BBD
+              - BYR
+              - BZD
+              - BMD
+              - VEF
+              - BOB
+              - BRL
+              - BND
+              - BGN
+              - BIF
+              - CAD
+              - CVE
+              - KYD
+              - XOF
+              - XAF
+              - XPF
+              - CLP
+              - COP
+              - KMF
+              - BAM
+              - NIO
+              - CRC
+              - HRK
+              - CUP
+              - CZK
+              - GMD
+              - DKK
+              - MKD
+              - DJF
+              - STD
+              - DOP
+              - VND
+              - XCD
+              - EGP
+              - SVC
+              - ETB
+              - EUR
+              - FKP
+              - FJD
+              - HUF
+              - CDF
+              - GHS
+              - GIP
+              - HTG
+              - PYG
+              - GNF
+              - GWP
+              - GYD
+              - HKD
+              - UAH
+              - ISK
+              - INR
+              - IRR
+              - IQD
+              - JMD
+              - JOD
+              - KES
+              - PGK
+              - LAK
+              - KWD
+              - MWK
+              - ZMK
+              - AOA
+              - MMK
+              - GEL
+              - LVL
+              - LBP
+              - ALL
+              - HNL
+              - SLL
+              - LRD
+              - LYD
+              - SZL
+              - LTL
+              - LSL
+              - MGA
+              - MYR
+              - MUR
+              - MZN
+              - MXN
+              - MXV
+              - MDL
+              - MAD
+              - BOV
+              - NGN
+              - ERN
+              - NAD
+              - NPR
+              - ANG
+              - ILS
+              - RON
+              - TWD
+              - TRY
+              - NZD
+              - BTN
+              - KPW
+              - NOK
+              - PEN
+              - MRO
+              - TOP
+              - PKR
+              - MOP
+              - UYU
+              - PHP
+              - GBP
+              - BWP
+              - QAR
+              - GTQ
+              - ZAR
+              - OMR
+              - KHR
+              - MVR
+              - IDR
+              - RUB
+              - RWF
+              - SHP
+              - SAR
+              - XDR
+              - RSD
+              - SCR
+              - SGD
+              - SBD
+              - KGS
+              - SOS
+              - TJS
+              - LKR
+              - SDG
+              - SRD
+              - SEK
+              - CHF
+              - SYP
+              - BDT
+              - WST
+              - TZS
+              - KZT
+              - TTD
+              - MNT
+              - TND
+              - AED
+              - UGX
+              - COU
+              - CLF
+              - UYI
+              - USN
+              - USS
+              - UZS
+              - VUV
+              - CHE
+              - CHW
+              - KRW
+              - YER
+              - JPY
+              - CNY
+              - PLN
+              - XBA
+              - XTS
+              - XBB
+              - XBD
+              - XBC
+              - XAU
+              - XPD
+              - XPT
+              - XAG
+              - XXX
+              - XFU
+              - TMT
+              - ZWL
+              - CUC
+              - SSP
+              - XUA
+              - XSU
+              - BYN
+              - VES
+              - ZMW
+              - MRU
+              - STN
+              - SLE
+              - BRC
+              - ARX
+    CurrencyListWithOverride:
+      type: object
+      properties:
+        currencies:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Unknown
+              - USD
+              - AFN
+              - DZD
+              - ARS
+              - AMD
+              - AWG
+              - AUD
+              - AZN
+              - BSD
+              - BHD
+              - THB
+              - PAB
+              - BBD
+              - BYR
+              - BZD
+              - BMD
+              - VEF
+              - BOB
+              - BRL
+              - BND
+              - BGN
+              - BIF
+              - CAD
+              - CVE
+              - KYD
+              - XOF
+              - XAF
+              - XPF
+              - CLP
+              - COP
+              - KMF
+              - BAM
+              - NIO
+              - CRC
+              - HRK
+              - CUP
+              - CZK
+              - GMD
+              - DKK
+              - MKD
+              - DJF
+              - STD
+              - DOP
+              - VND
+              - XCD
+              - EGP
+              - SVC
+              - ETB
+              - EUR
+              - FKP
+              - FJD
+              - HUF
+              - CDF
+              - GHS
+              - GIP
+              - HTG
+              - PYG
+              - GNF
+              - GWP
+              - GYD
+              - HKD
+              - UAH
+              - ISK
+              - INR
+              - IRR
+              - IQD
+              - JMD
+              - JOD
+              - KES
+              - PGK
+              - LAK
+              - KWD
+              - MWK
+              - ZMK
+              - AOA
+              - MMK
+              - GEL
+              - LVL
+              - LBP
+              - ALL
+              - HNL
+              - SLL
+              - LRD
+              - LYD
+              - SZL
+              - LTL
+              - LSL
+              - MGA
+              - MYR
+              - MUR
+              - MZN
+              - MXN
+              - MXV
+              - MDL
+              - MAD
+              - BOV
+              - NGN
+              - ERN
+              - NAD
+              - NPR
+              - ANG
+              - ILS
+              - RON
+              - TWD
+              - TRY
+              - NZD
+              - BTN
+              - KPW
+              - NOK
+              - PEN
+              - MRO
+              - TOP
+              - PKR
+              - MOP
+              - UYU
+              - PHP
+              - GBP
+              - BWP
+              - QAR
+              - GTQ
+              - ZAR
+              - OMR
+              - KHR
+              - MVR
+              - IDR
+              - RUB
+              - RWF
+              - SHP
+              - SAR
+              - XDR
+              - RSD
+              - SCR
+              - SGD
+              - SBD
+              - KGS
+              - SOS
+              - TJS
+              - LKR
+              - SDG
+              - SRD
+              - SEK
+              - CHF
+              - SYP
+              - BDT
+              - WST
+              - TZS
+              - KZT
+              - TTD
+              - MNT
+              - TND
+              - AED
+              - UGX
+              - COU
+              - CLF
+              - UYI
+              - USN
+              - USS
+              - UZS
+              - VUV
+              - CHE
+              - CHW
+              - KRW
+              - YER
+              - JPY
+              - CNY
+              - PLN
+              - XBA
+              - XTS
+              - XBB
+              - XBD
+              - XBC
+              - XAU
+              - XPD
+              - XPT
+              - XAG
+              - XXX
+              - XFU
+              - TMT
+              - ZWL
+              - CUC
+              - SSP
+              - XUA
+              - XSU
+              - BYN
+              - VES
+              - ZMW
+              - MRU
+              - STN
+              - SLE
+              - BRC
+              - ARX
+        overridden:
+          type: boolean
+    EmptyNode:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Node'
+    Location:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Node'
+        - type: object
+          properties:
+            city:
+              type: string
+            state:
+              type: string
+            country:
+              type: string
+              enum:
+                - Unknown
+                - USA
+                - AFG
+                - ALB
+                - DZA
+                - AND
+                - AGO
+                - ATG
+                - AZE
+                - ARG
+                - AUS
+                - AUT
+                - BHS
+                - BHR
+                - BGD
+                - ARM
+                - BRB
+                - BEL
+                - BMU
+                - BTN
+                - BOL
+                - BIH
+                - BWA
+                - BRA
+                - BLZ
+                - SLB
+                - VGB
+                - BRN
+                - BGR
+                - MMR
+                - BLR
+                - KHM
+                - CMR
+                - CAN
+                - CPV
+                - CYM
+                - LKA
+                - TCD
+                - CHL
+                - CHN
+                - TWN
+                - COL
+                - COM
+                - MYT
+                - COG
+                - COD
+                - COK
+                - CRI
+                - HRV
+                - CUB
+                - CYP
+                - CZE
+                - BEN
+                - DNK
+                - DMA
+                - DOM
+                - ECU
+                - SLV
+                - GNQ
+                - ETH
+                - ERI
+                - EST
+                - FRO
+                - FJI
+                - FIN
+                - FRA
+                - GUF
+                - PYF
+                - DJI
+                - GEO
+                - GMB
+                - PSE
+                - DEU
+                - GHA
+                - GIB
+                - GRC
+                - GRD
+                - GLP
+                - GUM
+                - GTM
+                - GIN
+                - GUY
+                - VAT
+                - HND
+                - HKG
+                - HUN
+                - ISL
+                - IND
+                - IDN
+                - IRQ
+                - IRL
+                - ISR
+                - ITA
+                - CIV
+                - JAM
+                - JPN
+                - KAZ
+                - JOR
+                - KEN
+                - KOR
+                - KWT
+                - KGZ
+                - LAO
+                - LBN
+                - LSO
+                - LVA
+                - LBR
+                - LIE
+                - LTU
+                - LUX
+                - MAC
+                - MDG
+                - MWI
+                - MYS
+                - MDV
+                - MLT
+                - MTQ
+                - MRT
+                - MUS
+                - MEX
+                - MCO
+                - MNG
+                - MDA
+                - MNE
+                - MSR
+                - MAR
+                - MOZ
+                - OMN
+                - NAM
+                - NPL
+                - NLD
+                - CUW
+                - ABW
+                - SXM
+                - BES
+                - NCL
+                - VUT
+                - NZL
+                - NIC
+                - NGA
+                - NOR
+                - PLW
+                - PAK
+                - PAN
+                - PNG
+                - PRY
+                - PER
+                - PHL
+                - POL
+                - PRT
+                - PRI
+                - QAT
+                - REU
+                - ROU
+                - RUS
+                - RWA
+                - KNA
+                - AIA
+                - LCA
+                - VCT
+                - SMR
+                - SAU
+                - SEN
+                - SRB
+                - SYC
+                - SLE
+                - SGP
+                - SVK
+                - VNM
+                - SVN
+                - SOM
+                - ZAF
+                - ZWE
+                - ESP
+                - SUR
+                - SWZ
+                - SWE
+                - CHE
+                - TJK
+                - THA
+                - TGO
+                - TTO
+                - ARE
+                - TUN
+                - TUR
+                - TCA
+                - UGA
+                - UKR
+                - MKD
+                - EGY
+                - GBR
+                - GGY
+                - JEY
+                - IMN
+                - TZA
+                - VIR
+                - BFA
+                - ASM
+                - BDI
+                - CAF
+                - SGS
+                - GAB
+                - KIR
+                - GRL
+                - HTI
+                - LBY
+                - MLI
+                - NRU
+                - ANT
+                - NER
+                - MNP
+                - UMI
+                - FSM
+                - GNB
+                - TLS
+                - BLM
+                - STP
+                - SSD
+                - TON
+                - TKM
+                - URY
+                - UZB
+                - VEN
+                - WSM
+                - YEM
+                - ZMB
+                - ATA
+                - BVT
+                - CXR
+                - CCK
+                - FLK
+                - ALA
+                - ATF
+                - HMD
+                - IRN
+                - PRK
+                - NIU
+                - NFK
+                - MHL
+                - PCN
+                - SHN
+                - MAF
+                - SPM
+                - SDN
+                - ESH
+                - SJM
+                - SYR
+                - TKL
+                - TUV
+                - WLF
+                - IOT
+                - ROM
+                - ZAR
+                - TMP
+                - QZZ
+            mcc:
+              type: string
+            sourceCurrencies:
+              $ref: '#/components/schemas/CurrencyList'
+            mcpRateType:
+              type: string
+              enum:
+                - DefaultRate
+                - ExceptionRate
+                - CardBrandRate
+                - LegacyRate
+            clientCrossRefID1:
+              type: string
+            streetAddress:
+              type: string
+            postalCode:
+              type: string
+            timeZone:
+              type: string
+    MarginBoundsWithOverride:
+      type: object
+      properties:
+        min:
+          type: number
+          format: double
+        max:
+          type: number
+          format: double
+        overridden:
+          type: boolean
+    MarginInfo:
+      type: object
+      properties:
+        servicer:
+          type: number
+          format: double
+        agent:
+          type: number
+          format: double
+        subClient:
+          type: number
+          format: double
+        location:
+          type: number
+          format: double
+    MarginSetupEntry:
+      type: object
+      properties:
+        scheme:
+          type: string
+          enum:
+            - Visa
+            - Mastercard
+        sourceCurrency:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        targetCurrency:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        delayDays:
+          type: integer
+          format: int32
+        marginInfo:
+          $ref: '#/components/schemas/MarginInfo'
+    MarginSetupWithOverride:
+      type: object
+      properties:
+        marginEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarginSetupEntry'
+        overridden:
+          type: boolean
+      description: MCP information for the Location. If location does not process DCC Spot - this must not be populated
+    Node:
+      type: object
+      properties:
+        nodeType:
+          type: string
+          enum:
+            - Root
+            - Enterprise
+            - Servicer
+            - Agent
+            - SubClient
+            - Location
+        id:
+          type: string
+        parentID:
+          type: string
+        name:
+          type: string
+        createTimestamp:
+          type: integer
+          format: int64
+        crossRefID1:
+          type: string
+        crossRefID2:
+          type: string
+        childNodeList:
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseNode'
+        mcp:
+          type: boolean
+        dcc:
+          type: boolean
+        dcp:
+          type: boolean
+        dcs:
+          type: boolean
+        dpt:
+          type: boolean
+        dpp:
+          type: boolean
+      discriminator:
+        propertyName: nodeType
+    NodeDetail:
+      type: object
+      properties:
+        node:
+          $ref: '#/components/schemas/Node'
+        countries:
+          $ref: '#/components/schemas/CountryListWithOverride'
+        exclusionCurrencies:
+          $ref: '#/components/schemas/CurrencyListWithOverride'
+        sourceCurrencies:
+          $ref: '#/components/schemas/CurrencyListWithOverride'
+        targetCurrencies:
+          $ref: '#/components/schemas/CurrencyListWithOverride'
+        mcpTargetCurrencies:
+          $ref: '#/components/schemas/CurrencyListWithOverride'
+        setupDCC:
+          $ref: '#/components/schemas/PricingStrategySetup'
+        setupMCP:
+          $ref: '#/components/schemas/PricingStrategySetup'
+        setupDCP:
+          $ref: '#/components/schemas/PricingStrategySetup'
+        setupDCS:
+          $ref: '#/components/schemas/PricingStrategySetup'
+        setupDPT:
+          $ref: '#/components/schemas/PricingStrategySetup'
+        setupDPP:
+          $ref: '#/components/schemas/PricingStrategySetup'
+        rateProviders:
+          $ref: '#/components/schemas/RateProviderListWithOverride'
+        availableRateProviders:
+          $ref: '#/components/schemas/RateProviderListWithOverride'
+        availableSourceCurrencies:
+          $ref: '#/components/schemas/CurrencyListWithOverride'
+        availableTargetCurrencies:
+          $ref: '#/components/schemas/CurrencyListWithOverride'
+        availableCountries:
+          $ref: '#/components/schemas/CountryListWithOverride'
+        billingSetup:
+          $ref: '#/components/schemas/BillingSetupWithOverride'
+        servicerBaseInfo:
+          $ref: '#/components/schemas/ServicerBaseInfo'
+        dccServicerPlatforms:
+          type: array
+          items:
+            $ref: '#/components/schemas/FxDccPlatformIdentifier'
+    OpenFXPageNodeDetail:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeDetail'
+        number:
+          type: integer
+          format: int32
+        size:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int64
+        last:
+          type: boolean
+        totalPages:
+          type: integer
+          format: int32
+        first:
+          type: boolean
+        numberOfElements:
+          type: integer
+          format: int32
+        empty:
+          type: boolean
+    PricingStrategySetup:
+      type: object
+      properties:
+        marginBounds:
+          $ref: '#/components/schemas/MarginBoundsWithOverride'
+        marginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        providerSetup:
+          $ref: '#/components/schemas/RateProviderSetupWithOverride'
+    RateProviderListWithOverride:
+      type: object
+      properties:
+        rateProviders:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Visa
+              - Mastercard
+              - Oanda
+              - Azul
+              - GlobalBlue
+              - LBG
+              - PlanetPayment
+              - PlanetPayment_Visa
+              - PlanetPayment_Mastercard
+              - BanaBTC
+              - ECB
+              - ButterField
+              - Fexco
+              - FCIB
+              - NatWest_E2E_FDEL
+              - NatWest_NE2E_FDEL
+              - NatWest_E2E_FDGMBH
+              - NatWest_NE2E_FDGMBH
+              - GMA_Visa
+              - GMA_Mastercard
+        overridden:
+          type: boolean
+    RateProviderSetupEntry:
+      type: object
+      properties:
+        scheme:
+          type: string
+          enum:
+            - Visa
+            - Mastercard
+        sourceCurrency:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        targetCurrency:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        delayDays:
+          type: integer
+          format: int32
+        strategy:
+          type: string
+          enum:
+            - Min
+            - Max
+            - PriorityOrderMin
+            - PriorityOrderMax
+        rateProviders:
+          type: array
+          items:
+            type: string
+            enum:
+              - Visa
+              - Mastercard
+              - Oanda
+              - Azul
+              - GlobalBlue
+              - LBG
+              - PlanetPayment
+              - PlanetPayment_Visa
+              - PlanetPayment_Mastercard
+              - BanaBTC
+              - ECB
+              - ButterField
+              - Fexco
+              - FCIB
+              - NatWest_E2E_FDEL
+              - NatWest_NE2E_FDEL
+              - NatWest_E2E_FDGMBH
+              - NatWest_NE2E_FDGMBH
+              - GMA_Visa
+              - GMA_Mastercard
+    RateProviderSetupWithOverride:
+      type: object
+      properties:
+        providerEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateProviderSetupEntry'
+        overridden:
+          type: boolean
+    Servicer:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Node'
+        - type: object
+          properties:
+            visaServicerBins:
+              uniqueItems: true
+              type: array
+              items:
+                type: string
+            mastercardServicerBins:
+              uniqueItems: true
+              type: array
+              items:
+                type: string
+            servicerBaseInfo:
+              $ref: '#/components/schemas/ServicerBaseInfo'
+            dccServicerPlatforms:
+              type: array
+              items:
+                $ref: '#/components/schemas/FxDccPlatformIdentifier'
+    ServicerBaseInfo:
+      type: object
+      properties:
+        cprCommissionCurrencyCode:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        marginToEnterprise:
+          type: number
+          format: double
+    SubClient:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Node'
+        - type: object
+          properties:
+            locations:
+              $ref: '#/components/schemas/OpenFXPageNodeDetail'
+    BinSetup:
+      type: object
+      properties:
+        binID:
+          type: string
+        exclude:
+          type: boolean
+    RateProviderSetup:
+      type: object
+      properties:
+        providerEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateProviderSetupEntry'
+    RateProviderList:
+      type: object
+      properties:
+        rateProviders:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Visa
+              - Mastercard
+              - Oanda
+              - Azul
+              - GlobalBlue
+              - LBG
+              - PlanetPayment
+              - PlanetPayment_Visa
+              - PlanetPayment_Mastercard
+              - BanaBTC
+              - ECB
+              - ButterField
+              - Fexco
+              - FCIB
+              - NatWest_E2E_FDEL
+              - NatWest_NE2E_FDEL
+              - NatWest_E2E_FDGMBH
+              - NatWest_NE2E_FDGMBH
+              - GMA_Visa
+              - GMA_Mastercard
+    MarginSetup:
+      type: object
+      properties:
+        marginEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarginSetupEntry'
+    MarginBounds:
+      type: object
+      properties:
+        min:
+          type: number
+          format: double
+        max:
+          type: number
+          format: double
+    CountryList:
+      type: object
+      properties:
+        countries:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Unknown
+              - USA
+              - AFG
+              - ALB
+              - DZA
+              - AND
+              - AGO
+              - ATG
+              - AZE
+              - ARG
+              - AUS
+              - AUT
+              - BHS
+              - BHR
+              - BGD
+              - ARM
+              - BRB
+              - BEL
+              - BMU
+              - BTN
+              - BOL
+              - BIH
+              - BWA
+              - BRA
+              - BLZ
+              - SLB
+              - VGB
+              - BRN
+              - BGR
+              - MMR
+              - BLR
+              - KHM
+              - CMR
+              - CAN
+              - CPV
+              - CYM
+              - LKA
+              - TCD
+              - CHL
+              - CHN
+              - TWN
+              - COL
+              - COM
+              - MYT
+              - COG
+              - COD
+              - COK
+              - CRI
+              - HRV
+              - CUB
+              - CYP
+              - CZE
+              - BEN
+              - DNK
+              - DMA
+              - DOM
+              - ECU
+              - SLV
+              - GNQ
+              - ETH
+              - ERI
+              - EST
+              - FRO
+              - FJI
+              - FIN
+              - FRA
+              - GUF
+              - PYF
+              - DJI
+              - GEO
+              - GMB
+              - PSE
+              - DEU
+              - GHA
+              - GIB
+              - GRC
+              - GRD
+              - GLP
+              - GUM
+              - GTM
+              - GIN
+              - GUY
+              - VAT
+              - HND
+              - HKG
+              - HUN
+              - ISL
+              - IND
+              - IDN
+              - IRQ
+              - IRL
+              - ISR
+              - ITA
+              - CIV
+              - JAM
+              - JPN
+              - KAZ
+              - JOR
+              - KEN
+              - KOR
+              - KWT
+              - KGZ
+              - LAO
+              - LBN
+              - LSO
+              - LVA
+              - LBR
+              - LIE
+              - LTU
+              - LUX
+              - MAC
+              - MDG
+              - MWI
+              - MYS
+              - MDV
+              - MLT
+              - MTQ
+              - MRT
+              - MUS
+              - MEX
+              - MCO
+              - MNG
+              - MDA
+              - MNE
+              - MSR
+              - MAR
+              - MOZ
+              - OMN
+              - NAM
+              - NPL
+              - NLD
+              - CUW
+              - ABW
+              - SXM
+              - BES
+              - NCL
+              - VUT
+              - NZL
+              - NIC
+              - NGA
+              - NOR
+              - PLW
+              - PAK
+              - PAN
+              - PNG
+              - PRY
+              - PER
+              - PHL
+              - POL
+              - PRT
+              - PRI
+              - QAT
+              - REU
+              - ROU
+              - RUS
+              - RWA
+              - KNA
+              - AIA
+              - LCA
+              - VCT
+              - SMR
+              - SAU
+              - SEN
+              - SRB
+              - SYC
+              - SLE
+              - SGP
+              - SVK
+              - VNM
+              - SVN
+              - SOM
+              - ZAF
+              - ZWE
+              - ESP
+              - SUR
+              - SWZ
+              - SWE
+              - CHE
+              - TJK
+              - THA
+              - TGO
+              - TTO
+              - ARE
+              - TUN
+              - TUR
+              - TCA
+              - UGA
+              - UKR
+              - MKD
+              - EGY
+              - GBR
+              - GGY
+              - JEY
+              - IMN
+              - TZA
+              - VIR
+              - BFA
+              - ASM
+              - BDI
+              - CAF
+              - SGS
+              - GAB
+              - KIR
+              - GRL
+              - HTI
+              - LBY
+              - MLI
+              - NRU
+              - ANT
+              - NER
+              - MNP
+              - UMI
+              - FSM
+              - GNB
+              - TLS
+              - BLM
+              - STP
+              - SSD
+              - TON
+              - TKM
+              - URY
+              - UZB
+              - VEN
+              - WSM
+              - YEM
+              - ZMB
+              - ATA
+              - BVT
+              - CXR
+              - CCK
+              - FLK
+              - ALA
+              - ATF
+              - HMD
+              - IRN
+              - PRK
+              - NIU
+              - NFK
+              - MHL
+              - PCN
+              - SHN
+              - MAF
+              - SPM
+              - SDN
+              - ESH
+              - SJM
+              - SYR
+              - TKL
+              - TUV
+              - WLF
+              - IOT
+              - ROM
+              - ZAR
+              - TMP
+              - QZZ
+    NotificationRequest:
+      type: object
+      properties:
+        notificationType:
+          type: string
+          enum:
+            - REFRESH_CLIENT_CACHE
+            - REFRESH_NODE_HIERARCHY_CACHE
+    BulkLocationMoveRequest:
+      type: object
+      properties:
+        locationNodeIds:
+          type: array
+          items:
+            type: string
+        subClientNodeId:
+          type: string
+        newSubClientNodeId:
+          type: string
+    BulkLocationDeleteRequest:
+      type: object
+      properties:
+        subClientNodeId:
+          type: string
+        locationNodeIds:
+          type: array
+          items:
+            type: string
+    LocationQueueItemsRequest:
+      type: object
+      properties:
+        status:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Pending
+              - Rejected
+              - Completed
+        reason:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - MCPException
+              - UnknownHierarchyID
+              - UnknownServicer
+              - NoAgentsFoundForServicer
+              - MerchantOnboardedOutsideHierarchy
+              - MerchantIneligibleForAutoboarding
+              - ManualRequest
+              - ProcessingError
+        mcpRateType:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - DefaultRate
+              - ExceptionRate
+              - CardBrandRate
+              - LegacyRate
+        requester:
+          type: string
+        requestID:
+          type: string
+        channel:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - API
+              - UI
+              - Batch
+        pageSize:
+          type: integer
+          format: int32
+        pageIndex:
+          type: integer
+          format: int32
+    LocationQueueItem:
+      type: object
+      properties:
+        requestID:
+          type: string
+        merchantId:
+          type: string
+        hierarchyId:
+          type: string
+        lineageNode:
+          $ref: '#/components/schemas/BaseNode'
+        location:
+          $ref: '#/components/schemas/LocationRequest'
+        requestTimestamp:
+          type: integer
+          format: int64
+        requestChannel:
+          type: string
+          enum:
+            - API
+            - UI
+            - Batch
+        requestReason:
+          type: string
+          enum:
+            - MCPException
+            - UnknownHierarchyID
+            - UnknownServicer
+            - NoAgentsFoundForServicer
+            - MerchantOnboardedOutsideHierarchy
+            - MerchantIneligibleForAutoboarding
+            - ManualRequest
+            - ProcessingError
+        requester:
+          type: string
+        status:
+          type: string
+          enum:
+            - Pending
+            - Rejected
+            - Completed
+        actionedBy:
+          type: string
+    LocationRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        crossRefID1:
+          type: string
+        crossRefID2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+          enum:
+            - Unknown
+            - USA
+            - AFG
+            - ALB
+            - DZA
+            - AND
+            - AGO
+            - ATG
+            - AZE
+            - ARG
+            - AUS
+            - AUT
+            - BHS
+            - BHR
+            - BGD
+            - ARM
+            - BRB
+            - BEL
+            - BMU
+            - BTN
+            - BOL
+            - BIH
+            - BWA
+            - BRA
+            - BLZ
+            - SLB
+            - VGB
+            - BRN
+            - BGR
+            - MMR
+            - BLR
+            - KHM
+            - CMR
+            - CAN
+            - CPV
+            - CYM
+            - LKA
+            - TCD
+            - CHL
+            - CHN
+            - TWN
+            - COL
+            - COM
+            - MYT
+            - COG
+            - COD
+            - COK
+            - CRI
+            - HRV
+            - CUB
+            - CYP
+            - CZE
+            - BEN
+            - DNK
+            - DMA
+            - DOM
+            - ECU
+            - SLV
+            - GNQ
+            - ETH
+            - ERI
+            - EST
+            - FRO
+            - FJI
+            - FIN
+            - FRA
+            - GUF
+            - PYF
+            - DJI
+            - GEO
+            - GMB
+            - PSE
+            - DEU
+            - GHA
+            - GIB
+            - GRC
+            - GRD
+            - GLP
+            - GUM
+            - GTM
+            - GIN
+            - GUY
+            - VAT
+            - HND
+            - HKG
+            - HUN
+            - ISL
+            - IND
+            - IDN
+            - IRQ
+            - IRL
+            - ISR
+            - ITA
+            - CIV
+            - JAM
+            - JPN
+            - KAZ
+            - JOR
+            - KEN
+            - KOR
+            - KWT
+            - KGZ
+            - LAO
+            - LBN
+            - LSO
+            - LVA
+            - LBR
+            - LIE
+            - LTU
+            - LUX
+            - MAC
+            - MDG
+            - MWI
+            - MYS
+            - MDV
+            - MLT
+            - MTQ
+            - MRT
+            - MUS
+            - MEX
+            - MCO
+            - MNG
+            - MDA
+            - MNE
+            - MSR
+            - MAR
+            - MOZ
+            - OMN
+            - NAM
+            - NPL
+            - NLD
+            - CUW
+            - ABW
+            - SXM
+            - BES
+            - NCL
+            - VUT
+            - NZL
+            - NIC
+            - NGA
+            - NOR
+            - PLW
+            - PAK
+            - PAN
+            - PNG
+            - PRY
+            - PER
+            - PHL
+            - POL
+            - PRT
+            - PRI
+            - QAT
+            - REU
+            - ROU
+            - RUS
+            - RWA
+            - KNA
+            - AIA
+            - LCA
+            - VCT
+            - SMR
+            - SAU
+            - SEN
+            - SRB
+            - SYC
+            - SLE
+            - SGP
+            - SVK
+            - VNM
+            - SVN
+            - SOM
+            - ZAF
+            - ZWE
+            - ESP
+            - SUR
+            - SWZ
+            - SWE
+            - CHE
+            - TJK
+            - THA
+            - TGO
+            - TTO
+            - ARE
+            - TUN
+            - TUR
+            - TCA
+            - UGA
+            - UKR
+            - MKD
+            - EGY
+            - GBR
+            - GGY
+            - JEY
+            - IMN
+            - TZA
+            - VIR
+            - BFA
+            - ASM
+            - BDI
+            - CAF
+            - SGS
+            - GAB
+            - KIR
+            - GRL
+            - HTI
+            - LBY
+            - MLI
+            - NRU
+            - ANT
+            - NER
+            - MNP
+            - UMI
+            - FSM
+            - GNB
+            - TLS
+            - BLM
+            - STP
+            - SSD
+            - TON
+            - TKM
+            - URY
+            - UZB
+            - VEN
+            - WSM
+            - YEM
+            - ZMB
+            - ATA
+            - BVT
+            - CXR
+            - CCK
+            - FLK
+            - ALA
+            - ATF
+            - HMD
+            - IRN
+            - PRK
+            - NIU
+            - NFK
+            - MHL
+            - PCN
+            - SHN
+            - MAF
+            - SPM
+            - SDN
+            - ESH
+            - SJM
+            - SYR
+            - TKL
+            - TUV
+            - WLF
+            - IOT
+            - ROM
+            - ZAR
+            - TMP
+            - QZZ
+        mcc:
+          type: string
+        sourceCurrencies:
+          $ref: '#/components/schemas/CurrencyList'
+        mcpRateType:
+          type: string
+          enum:
+            - DefaultRate
+            - ExceptionRate
+            - CardBrandRate
+            - LegacyRate
+        mcpMarginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dccMarginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dcpMarginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dcsMarginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dptMarginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dppMarginSetup:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        streetAddress:
+          type: string
+        postalCode:
+          type: string
+        timeZone:
+          type: string
+        mcp:
+          type: boolean
+        dcc:
+          type: boolean
+        dcp:
+          type: boolean
+        dcs:
+          type: boolean
+        dpt:
+          type: boolean
+        dpp:
+          type: boolean
+    GetCrossReferenceIDRequest:
+      type: object
+      properties:
+        nodeType:
+          type: string
+          enum:
+            - Root
+            - Enterprise
+            - Servicer
+            - Agent
+            - SubClient
+            - Location
+        parentID:
+          type: string
+    GetCrossReferenceIDResponse:
+      type: object
+      properties:
+        crossReferenceIDList:
+          type: array
+          items:
+            type: string
+    BinSetupSearchRequest:
+      type: object
+      properties:
+        pageIndex:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        issueType:
+          type: string
+          enum:
+            - Credit
+            - Debit
+            - Unknown
+            - Prepaid
+        issueDetail:
+          type: string
+          enum:
+            - CreditHybrid
+            - DebitPinOnlyWithEBT
+            - DebitHybrid
+            - USACommercialDebitNotPinCapable
+            - USACommercialDebitPinCapable
+            - NonUSAConsumerDebitNotPinCapable
+            - NonUSACommercialDebitNotPinCapable
+            - NonUSAConsumerDebitPinCapable
+            - NonUSACommercialDebitPinCapable
+            - DebitPinOnlyWithoutEBT
+            - PrivateLabelMC
+            - SignatureOnly
+            - TrueCredit
+            - Unknown
+        country:
+          type: string
+          enum:
+            - Unknown
+            - USA
+            - AFG
+            - ALB
+            - DZA
+            - AND
+            - AGO
+            - ATG
+            - AZE
+            - ARG
+            - AUS
+            - AUT
+            - BHS
+            - BHR
+            - BGD
+            - ARM
+            - BRB
+            - BEL
+            - BMU
+            - BTN
+            - BOL
+            - BIH
+            - BWA
+            - BRA
+            - BLZ
+            - SLB
+            - VGB
+            - BRN
+            - BGR
+            - MMR
+            - BLR
+            - KHM
+            - CMR
+            - CAN
+            - CPV
+            - CYM
+            - LKA
+            - TCD
+            - CHL
+            - CHN
+            - TWN
+            - COL
+            - COM
+            - MYT
+            - COG
+            - COD
+            - COK
+            - CRI
+            - HRV
+            - CUB
+            - CYP
+            - CZE
+            - BEN
+            - DNK
+            - DMA
+            - DOM
+            - ECU
+            - SLV
+            - GNQ
+            - ETH
+            - ERI
+            - EST
+            - FRO
+            - FJI
+            - FIN
+            - FRA
+            - GUF
+            - PYF
+            - DJI
+            - GEO
+            - GMB
+            - PSE
+            - DEU
+            - GHA
+            - GIB
+            - GRC
+            - GRD
+            - GLP
+            - GUM
+            - GTM
+            - GIN
+            - GUY
+            - VAT
+            - HND
+            - HKG
+            - HUN
+            - ISL
+            - IND
+            - IDN
+            - IRQ
+            - IRL
+            - ISR
+            - ITA
+            - CIV
+            - JAM
+            - JPN
+            - KAZ
+            - JOR
+            - KEN
+            - KOR
+            - KWT
+            - KGZ
+            - LAO
+            - LBN
+            - LSO
+            - LVA
+            - LBR
+            - LIE
+            - LTU
+            - LUX
+            - MAC
+            - MDG
+            - MWI
+            - MYS
+            - MDV
+            - MLT
+            - MTQ
+            - MRT
+            - MUS
+            - MEX
+            - MCO
+            - MNG
+            - MDA
+            - MNE
+            - MSR
+            - MAR
+            - MOZ
+            - OMN
+            - NAM
+            - NPL
+            - NLD
+            - CUW
+            - ABW
+            - SXM
+            - BES
+            - NCL
+            - VUT
+            - NZL
+            - NIC
+            - NGA
+            - NOR
+            - PLW
+            - PAK
+            - PAN
+            - PNG
+            - PRY
+            - PER
+            - PHL
+            - POL
+            - PRT
+            - PRI
+            - QAT
+            - REU
+            - ROU
+            - RUS
+            - RWA
+            - KNA
+            - AIA
+            - LCA
+            - VCT
+            - SMR
+            - SAU
+            - SEN
+            - SRB
+            - SYC
+            - SLE
+            - SGP
+            - SVK
+            - VNM
+            - SVN
+            - SOM
+            - ZAF
+            - ZWE
+            - ESP
+            - SUR
+            - SWZ
+            - SWE
+            - CHE
+            - TJK
+            - THA
+            - TGO
+            - TTO
+            - ARE
+            - TUN
+            - TUR
+            - TCA
+            - UGA
+            - UKR
+            - MKD
+            - EGY
+            - GBR
+            - GGY
+            - JEY
+            - IMN
+            - TZA
+            - VIR
+            - BFA
+            - ASM
+            - BDI
+            - CAF
+            - SGS
+            - GAB
+            - KIR
+            - GRL
+            - HTI
+            - LBY
+            - MLI
+            - NRU
+            - ANT
+            - NER
+            - MNP
+            - UMI
+            - FSM
+            - GNB
+            - TLS
+            - BLM
+            - STP
+            - SSD
+            - TON
+            - TKM
+            - URY
+            - UZB
+            - VEN
+            - WSM
+            - YEM
+            - ZMB
+            - ATA
+            - BVT
+            - CXR
+            - CCK
+            - FLK
+            - ALA
+            - ATF
+            - HMD
+            - IRN
+            - PRK
+            - NIU
+            - NFK
+            - MHL
+            - PCN
+            - SHN
+            - MAF
+            - SPM
+            - SDN
+            - ESH
+            - SJM
+            - SYR
+            - TKL
+            - TUV
+            - WLF
+            - IOT
+            - ROM
+            - ZAR
+            - TMP
+            - QZZ
+        issuerName:
+          type: string
+        shortName:
+          type: string
+        binNumber:
+          type: integer
+          format: int32
+        cardBrands:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - DebitOnly
+              - Amex
+              - Visa
+              - Master
+              - Discover
+              - ClosedLoop
+              - Unknown
+              - PrivateLabel
+        issueTypes:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Credit
+              - Debit
+              - Unknown
+              - Prepaid
+        issueDetails:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - CreditHybrid
+              - DebitPinOnlyWithEBT
+              - DebitHybrid
+              - USACommercialDebitNotPinCapable
+              - USACommercialDebitPinCapable
+              - NonUSAConsumerDebitNotPinCapable
+              - NonUSACommercialDebitNotPinCapable
+              - NonUSAConsumerDebitPinCapable
+              - NonUSACommercialDebitPinCapable
+              - DebitPinOnlyWithoutEBT
+              - PrivateLabelMC
+              - SignatureOnly
+              - TrueCredit
+              - Unknown
+        countries:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - Unknown
+              - USA
+              - AFG
+              - ALB
+              - DZA
+              - AND
+              - AGO
+              - ATG
+              - AZE
+              - ARG
+              - AUS
+              - AUT
+              - BHS
+              - BHR
+              - BGD
+              - ARM
+              - BRB
+              - BEL
+              - BMU
+              - BTN
+              - BOL
+              - BIH
+              - BWA
+              - BRA
+              - BLZ
+              - SLB
+              - VGB
+              - BRN
+              - BGR
+              - MMR
+              - BLR
+              - KHM
+              - CMR
+              - CAN
+              - CPV
+              - CYM
+              - LKA
+              - TCD
+              - CHL
+              - CHN
+              - TWN
+              - COL
+              - COM
+              - MYT
+              - COG
+              - COD
+              - COK
+              - CRI
+              - HRV
+              - CUB
+              - CYP
+              - CZE
+              - BEN
+              - DNK
+              - DMA
+              - DOM
+              - ECU
+              - SLV
+              - GNQ
+              - ETH
+              - ERI
+              - EST
+              - FRO
+              - FJI
+              - FIN
+              - FRA
+              - GUF
+              - PYF
+              - DJI
+              - GEO
+              - GMB
+              - PSE
+              - DEU
+              - GHA
+              - GIB
+              - GRC
+              - GRD
+              - GLP
+              - GUM
+              - GTM
+              - GIN
+              - GUY
+              - VAT
+              - HND
+              - HKG
+              - HUN
+              - ISL
+              - IND
+              - IDN
+              - IRQ
+              - IRL
+              - ISR
+              - ITA
+              - CIV
+              - JAM
+              - JPN
+              - KAZ
+              - JOR
+              - KEN
+              - KOR
+              - KWT
+              - KGZ
+              - LAO
+              - LBN
+              - LSO
+              - LVA
+              - LBR
+              - LIE
+              - LTU
+              - LUX
+              - MAC
+              - MDG
+              - MWI
+              - MYS
+              - MDV
+              - MLT
+              - MTQ
+              - MRT
+              - MUS
+              - MEX
+              - MCO
+              - MNG
+              - MDA
+              - MNE
+              - MSR
+              - MAR
+              - MOZ
+              - OMN
+              - NAM
+              - NPL
+              - NLD
+              - CUW
+              - ABW
+              - SXM
+              - BES
+              - NCL
+              - VUT
+              - NZL
+              - NIC
+              - NGA
+              - NOR
+              - PLW
+              - PAK
+              - PAN
+              - PNG
+              - PRY
+              - PER
+              - PHL
+              - POL
+              - PRT
+              - PRI
+              - QAT
+              - REU
+              - ROU
+              - RUS
+              - RWA
+              - KNA
+              - AIA
+              - LCA
+              - VCT
+              - SMR
+              - SAU
+              - SEN
+              - SRB
+              - SYC
+              - SLE
+              - SGP
+              - SVK
+              - VNM
+              - SVN
+              - SOM
+              - ZAF
+              - ZWE
+              - ESP
+              - SUR
+              - SWZ
+              - SWE
+              - CHE
+              - TJK
+              - THA
+              - TGO
+              - TTO
+              - ARE
+              - TUN
+              - TUR
+              - TCA
+              - UGA
+              - UKR
+              - MKD
+              - EGY
+              - GBR
+              - GGY
+              - JEY
+              - IMN
+              - TZA
+              - VIR
+              - BFA
+              - ASM
+              - BDI
+              - CAF
+              - SGS
+              - GAB
+              - KIR
+              - GRL
+              - HTI
+              - LBY
+              - MLI
+              - NRU
+              - ANT
+              - NER
+              - MNP
+              - UMI
+              - FSM
+              - GNB
+              - TLS
+              - BLM
+              - STP
+              - SSD
+              - TON
+              - TKM
+              - URY
+              - UZB
+              - VEN
+              - WSM
+              - YEM
+              - ZMB
+              - ATA
+              - BVT
+              - CXR
+              - CCK
+              - FLK
+              - ALA
+              - ATF
+              - HMD
+              - IRN
+              - PRK
+              - NIU
+              - NFK
+              - MHL
+              - PCN
+              - SHN
+              - MAF
+              - SPM
+              - SDN
+              - ESH
+              - SJM
+              - SYR
+              - TKL
+              - TUV
+              - WLF
+              - IOT
+              - ROM
+              - ZAR
+              - TMP
+              - QZZ
+        exclude:
+          type: boolean
+    BinInfo:
+      type: object
+      properties:
+        bd:
+          type: string
+        id:
+          type: string
+        in:
+          type: string
+        es:
+          type: string
+          enum:
+            - Unknown
+            - AL
+            - AK
+            - AZ
+            - AR
+            - CA
+            - CO
+            - CT
+            - DE
+            - DC
+            - FL
+            - GA
+            - GU
+            - HI
+            - ID
+            - IL
+            - IN
+            - IA
+            - KS
+            - KY
+            - LA
+            - ME
+            - MD
+            - MA
+            - MI
+            - MN
+            - MS
+            - MO
+            - MT
+            - NE
+            - NV
+            - NH
+            - NJ
+            - NM
+            - NY
+            - NC
+            - ND
+            - OH
+            - OK
+            - OR
+            - PA
+            - PR
+            - RI
+            - SC
+            - SD
+            - TN
+            - TX
+            - UT
+            - VT
+            - VA
+            - VI
+            - WA
+            - WV
+            - WI
+            - WY
+            - AB
+            - BC
+            - MB
+            - NB
+            - NL
+            - NT
+            - NS
+            - NU
+            - 'ON'
+            - PE
+            - QC
+            - SK
+            - YT
+        an:
+          type: string
+          enum:
+            - DebitOnly
+            - Amex
+            - Visa
+            - Master
+            - Discover
+            - ClosedLoop
+            - Unknown
+            - PrivateLabel
+        ct:
+          type: string
+          enum:
+            - CreditHybrid
+            - DebitPinOnlyWithEBT
+            - DebitHybrid
+            - USACommercialDebitNotPinCapable
+            - USACommercialDebitPinCapable
+            - NonUSAConsumerDebitNotPinCapable
+            - NonUSACommercialDebitNotPinCapable
+            - NonUSAConsumerDebitPinCapable
+            - NonUSACommercialDebitPinCapable
+            - DebitPinOnlyWithoutEBT
+            - PrivateLabelMC
+            - SignatureOnly
+            - TrueCredit
+            - Unknown
+        it:
+          type: string
+          enum:
+            - Credit
+            - Debit
+            - Unknown
+            - Prepaid
+        la:
+          type: string
+        ha:
+          type: string
+        sd:
+          type: string
+        rl:
+          type: string
+          enum:
+            - Unknown
+            - Unregulated
+            - Regulated
+            - RegulatedWithFraud
+        rd:
+          type: string
+          enum:
+            - Unknown
+            - Reloadable
+            - NonReloadable
+        ic:
+          type: string
+          enum:
+            - Unknown
+            - USA
+            - AFG
+            - ALB
+            - DZA
+            - AND
+            - AGO
+            - ATG
+            - AZE
+            - ARG
+            - AUS
+            - AUT
+            - BHS
+            - BHR
+            - BGD
+            - ARM
+            - BRB
+            - BEL
+            - BMU
+            - BTN
+            - BOL
+            - BIH
+            - BWA
+            - BRA
+            - BLZ
+            - SLB
+            - VGB
+            - BRN
+            - BGR
+            - MMR
+            - BLR
+            - KHM
+            - CMR
+            - CAN
+            - CPV
+            - CYM
+            - LKA
+            - TCD
+            - CHL
+            - CHN
+            - TWN
+            - COL
+            - COM
+            - MYT
+            - COG
+            - COD
+            - COK
+            - CRI
+            - HRV
+            - CUB
+            - CYP
+            - CZE
+            - BEN
+            - DNK
+            - DMA
+            - DOM
+            - ECU
+            - SLV
+            - GNQ
+            - ETH
+            - ERI
+            - EST
+            - FRO
+            - FJI
+            - FIN
+            - FRA
+            - GUF
+            - PYF
+            - DJI
+            - GEO
+            - GMB
+            - PSE
+            - DEU
+            - GHA
+            - GIB
+            - GRC
+            - GRD
+            - GLP
+            - GUM
+            - GTM
+            - GIN
+            - GUY
+            - VAT
+            - HND
+            - HKG
+            - HUN
+            - ISL
+            - IND
+            - IDN
+            - IRQ
+            - IRL
+            - ISR
+            - ITA
+            - CIV
+            - JAM
+            - JPN
+            - KAZ
+            - JOR
+            - KEN
+            - KOR
+            - KWT
+            - KGZ
+            - LAO
+            - LBN
+            - LSO
+            - LVA
+            - LBR
+            - LIE
+            - LTU
+            - LUX
+            - MAC
+            - MDG
+            - MWI
+            - MYS
+            - MDV
+            - MLT
+            - MTQ
+            - MRT
+            - MUS
+            - MEX
+            - MCO
+            - MNG
+            - MDA
+            - MNE
+            - MSR
+            - MAR
+            - MOZ
+            - OMN
+            - NAM
+            - NPL
+            - NLD
+            - CUW
+            - ABW
+            - SXM
+            - BES
+            - NCL
+            - VUT
+            - NZL
+            - NIC
+            - NGA
+            - NOR
+            - PLW
+            - PAK
+            - PAN
+            - PNG
+            - PRY
+            - PER
+            - PHL
+            - POL
+            - PRT
+            - PRI
+            - QAT
+            - REU
+            - ROU
+            - RUS
+            - RWA
+            - KNA
+            - AIA
+            - LCA
+            - VCT
+            - SMR
+            - SAU
+            - SEN
+            - SRB
+            - SYC
+            - SLE
+            - SGP
+            - SVK
+            - VNM
+            - SVN
+            - SOM
+            - ZAF
+            - ZWE
+            - ESP
+            - SUR
+            - SWZ
+            - SWE
+            - CHE
+            - TJK
+            - THA
+            - TGO
+            - TTO
+            - ARE
+            - TUN
+            - TUR
+            - TCA
+            - UGA
+            - UKR
+            - MKD
+            - EGY
+            - GBR
+            - GGY
+            - JEY
+            - IMN
+            - TZA
+            - VIR
+            - BFA
+            - ASM
+            - BDI
+            - CAF
+            - SGS
+            - GAB
+            - KIR
+            - GRL
+            - HTI
+            - LBY
+            - MLI
+            - NRU
+            - ANT
+            - NER
+            - MNP
+            - UMI
+            - FSM
+            - GNB
+            - TLS
+            - BLM
+            - STP
+            - SSD
+            - TON
+            - TKM
+            - URY
+            - UZB
+            - VEN
+            - WSM
+            - YEM
+            - ZMB
+            - ATA
+            - BVT
+            - CXR
+            - CCK
+            - FLK
+            - ALA
+            - ATF
+            - HMD
+            - IRN
+            - PRK
+            - NIU
+            - NFK
+            - MHL
+            - PCN
+            - SHN
+            - MAF
+            - SPM
+            - SDN
+            - ESH
+            - SJM
+            - SYR
+            - TKL
+            - TUV
+            - WLF
+            - IOT
+            - ROM
+            - ZAR
+            - TMP
+            - QZZ
+        ac:
+          type: boolean
+        d_st:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_ac:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_ny:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_je:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_in:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_vi:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_ma:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_cu:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_af:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_sh:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_eb:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_it:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_pu:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        d_at:
+          type: string
+          enum:
+            - NA
+            - PinPinlessPOS
+            - PinPOSPinlessBillPay
+            - PinPOS
+            - PinPOSPinlessPOSPinlessBillPay
+            - PinlessBillPay
+            - PinlessPOS
+            - PinlessBillPayPinlessPOS
+        cc:
+          type: string
+          enum:
+            - Unknown
+            - Business
+            - Consumer
+            - Corporate
+            - Purchase
+        cs:
+          type: string
+          enum:
+            - Unknown
+            - A2
+            - C3
+            - D4
+            - D5
+            - D6
+            - D7
+            - D8
+            - D9
+            - D10
+            - D11
+            - D12
+            - D13
+            - D14
+            - D15
+            - D16
+            - D17
+            - M18
+            - M19
+            - M20
+            - M21
+            - M22
+            - M23
+            - M24
+            - M25
+            - M26
+            - M27
+            - M28
+            - M29
+            - M30
+            - M31
+            - M32
+            - M33
+            - M34
+            - M35
+            - M36
+            - M37
+            - M38
+            - M39
+            - M40
+            - M41
+            - M42
+            - M43
+            - M44
+            - M45
+            - M46
+            - M47
+            - M48
+            - M49
+            - M50
+            - M51
+            - M52
+            - M53
+            - M54
+            - M55
+            - M56
+            - M57
+            - M58
+            - M59
+            - M60
+            - M61
+            - M62
+            - M63
+            - M64
+            - M65
+            - M66
+            - M67
+            - M68
+            - M69
+            - M70
+            - M71
+            - M72
+            - M73
+            - M74
+            - M75
+            - M76
+            - M77
+            - M78
+            - M79
+            - M80
+            - M81
+            - M82
+            - M83
+            - M84
+            - M85
+            - M86
+            - M87
+            - M88
+            - M89
+            - M90
+            - M91
+            - M92
+            - M93
+            - M94
+            - M95
+            - M96
+            - M97
+            - M98
+            - M99
+            - M100
+            - M101
+            - M102
+            - M103
+            - M104
+            - M105
+            - M106
+            - M107
+            - M108
+            - M109
+            - M110
+            - M111
+            - M112
+            - M113
+            - M114
+            - M115
+            - M116
+            - M117
+            - M118
+            - M119
+            - M120
+            - M121
+            - M122
+            - M123
+            - N124
+            - P125
+            - V126
+            - V127
+            - V128
+            - V129
+            - V130
+            - V131
+            - V132
+            - V133
+            - V134
+            - V135
+            - V136
+            - V137
+            - V138
+            - V139
+            - V140
+            - V141
+            - V142
+            - V143
+            - V144
+            - V145
+            - V146
+            - V147
+            - V148
+            - V149
+            - V150
+            - V151
+            - V152
+            - V153
+            - V154
+            - V155
+            - V156
+            - V157
+            - V158
+            - V159
+            - V160
+            - V161
+        currencyCode:
+          type: string
+    BinSetupWithBinInfo:
+      type: object
+      properties:
+        binID:
+          type: string
+        exclude:
+          type: boolean
+        info:
+          $ref: '#/components/schemas/BinInfo'
+    AddOrUpdateInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        crossRefID1:
+          type: string
+        crossRefID2:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+          enum:
+            - NewOK
+            - UpdateOK
+            - Error
+    IDInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        crossRefID1:
+          type: string
+        crossRefID2:
+          type: string
+    UploadKeyRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        platformId:
+          type: string
+        clientName:
+          type: string
+        keyType:
+          type: string
+        keyExpiryDate:
+          type: string
+        publicKey:
+          type: string
+    InvocationStat:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        quotedCount:
+          type: integer
+          format: int32
+        notQuotedCount:
+          type: integer
+          format: int32
+        locationCount:
+          type: integer
+          format: int32
+    InvocationStatByLocation:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        quotedCount:
+          type: integer
+          format: int32
+        notQuotedCount:
+          type: integer
+          format: int32
+        locationCount:
+          type: integer
+          format: int32
+        location:
+          $ref: '#/components/schemas/Location'
+    InvocationStatByReason:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        quotedCount:
+          type: integer
+          format: int32
+        notQuotedCount:
+          type: integer
+          format: int32
+        locationCount:
+          type: integer
+          format: int32
+        reason:
+          type: string
+          enum:
+            - RateSupplied
+            - NoLocationInfo
+            - SourceCurrencyInExclusion
+            - TargetCurrencyInExclusion
+            - SourceCurrencyNotSupported
+            - TargetCurrencyNotSupported
+            - TargetCurrencyNotConfigured
+            - NoRateProvidersSetup
+            - NoRatesAvailable
+            - UnknownPricingStrategy
+            - InvalidRequest
+            - NoSourceCurrencySpecified
+            - InvalidSourceAmount
+            - NoBinInfoAvailable
+            - BinNotSupported
+            - CountryNotSupported
+            - CardBrandNotSupported
+            - NoPricingTypeSpecified
+            - PricingTypeNotSupported
+            - SourceAndTargetCannotBeSame
+    InvocationStatByTargetCurrency:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        quotedCount:
+          type: integer
+          format: int32
+        notQuotedCount:
+          type: integer
+          format: int32
+        locationCount:
+          type: integer
+          format: int32
+        target:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+    InvocationStatByTime:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+        quotedCount:
+          type: integer
+          format: int32
+        notQuotedCount:
+          type: integer
+          format: int32
+        locationCount:
+          type: integer
+          format: int32
+        timeSlot:
+          type: integer
+          format: int64
+        timestamp:
+          type: integer
+          format: int64
+    LiveMetrics:
+      type: object
+      properties:
+        nodeID:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+        cumulative:
+          $ref: '#/components/schemas/InvocationStat'
+        trend:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvocationStatByTime'
+        topLocations:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvocationStatByLocation'
+        topTargets:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvocationStatByTargetCurrency'
+        topReasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvocationStatByReason'
+    MarginDistribution:
+      required:
+        - agent
+        - client
+        - location
+        - servicer
+      type: object
+      properties:
+        servicer:
+          type: number
+          description: Servicer margin in BPS
+          format: double
+          example: 10
+        agent:
+          type: number
+          description: Agent margin in BPS
+          format: double
+          example: 0
+        client:
+          type: number
+          description: Sub Client margin in BPS
+          format: double
+          example: 30
+        location:
+          type: number
+          description: Location margin in BPS
+          format: double
+          example: 50
+        scheme:
+          type: string
+          description: Scheme will be optional and valid values are Any,Visa, Mastercard
+          example: '20'
+          enum:
+            - Visa
+            - Mastercard
+        sourceCurrency:
+          type: string
+          description: Source currency will be optional ISO 4217 Currency Alpha Code
+          example: '5'
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        targetCurrency:
+          type: string
+          description: Target currency will be optional ISO 4217 Currency Alpha Code
+          example: '5'
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+      description: Margin distribution for the location
+    ProcessingLocation:
+      required:
+        - country
+        - crossRefID1
+        - mcc
+        - name
+        - timezone
+      type: object
+      properties:
+        crossRefID1:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id aks location Id. Use this filed for LocationId/XREF.
+          example: HGJ8838983
+        crossRefID2:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id associated with the location. Use this field for VendorReferenceId
+          example: '0009999'
+        name:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Name associated with the location
+          example: My Pizza Shop
+        streetAddress:
+          maxLength: 75
+          type: string
+          description: Address associated with the location
+          example: '#449 Fiserv drive'
+        city:
+          maxLength: 50
+          type: string
+          description: City associated with the location
+          example: Berkley Heights
+        state:
+          maxLength: 2
+          type: string
+          description: State associated with the location
+          example: NJ
+        country:
+          maxLength: 3
+          minLength: 3
+          type: string
+          description: Country associated with the location
+          example: USA
+          enum:
+            - Unknown
+            - USA
+            - AFG
+            - ALB
+            - DZA
+            - AND
+            - AGO
+            - ATG
+            - AZE
+            - ARG
+            - AUS
+            - AUT
+            - BHS
+            - BHR
+            - BGD
+            - ARM
+            - BRB
+            - BEL
+            - BMU
+            - BTN
+            - BOL
+            - BIH
+            - BWA
+            - BRA
+            - BLZ
+            - SLB
+            - VGB
+            - BRN
+            - BGR
+            - MMR
+            - BLR
+            - KHM
+            - CMR
+            - CAN
+            - CPV
+            - CYM
+            - LKA
+            - TCD
+            - CHL
+            - CHN
+            - TWN
+            - COL
+            - COM
+            - MYT
+            - COG
+            - COD
+            - COK
+            - CRI
+            - HRV
+            - CUB
+            - CYP
+            - CZE
+            - BEN
+            - DNK
+            - DMA
+            - DOM
+            - ECU
+            - SLV
+            - GNQ
+            - ETH
+            - ERI
+            - EST
+            - FRO
+            - FJI
+            - FIN
+            - FRA
+            - GUF
+            - PYF
+            - DJI
+            - GEO
+            - GMB
+            - PSE
+            - DEU
+            - GHA
+            - GIB
+            - GRC
+            - GRD
+            - GLP
+            - GUM
+            - GTM
+            - GIN
+            - GUY
+            - VAT
+            - HND
+            - HKG
+            - HUN
+            - ISL
+            - IND
+            - IDN
+            - IRQ
+            - IRL
+            - ISR
+            - ITA
+            - CIV
+            - JAM
+            - JPN
+            - KAZ
+            - JOR
+            - KEN
+            - KOR
+            - KWT
+            - KGZ
+            - LAO
+            - LBN
+            - LSO
+            - LVA
+            - LBR
+            - LIE
+            - LTU
+            - LUX
+            - MAC
+            - MDG
+            - MWI
+            - MYS
+            - MDV
+            - MLT
+            - MTQ
+            - MRT
+            - MUS
+            - MEX
+            - MCO
+            - MNG
+            - MDA
+            - MNE
+            - MSR
+            - MAR
+            - MOZ
+            - OMN
+            - NAM
+            - NPL
+            - NLD
+            - CUW
+            - ABW
+            - SXM
+            - BES
+            - NCL
+            - VUT
+            - NZL
+            - NIC
+            - NGA
+            - NOR
+            - PLW
+            - PAK
+            - PAN
+            - PNG
+            - PRY
+            - PER
+            - PHL
+            - POL
+            - PRT
+            - PRI
+            - QAT
+            - REU
+            - ROU
+            - RUS
+            - RWA
+            - KNA
+            - AIA
+            - LCA
+            - VCT
+            - SMR
+            - SAU
+            - SEN
+            - SRB
+            - SYC
+            - SLE
+            - SGP
+            - SVK
+            - VNM
+            - SVN
+            - SOM
+            - ZAF
+            - ZWE
+            - ESP
+            - SUR
+            - SWZ
+            - SWE
+            - CHE
+            - TJK
+            - THA
+            - TGO
+            - TTO
+            - ARE
+            - TUN
+            - TUR
+            - TCA
+            - UGA
+            - UKR
+            - MKD
+            - EGY
+            - GBR
+            - GGY
+            - JEY
+            - IMN
+            - TZA
+            - VIR
+            - BFA
+            - ASM
+            - BDI
+            - CAF
+            - SGS
+            - GAB
+            - KIR
+            - GRL
+            - HTI
+            - LBY
+            - MLI
+            - NRU
+            - ANT
+            - NER
+            - MNP
+            - UMI
+            - FSM
+            - GNB
+            - TLS
+            - BLM
+            - STP
+            - SSD
+            - TON
+            - TKM
+            - URY
+            - UZB
+            - VEN
+            - WSM
+            - YEM
+            - ZMB
+            - ATA
+            - BVT
+            - CXR
+            - CCK
+            - FLK
+            - ALA
+            - ATF
+            - HMD
+            - IRN
+            - PRK
+            - NIU
+            - NFK
+            - MHL
+            - PCN
+            - SHN
+            - MAF
+            - SPM
+            - SDN
+            - ESH
+            - SJM
+            - SYR
+            - TKL
+            - TUV
+            - WLF
+            - IOT
+            - ROM
+            - ZAR
+            - TMP
+            - QZZ
+        postalCode:
+          maxLength: 20
+          type: string
+          description: Postal code associated with the location
+          example: '28277'
+        timezone:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Location timezone
+          example: America/New_York
+        mcc:
+          maxLength: 4
+          minLength: 1
+          type: string
+          description: MCC Code associated with the location
+          example: '744'
+        mcpRateType:
+          type: string
+          description: Rate Type associated with a location
+          example: Default
+          default: Default
+          enum:
+            - DefaultRate
+            - ExceptionRate
+            - CardBrandRate
+            - LegacyRate
+            - ExceptionRate
+            - CardBrandRate
+            - DefaultRate
+            - LegacyRate
+        sourceCurrencies:
+          uniqueItems: true
+          type: array
+          description: Source currencies associated with the location
+          example: '[''USA'', ''XPF'']'
+          items:
+            type: string
+            description: Source currencies associated with the location
+            example: '[''USA'', ''XPF'']'
+            enum:
+              - Unknown
+              - USD
+              - AFN
+              - DZD
+              - ARS
+              - AMD
+              - AWG
+              - AUD
+              - AZN
+              - BSD
+              - BHD
+              - THB
+              - PAB
+              - BBD
+              - BYR
+              - BZD
+              - BMD
+              - VEF
+              - BOB
+              - BRL
+              - BND
+              - BGN
+              - BIF
+              - CAD
+              - CVE
+              - KYD
+              - XOF
+              - XAF
+              - XPF
+              - CLP
+              - COP
+              - KMF
+              - BAM
+              - NIO
+              - CRC
+              - HRK
+              - CUP
+              - CZK
+              - GMD
+              - DKK
+              - MKD
+              - DJF
+              - STD
+              - DOP
+              - VND
+              - XCD
+              - EGP
+              - SVC
+              - ETB
+              - EUR
+              - FKP
+              - FJD
+              - HUF
+              - CDF
+              - GHS
+              - GIP
+              - HTG
+              - PYG
+              - GNF
+              - GWP
+              - GYD
+              - HKD
+              - UAH
+              - ISK
+              - INR
+              - IRR
+              - IQD
+              - JMD
+              - JOD
+              - KES
+              - PGK
+              - LAK
+              - KWD
+              - MWK
+              - ZMK
+              - AOA
+              - MMK
+              - GEL
+              - LVL
+              - LBP
+              - ALL
+              - HNL
+              - SLL
+              - LRD
+              - LYD
+              - SZL
+              - LTL
+              - LSL
+              - MGA
+              - MYR
+              - MUR
+              - MZN
+              - MXN
+              - MXV
+              - MDL
+              - MAD
+              - BOV
+              - NGN
+              - ERN
+              - NAD
+              - NPR
+              - ANG
+              - ILS
+              - RON
+              - TWD
+              - TRY
+              - NZD
+              - BTN
+              - KPW
+              - NOK
+              - PEN
+              - MRO
+              - TOP
+              - PKR
+              - MOP
+              - UYU
+              - PHP
+              - GBP
+              - BWP
+              - QAR
+              - GTQ
+              - ZAR
+              - OMR
+              - KHR
+              - MVR
+              - IDR
+              - RUB
+              - RWF
+              - SHP
+              - SAR
+              - XDR
+              - RSD
+              - SCR
+              - SGD
+              - SBD
+              - KGS
+              - SOS
+              - TJS
+              - LKR
+              - SDG
+              - SRD
+              - SEK
+              - CHF
+              - SYP
+              - BDT
+              - WST
+              - TZS
+              - KZT
+              - TTD
+              - MNT
+              - TND
+              - AED
+              - UGX
+              - COU
+              - CLF
+              - UYI
+              - USN
+              - USS
+              - UZS
+              - VUV
+              - CHE
+              - CHW
+              - KRW
+              - YER
+              - JPY
+              - CNY
+              - PLN
+              - XBA
+              - XTS
+              - XBB
+              - XBD
+              - XBC
+              - XAU
+              - XPD
+              - XPT
+              - XAG
+              - XXX
+              - XFU
+              - TMT
+              - ZWL
+              - CUC
+              - SSP
+              - XUA
+              - XSU
+              - BYN
+              - VES
+              - ZMW
+              - MRU
+              - STN
+              - SLE
+              - BRC
+              - ARX
+        dccTransactionalFX:
+          $ref: '#/components/schemas/ServiceModel'
+        dccSpotFX:
+          $ref: '#/components/schemas/ServiceModel'
+        dccPeriodicalFX:
+          $ref: '#/components/schemas/ServiceModel'
+        mcp:
+          $ref: '#/components/schemas/ServiceModel'
+        dpTransactionalFX:
+          $ref: '#/components/schemas/ServiceModel'
+        dpPeriodicalFX:
+          $ref: '#/components/schemas/ServiceModel'
+      description: Processing location information
+    ServiceModel:
+      required:
+        - overrideMargin
+      type: object
+      properties:
+        overrideMargin:
+          type: boolean
+          description: Value must be set to true if margin has to be overridden at the location level
+          example: true
+        marginInfo:
+          $ref: '#/components/schemas/MarginDistribution'
+      description: Rate model associated with the location - for the associated type
+    LocationResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Status code associated with the response
+          format: int32
+        message:
+          type: string
+          description: Status message associated with the response
+          example: Some message from the service
+        locationId:
+          type: string
+    DefaultResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Status code associated with the response
+          format: int32
+        message:
+          type: string
+          description: Status message associated with the response
+          example: Some message from the service
+      description: Default response
+    ProcessingClient:
+      required:
+        - crossRefID1
+        - crossRefID2
+        - name
+      type: object
+      properties:
+        crossRefID1:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: crossRefID1 for Client must be 'Global Client Reference Id/Platform Id'.
+          example: NORSS/OP020
+        crossRefID2:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: crossRefID2 for Client must be 'Hierarchy Id' for MCP.
+          example: HGJ8838983
+        name:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Name associated with the Client
+          example: My Pizza Shop
+        dccTransactionalFX:
+          $ref: '#/components/schemas/ServiceModel'
+        dccSpotFX:
+          $ref: '#/components/schemas/ServiceModel'
+        dccPeriodicalFX:
+          $ref: '#/components/schemas/ServiceModel'
+        mcp:
+          $ref: '#/components/schemas/ServiceModel'
+    ProcessingClientResponse:
+      type: object
+      properties:
+        clientID:
+          type: string
+        message:
+          type: string
+    BaseNodeRef:
+      type: object
+      properties:
+        node:
+          $ref: '#/components/schemas/BaseNode'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/BaseNodeRef'
+    ServicerInfo:
+      type: object
+      properties:
+        servicerName:
+          type: string
+        platformId:
+          type: string
+        crossRef2:
+          type: string
+        pricingTypes:
+          type: array
+          items:
+            type: string
+    ServicerNodeResponse:
+      type: object
+      properties:
+        servicerInfoList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServicerInfo'
+    RateProviderInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        rateSource:
+          type: string
+        rateSet:
+          type: string
+        rateType:
+          type: string
+          enum:
+            - Indicative
+            - Transactional
+            - Periodic
+            - Spot
+        rateModel:
+          type: string
+          enum:
+            - RatesOnly
+            - RatesAndTrade
+    CurrencyReferenceInfo:
+      type: object
+      properties:
+        currency:
+          type: string
+          enum:
+            - Unknown
+            - USD
+            - AFN
+            - DZD
+            - ARS
+            - AMD
+            - AWG
+            - AUD
+            - AZN
+            - BSD
+            - BHD
+            - THB
+            - PAB
+            - BBD
+            - BYR
+            - BZD
+            - BMD
+            - VEF
+            - BOB
+            - BRL
+            - BND
+            - BGN
+            - BIF
+            - CAD
+            - CVE
+            - KYD
+            - XOF
+            - XAF
+            - XPF
+            - CLP
+            - COP
+            - KMF
+            - BAM
+            - NIO
+            - CRC
+            - HRK
+            - CUP
+            - CZK
+            - GMD
+            - DKK
+            - MKD
+            - DJF
+            - STD
+            - DOP
+            - VND
+            - XCD
+            - EGP
+            - SVC
+            - ETB
+            - EUR
+            - FKP
+            - FJD
+            - HUF
+            - CDF
+            - GHS
+            - GIP
+            - HTG
+            - PYG
+            - GNF
+            - GWP
+            - GYD
+            - HKD
+            - UAH
+            - ISK
+            - INR
+            - IRR
+            - IQD
+            - JMD
+            - JOD
+            - KES
+            - PGK
+            - LAK
+            - KWD
+            - MWK
+            - ZMK
+            - AOA
+            - MMK
+            - GEL
+            - LVL
+            - LBP
+            - ALL
+            - HNL
+            - SLL
+            - LRD
+            - LYD
+            - SZL
+            - LTL
+            - LSL
+            - MGA
+            - MYR
+            - MUR
+            - MZN
+            - MXN
+            - MXV
+            - MDL
+            - MAD
+            - BOV
+            - NGN
+            - ERN
+            - NAD
+            - NPR
+            - ANG
+            - ILS
+            - RON
+            - TWD
+            - TRY
+            - NZD
+            - BTN
+            - KPW
+            - NOK
+            - PEN
+            - MRO
+            - TOP
+            - PKR
+            - MOP
+            - UYU
+            - PHP
+            - GBP
+            - BWP
+            - QAR
+            - GTQ
+            - ZAR
+            - OMR
+            - KHR
+            - MVR
+            - IDR
+            - RUB
+            - RWF
+            - SHP
+            - SAR
+            - XDR
+            - RSD
+            - SCR
+            - SGD
+            - SBD
+            - KGS
+            - SOS
+            - TJS
+            - LKR
+            - SDG
+            - SRD
+            - SEK
+            - CHF
+            - SYP
+            - BDT
+            - WST
+            - TZS
+            - KZT
+            - TTD
+            - MNT
+            - TND
+            - AED
+            - UGX
+            - COU
+            - CLF
+            - UYI
+            - USN
+            - USS
+            - UZS
+            - VUV
+            - CHE
+            - CHW
+            - KRW
+            - YER
+            - JPY
+            - CNY
+            - PLN
+            - XBA
+            - XTS
+            - XBB
+            - XBD
+            - XBC
+            - XAU
+            - XPD
+            - XPT
+            - XAG
+            - XXX
+            - XFU
+            - TMT
+            - ZWL
+            - CUC
+            - SSP
+            - XUA
+            - XSU
+            - BYN
+            - VES
+            - ZMW
+            - MRU
+            - STN
+            - SLE
+            - BRC
+            - ARX
+        isoNumeric:
+          type: string
+        minorUnits:
+          type: integer
+          format: int32
+        precision:
+          type: integer
+          format: int32
+        name:
+          type: string
+        euroZone:
+          type: boolean
+    BaseUploadKeyRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        platformId:
+          type: string
+        clientName:
+          type: string
+    ProcessingLocationDetail:
+      required:
+        - country
+        - crossRefID1
+        - id
+        - mcc
+        - name
+        - sourceCurrencies
+        - timezone
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique ID associated with the location
+          example: '7377372727'
+        crossRefID1:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id aks location Id. Use this filed for LocationId/XREF.
+          example: HGJ8838983
+        crossRefID2:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Cross Reference Id associated with the location. Use this field for VendorReferenceId
+          example: '0009999'
+        name:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Name associated with the location
+          example: My Pizza Shop
+        streetAddress:
+          maxLength: 75
+          type: string
+          description: Address associated with the location
+          example: '#449 Fiserv drive'
+        city:
+          maxLength: 50
+          type: string
+          description: City associated with the location
+          example: Berkley Heights
+        state:
+          maxLength: 2
+          type: string
+          description: State associated with the location
+          example: NJ
+        country:
+          maxLength: 3
+          minLength: 3
+          type: string
+          description: Country associated with the location
+          example: USA
+          enum:
+            - Unknown
+            - USA
+            - AFG
+            - ALB
+            - DZA
+            - AND
+            - AGO
+            - ATG
+            - AZE
+            - ARG
+            - AUS
+            - AUT
+            - BHS
+            - BHR
+            - BGD
+            - ARM
+            - BRB
+            - BEL
+            - BMU
+            - BTN
+            - BOL
+            - BIH
+            - BWA
+            - BRA
+            - BLZ
+            - SLB
+            - VGB
+            - BRN
+            - BGR
+            - MMR
+            - BLR
+            - KHM
+            - CMR
+            - CAN
+            - CPV
+            - CYM
+            - LKA
+            - TCD
+            - CHL
+            - CHN
+            - TWN
+            - COL
+            - COM
+            - MYT
+            - COG
+            - COD
+            - COK
+            - CRI
+            - HRV
+            - CUB
+            - CYP
+            - CZE
+            - BEN
+            - DNK
+            - DMA
+            - DOM
+            - ECU
+            - SLV
+            - GNQ
+            - ETH
+            - ERI
+            - EST
+            - FRO
+            - FJI
+            - FIN
+            - FRA
+            - GUF
+            - PYF
+            - DJI
+            - GEO
+            - GMB
+            - PSE
+            - DEU
+            - GHA
+            - GIB
+            - GRC
+            - GRD
+            - GLP
+            - GUM
+            - GTM
+            - GIN
+            - GUY
+            - VAT
+            - HND
+            - HKG
+            - HUN
+            - ISL
+            - IND
+            - IDN
+            - IRQ
+            - IRL
+            - ISR
+            - ITA
+            - CIV
+            - JAM
+            - JPN
+            - KAZ
+            - JOR
+            - KEN
+            - KOR
+            - KWT
+            - KGZ
+            - LAO
+            - LBN
+            - LSO
+            - LVA
+            - LBR
+            - LIE
+            - LTU
+            - LUX
+            - MAC
+            - MDG
+            - MWI
+            - MYS
+            - MDV
+            - MLT
+            - MTQ
+            - MRT
+            - MUS
+            - MEX
+            - MCO
+            - MNG
+            - MDA
+            - MNE
+            - MSR
+            - MAR
+            - MOZ
+            - OMN
+            - NAM
+            - NPL
+            - NLD
+            - CUW
+            - ABW
+            - SXM
+            - BES
+            - NCL
+            - VUT
+            - NZL
+            - NIC
+            - NGA
+            - NOR
+            - PLW
+            - PAK
+            - PAN
+            - PNG
+            - PRY
+            - PER
+            - PHL
+            - POL
+            - PRT
+            - PRI
+            - QAT
+            - REU
+            - ROU
+            - RUS
+            - RWA
+            - KNA
+            - AIA
+            - LCA
+            - VCT
+            - SMR
+            - SAU
+            - SEN
+            - SRB
+            - SYC
+            - SLE
+            - SGP
+            - SVK
+            - VNM
+            - SVN
+            - SOM
+            - ZAF
+            - ZWE
+            - ESP
+            - SUR
+            - SWZ
+            - SWE
+            - CHE
+            - TJK
+            - THA
+            - TGO
+            - TTO
+            - ARE
+            - TUN
+            - TUR
+            - TCA
+            - UGA
+            - UKR
+            - MKD
+            - EGY
+            - GBR
+            - GGY
+            - JEY
+            - IMN
+            - TZA
+            - VIR
+            - BFA
+            - ASM
+            - BDI
+            - CAF
+            - SGS
+            - GAB
+            - KIR
+            - GRL
+            - HTI
+            - LBY
+            - MLI
+            - NRU
+            - ANT
+            - NER
+            - MNP
+            - UMI
+            - FSM
+            - GNB
+            - TLS
+            - BLM
+            - STP
+            - SSD
+            - TON
+            - TKM
+            - URY
+            - UZB
+            - VEN
+            - WSM
+            - YEM
+            - ZMB
+            - ATA
+            - BVT
+            - CXR
+            - CCK
+            - FLK
+            - ALA
+            - ATF
+            - HMD
+            - IRN
+            - PRK
+            - NIU
+            - NFK
+            - MHL
+            - PCN
+            - SHN
+            - MAF
+            - SPM
+            - SDN
+            - ESH
+            - SJM
+            - SYR
+            - TKL
+            - TUV
+            - WLF
+            - IOT
+            - ROM
+            - ZAR
+            - TMP
+            - QZZ
+        postalCode:
+          maxLength: 20
+          type: string
+          description: Postal code associated with the location
+          example: '28277'
+        timezone:
+          maxLength: 75
+          minLength: 1
+          type: string
+          description: Location timezone
+          example: America/New_York
+        mcc:
+          maxLength: 4
+          minLength: 1
+          type: string
+          description: MCC Code associated with the location
+          example: '744'
+        sourceCurrencies:
+          uniqueItems: true
+          type: array
+          description: Source currencies associated with the location
+          example: '[''USA'', ''XPF'']'
+          items:
+            type: string
+            description: Source currencies associated with the location
+            example: '[''USA'', ''XPF'']'
+            enum:
+              - Unknown
+              - USD
+              - AFN
+              - DZD
+              - ARS
+              - AMD
+              - AWG
+              - AUD
+              - AZN
+              - BSD
+              - BHD
+              - THB
+              - PAB
+              - BBD
+              - BYR
+              - BZD
+              - BMD
+              - VEF
+              - BOB
+              - BRL
+              - BND
+              - BGN
+              - BIF
+              - CAD
+              - CVE
+              - KYD
+              - XOF
+              - XAF
+              - XPF
+              - CLP
+              - COP
+              - KMF
+              - BAM
+              - NIO
+              - CRC
+              - HRK
+              - CUP
+              - CZK
+              - GMD
+              - DKK
+              - MKD
+              - DJF
+              - STD
+              - DOP
+              - VND
+              - XCD
+              - EGP
+              - SVC
+              - ETB
+              - EUR
+              - FKP
+              - FJD
+              - HUF
+              - CDF
+              - GHS
+              - GIP
+              - HTG
+              - PYG
+              - GNF
+              - GWP
+              - GYD
+              - HKD
+              - UAH
+              - ISK
+              - INR
+              - IRR
+              - IQD
+              - JMD
+              - JOD
+              - KES
+              - PGK
+              - LAK
+              - KWD
+              - MWK
+              - ZMK
+              - AOA
+              - MMK
+              - GEL
+              - LVL
+              - LBP
+              - ALL
+              - HNL
+              - SLL
+              - LRD
+              - LYD
+              - SZL
+              - LTL
+              - LSL
+              - MGA
+              - MYR
+              - MUR
+              - MZN
+              - MXN
+              - MXV
+              - MDL
+              - MAD
+              - BOV
+              - NGN
+              - ERN
+              - NAD
+              - NPR
+              - ANG
+              - ILS
+              - RON
+              - TWD
+              - TRY
+              - NZD
+              - BTN
+              - KPW
+              - NOK
+              - PEN
+              - MRO
+              - TOP
+              - PKR
+              - MOP
+              - UYU
+              - PHP
+              - GBP
+              - BWP
+              - QAR
+              - GTQ
+              - ZAR
+              - OMR
+              - KHR
+              - MVR
+              - IDR
+              - RUB
+              - RWF
+              - SHP
+              - SAR
+              - XDR
+              - RSD
+              - SCR
+              - SGD
+              - SBD
+              - KGS
+              - SOS
+              - TJS
+              - LKR
+              - SDG
+              - SRD
+              - SEK
+              - CHF
+              - SYP
+              - BDT
+              - WST
+              - TZS
+              - KZT
+              - TTD
+              - MNT
+              - TND
+              - AED
+              - UGX
+              - COU
+              - CLF
+              - UYI
+              - USN
+              - USS
+              - UZS
+              - VUV
+              - CHE
+              - CHW
+              - KRW
+              - YER
+              - JPY
+              - CNY
+              - PLN
+              - XBA
+              - XTS
+              - XBB
+              - XBD
+              - XBC
+              - XAU
+              - XPD
+              - XPT
+              - XAG
+              - XXX
+              - XFU
+              - TMT
+              - ZWL
+              - CUC
+              - SSP
+              - XUA
+              - XSU
+              - BYN
+              - VES
+              - ZMW
+              - MRU
+              - STN
+              - SLE
+              - BRC
+              - ARX
+        dccTransactionalFX:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dccPeriodicalFX:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+        dccSpotRate:
+          $ref: '#/components/schemas/MarginSetupWithOverride'
+      description: Processing location detailed information
