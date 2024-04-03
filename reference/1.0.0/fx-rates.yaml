@@ -105,9 +105,9 @@ paths:
   /fx/v1/pricing/request/allrates:
     post:
       tags:
-        - Get All Rates
+        - Exchange Rate
       x-group-name: Exchange Rate
-      x-proxy-name: Get Exchange Rates
+      x-proxy-name: Get All Rates
       summary: Provides list of exchange rates information for country currency pair and scheme.
       description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Target currency, Client cross reference Id and Merchant cross reference Id to determine the exchnage rate.Target currency are the optional attributes and used as filter criteria while determining the rate.
       operationId: getAllRates
