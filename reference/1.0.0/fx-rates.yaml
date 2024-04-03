@@ -13,7 +13,7 @@ paths:
       tags:
         - Exchange Rate
       x-group-name: Exchange Rate
-      x-proxy-name: Get Rates
+      x-proxy-name: Get Rate
       summary: Provides the rates information for country currency pair and scheme.
       description: This API provides the exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Client cross reference Id and Merchant cross reference Id and Bin to determine the exchnage rate.
       operationId: rateExchange
@@ -105,7 +105,7 @@ paths:
   /fx/v1/pricing/request/allrates:
     post:
       tags:
-        - Exchange Rate
+        - Get All Rates
       x-group-name: Exchange Rate
       x-proxy-name: Get Exchange Rates
       summary: Provides list of exchange rates information for country currency pair and scheme.
