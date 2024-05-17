@@ -27,12 +27,30 @@
 # are granted or extended by this work or 
 # the delivery of this work
 ################################################################################
-
 - sections:
-  - title: Getting Started
-    link: docs/getting-started.md
+    - title: Dynamic Currency Conversion
+      link: docs/dynamic-currency-conversion.md
+- sections:
+    - title: Dynamic Pricing
+      link: docs/dynamic-pricing.md
+- sections:
+    - title: Multi currency Pricing
+      link: docs/multicurrency-pricing.md
+- sections:
+    - title: Getting Started
+      link: docs/getting-started.md
+      sections:
+        - title: Features
+          sections:
+            - title: In Person
+              link: docs/in-person.md
+            - title: Online / Digital / Mobile
+              link: docs/digital.md
 - sections:
   - title: Release notes
     sections:
-    - title: March 2022
-      link: docs/release-notes/2022/march.md
+    - title: May 2024
+      link: docs/release-notes/2024/march.md
+
+
+
