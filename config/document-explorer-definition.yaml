@@ -41,7 +41,7 @@
   - title: Release notes
     sections:
     - title: May 2024
-      link: docs/release-notes/2022/march.md
+      link: docs/release-notes/2024/march.md
 - sections:
     - title: Dynamic Currency Conversion
       link: docs/dynamic-currency-conversion.md
