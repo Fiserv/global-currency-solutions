@@ -28,6 +28,15 @@
 # the delivery of this work
 ################################################################################
 - sections:
+    - title: Dynamic Currency Conversion
+      link: docs/dynamic-currency-conversion.md
+- sections:
+    - title: Dynamic Pricing
+      link: docs/dynamic-pricing.md
+- sections:
+    - title: Multi currency Pricing
+      link: docs/multicurrency-pricing.md
+- sections:
     - title: Getting Started
       link: docs/getting-started.md
       sections:
@@ -42,14 +51,6 @@
     sections:
     - title: May 2024
       link: docs/release-notes/2024/march.md
-- sections:
-    - title: Dynamic Currency Conversion
-      link: docs/dynamic-currency-conversion.md
-- sections:
-    - title: Dynamic Pricing
-      link: docs/dynamic-pricing.md
-- sections:
-    - title: Multi currency Pricing
-      link: docs/multicurrency-pricing.md
+
 
 
