@@ -36,36 +36,21 @@ header:
     altText: Global Currency Solution
 
 featuredFeatures:
-  - title: REPLACE ME
-    description:  REPLACE ME
-    tags: ["REPLACEME", "REPLACEME", "REPLACEME"]
-    bullets: ["REPLACEME", "REPLACEME" ]  
+  - title: FX Rate Provider
+    description:  FX Rate Provider can be used for treasuries to provide FX rates for Dynamic Currency Conversion or Dynamic Pricing transactions.
+    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
+    bullets: [ "Global Currency Solution", "Currency Conversion" ]
     relatedDocs:
       - relatedDoc: 
-        title: REPLACEME
-        description: REPLACEME
-        link: ./docs/REPLACE-ME1.md
-      - relatedDoc: 
-        title: REPLACEME
-        description: REPLACEME
-        link: ./docs/REPLACE-ME2.md
-      - relatedDoc: 
-        title: REPLACEME
-        description: REPLACEME
-        link: ./docs/REPLACE-ME3.md
-    relatedAPIs:
-      - relatedAPI: 
-        title: REPLACEME
-        description: REPLACEME
-        type: "patch"        
-        path: "/v1/REPLACEME1"
-      - relatedAPI: 
-        title: REPLACEME
-        description: REPLACEME
-        type: "post"        
-        path: "/v1/REPLACEME2"
-      - relatedAPI: 
-        title: REPLACEME
-        description: REPLACEME
-        type: "get"        
-        path: "/v1/REPLACEME3"
+        title: Getting Started
+        description: Getting Started
+        link: docs/getting-started.md
+  - title: Alternative Payment Methods
+    description: COMING SOON
+    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
+    bullets: [ "Global Currency Solution", "Currency Conversion" ]
+  - title: ATM
+    description: COMING SOON
+    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
+    bullets: [ "Global Currency Solution", "Currency Conversion" ]
+
