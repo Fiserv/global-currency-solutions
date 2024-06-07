@@ -37,13 +37,7 @@
 - sections:
     - title: Getting Started
       link: docs/getting-started.md
-      sections:
-        - title: Features
-          sections:
-            - title: In Person
-              link: docs/in-person.md
-            - title: Online / Digital / Mobile
-              link: docs/digital.md
+
 - sections:
   - title: Release notes
     sections:
