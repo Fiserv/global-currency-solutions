@@ -34,6 +34,14 @@ header:
   image: 
     link: "/assets/images/Fiserv_Logo.jpg"
     altText: Global Currency Solution
+getStarted: /docs/getting-started.md
+benefits:
+  - title: Increase revenue
+    description: Help increase sales - up to 60% sales volume growth through expansion.
+  - title: Minimize costs
+    description: Earn revenue from processing foreign issued cards through a direct revenue share, or by including margin in pricing.
+  - title: Better experience
+    description: Lower shopping card abandonment - over 30% of shoppers will bail if their currency is not offered.
 
 featuredFeatures:
   - title: FX Rate Provider
