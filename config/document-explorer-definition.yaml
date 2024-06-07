@@ -45,8 +45,7 @@
               - title: Online / Digital / Mobile
                 link: docs/digital.md
 
-          - title: Use Our APIs
-            link: docs/use-our-apis.md
+
 - sections:
   - title: Release notes
     sections:
