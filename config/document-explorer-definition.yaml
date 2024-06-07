@@ -30,13 +30,10 @@
 - sections:
     - title: Dynamic Currency Conversion
       link: docs/dynamic-currency-conversion.md
-- sections:
     - title: Dynamic Pricing
       link: docs/dynamic-pricing.md
-- sections:
     - title: Multi currency Pricing
       link: docs/multicurrency-pricing.md
-- sections:
     - title: Getting Started
       link: docs/getting-started.md
       sections:
