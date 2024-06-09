@@ -12,7 +12,6 @@ https://int.api.fiservapps.com
 - Test APIs before certifying for production
 - View the response format of a specific API
   = Experiment, develop code and fix bugs
-- Send and cancel "test" transactions
 ------------------
 
 ## API Overview

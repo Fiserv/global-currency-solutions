@@ -23,3 +23,13 @@ Some merchant best practices, include:
 - Merchants must disclose their payment location to consumers as part of the merchant website requirements.
 - Allow the cardholder an easy and quick way to toggle between currencies, or shift back into merchant’s local currency.
 - Price goods in your local currency by default and require that your customer opt to see prices in their local currency, only through conscious choice.
+
+## APIs Used
+<!-- type: row -->
+<!-- type: card 
+title: Get All Rates
+description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Target currency, Client cross reference Id and Merchant cross reference Id to determine the exchnage rate.Target currency are the optional attributes and used as filter criteria while determining the rate.
+link: ../api/?type=post&path=/fx/v1/pricing/request/allrates
+-->
+
+<!-- type: row-end -->
