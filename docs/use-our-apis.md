@@ -6,7 +6,7 @@ FX Solutions RESTful API allows a merchant or bank partner to get FX Rates used 
 FX Solutions has different environments, that allow the consumption of our RESTful APIs for client development and customer testing. For ease of use, only the testing environment will be available.
 
 ## Sandbox
-https://int.api.fiservapps.com
+<https://int.api.fiservapps.com>
 
 - Uses Sandbox credentials
 - Test APIs before certifying for production
@@ -113,7 +113,7 @@ Accompanying the 4xx codes will be messages with detail on the parameter causing
 | OK[Eligible = Y]	          | 200	                     | RateSupplied                                                             |                                                                                                   |
 | OK[Eligible = D]	          | 200	                     | SourceAndTargetCannotBeSame                                              |                                                                                                   |
 | OK[Eligible = N]	          | 200	                     | CardBrandNotSupported                                                    |                                                                                                   |
-| BAD_REQUEST	               | 400	                     | NoLocationInfo	                                                          | Invalid client: <CLIENT_ID>_<LOCATION_ID>                                                         |
+| BAD_REQUEST	               | 400	                     | NoLocationInfo	                                                          | Invalid client: {CLIENT_ID}_{LOCATION_ID}                                                         |
 | BAD_REQUEST	               | 400	                     | TargetCurrencyInExclusion	                                               | Target currency not permitted for client                                                          |                                                      
 | BAD_REQUEST	               | 400                      | 	TargetCurrencyNotSupported  InvalidSourceAmount                         |                                                                                                   |
 | NOT_FOUND	                 | 404	                     | SourceCurrencyInExclusion  SourceCurrencyNotSupported  NoRatesAvailable	 | No rate available                                                                                 |                                
