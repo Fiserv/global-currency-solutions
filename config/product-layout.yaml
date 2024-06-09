@@ -29,11 +29,19 @@
 ################################################################################
 header:
   productName: Global Currency Solution
-  productionDescription: Unlock the power of FX in your application with our robust API integration. Our developer-friendly API allows you to enable real-time currency conversion at the point of sale for card present and card not present transactions. By leveraging our API, you can offer users transparent exchange rates. <br/><br/><b>Our suite of FX Solutions includes:</b><ul><li>Dynamic Currency Conversion (DCC)</li><li>Multi-Currency Pricing (MCP)</li><li>Dynamic Pricing (DP)</li></ul><b>Major functional APIs are Exchange Rate and Boarding APIs. </b><ul><li><b>Exchange Rate APIs let you retrieve FX rates and BINs by making API requests.</b></li><ul><li>The Get Rate API lets you retrieve the  FX rate based on the BIN and source currency (Use for DCC) </li><li>The Get All Rates API lets you retrieve a set of FX rates for a currency (Use for DP and MCP)   </li><li>The Get BINS by Currency API lets you retrieve the list of available BINs given a currency code (Use DP and MCP)</li></ul><li><b>Boarding APIs let you retrieve, create and update clients and locations by making API requests. </b></li><ul><li>The Create or Update Client API lets you create or update a Client ID (Use for DCC) </li><li>The Create or Update Location API lets you create or update a Location ID (Use for DCC) </li><li>The Get All Sub Client Locations API lets you retrieve the locations associated with a Client ID (Use for DCC)</li><li>The Get Client Location  API lets you retrieve the location detail for locations associated with a Client ID (Use for DCC) </li></ul>
+  productionDescription: Merchants or acquirers can unlock the power of FX with our suite of products. Our APIs enable real-time currency conversion at the point of sale for card present and card not present transactions. Cardholders receive transaparent FX rates, merchants enhance the cardholder experience while settling in the currency of their choice, and acquirers provide their merchants with tools enhancing the cardholder experience. <br/><br/><b>Our suite of FX Solutions includes:</b><ul><li><a href="/product/GlobalCurrencySolutions/docs/?path=docs/dynamic-currency-conversion.md">Dynamic Currency Conversion (DCC)</a></li><li><a href="/product/GlobalCurrencySolutions/docs/?path=docs/multicurrency-pricing.md">Multi-Currency Pricing (MCP)</a></li></ul><b>Major functional APIs for these products are Exchange Rate and Boarding APIs. </b><ul><li><b>Exchange Rate Retrieval</b><ul><li><b>The Exchange Rate APIs</b> allow clients to obtain exchange rates based on specific parameters. These parameters may include the currency pair (source and target currency), client ID, location ID, and the BIN (Bank Identification Number).</li></ul></li><li><b>Boarding </b><ul><li>The <b>Client Management APIs</b> are used to create or update Client information. Customers can also retrieve a list of locations associated with a specific Client. The Client level sits above the Location level.</li><li>The <b>Location Management APIs</b> are used to create or update Location information. Location represents the lowest level in the OpenFX hierarchy and is the individual merchant location. Customers can also retrieve information for a specific location based on its unique identifier. </li></li></ul>
   whoIsItFor: Merchants, Financial Institutions
   image: 
     link: "/assets/images/Fiserv_Logo.jpg"
     altText: Global Currency Solution
+getStarted: /docs/getting-started.md
+benefits:
+  - title: Increase revenue
+    description: Help increase sales - up to 60% sales volume growth through expansion.
+  - title: Minimize costs
+    description: Earn revenue from processing foreign issued cards through a direct revenue share, or by including margin in pricing.
+  - title: Better experience
+    description: Lower shopping card abandonment - over 30% of shoppers will bail if their currency is not offered.
 
 featuredFeatures:
   - title: FX Rate Provider
@@ -45,11 +53,11 @@ featuredFeatures:
         title: Getting Started
         description: Getting Started
         link: docs/getting-started.md
-  - title: Alternative Payment Methods
+  - title: Issuing Currency Conversion
     description: COMING SOON
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
-  - title: ATM
+  - title: MCP Guaranteed Rate
     description: COMING SOON
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]

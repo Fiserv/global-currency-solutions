@@ -218,7 +218,7 @@ paths:
       tags:
         - Exchange Rate
       x-group-name: Exchange Rate
-      x-proxy-name: Get Bins by currency
+      x-proxy-name: Get Bins by Currency
       summary: Provides a list of all BINs associated for the given currency code
       description: This API will provide the list of available BINS in OpenFX for the given currency code and an optional indicator of inverse=true/false.
       operationId: getBins

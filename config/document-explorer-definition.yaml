@@ -30,22 +30,13 @@
 - sections:
     - title: Dynamic Currency Conversion
       link: docs/dynamic-currency-conversion.md
-- sections:
-    - title: Dynamic Pricing
-      link: docs/dynamic-pricing.md
-- sections:
-    - title: Multi currency Pricing
+    - title: Multicurrency-Pricing
       link: docs/multicurrency-pricing.md
-- sections:
     - title: Getting Started
       link: docs/getting-started.md
       sections:
-        - title: Features
-          sections:
-            - title: In Person
-              link: docs/in-person.md
-            - title: Online / Digital / Mobile
-              link: docs/digital.md
+        - title: Use Our APIs
+          link: docs/use-our-apis.md
 - sections:
   - title: Release notes
     sections:
