@@ -29,7 +29,7 @@
 ################################################################################
 header:
   productName: Global Currency Solution
-  productionDescription: Merchants or acquirers can unlock the power of FX with our suite of products. Our APIs enable real-time currency conversion at the point of sale for card present and card not present transactions. Cardholders receive transaparent FX rates, merchants enhance the cardholder experience while settling in the currency of their choice, and acquirers provide their merchants with tools enhancing the cardholder experience. <br/><br/><b>Our suite of FX Solutions includes:</b><ul><li>Dynamic Currency Conversion (DCC)</li><li>Multi-Currency Pricing (MCP)</li></ul><b>Major functional APIs for these products are Exchange Rate and Boarding APIs. </b><ul><li><b>Exchange Rate Retrieval</b><br/><br/><b>The Exchange Rate APIs</b> allow clients to obtain exchange rates based on specific parameters. These parameters may include the currency pair (source and target currency), client ID, location ID, and the BIN (Bank Identification Number).</li><li><b>Boarding </b><br/><br/>The <b>Client Management APIs</b> are used to create or update Client information. Customers can also retrieve a list of locations associated with a specific Client. The Client level sits above the Location level.<br/>The <b>Location Management APIs</b> are used to create or update Location information. Location represents the lowest level in the OpenFX hierarchy and is the individual merchant location. Customers can also retrieve information for a specific location based on its unique identifier. </li></ul>
+  productionDescription: Merchants or acquirers can unlock the power of FX with our suite of products. Our APIs enable real-time currency conversion at the point of sale for card present and card not present transactions. Cardholders receive transaparent FX rates, merchants enhance the cardholder experience while settling in the currency of their choice, and acquirers provide their merchants with tools enhancing the cardholder experience. <br/><br/><b>Our suite of FX Solutions includes:</b><ul><li><a href="/product/GlobalCurrencySolutions/docs/?path=docs/dynamic-currency-conversion.md">Dynamic Currency Conversion (DCC)</a></li><li><a href="/product/GlobalCurrencySolutions/docs/?path=docs/multicurrency-pricing.md">Multi-Currency Pricing (MCP)</a></li></ul><b>Major functional APIs for these products are Exchange Rate and Boarding APIs. </b><ul><li><b>Exchange Rate Retrieval</b><ul><li><b>The Exchange Rate APIs</b> allow clients to obtain exchange rates based on specific parameters. These parameters may include the currency pair (source and target currency), client ID, location ID, and the BIN (Bank Identification Number).</li></ul></li><li><b>Boarding </b><ul><li>The <b>Client Management APIs</b> are used to create or update Client information. Customers can also retrieve a list of locations associated with a specific Client. The Client level sits above the Location level.</li><li>The <b>Location Management APIs</b> are used to create or update Location information. Location represents the lowest level in the OpenFX hierarchy and is the individual merchant location. Customers can also retrieve information for a specific location based on its unique identifier. </li></li></ul>
   whoIsItFor: Merchants, Financial Institutions
   image: 
     link: "/assets/images/Fiserv_Logo.jpg"
@@ -53,11 +53,11 @@ featuredFeatures:
         title: Getting Started
         description: Getting Started
         link: docs/getting-started.md
-  - title: Alternative Payment Methods
+  - title: Issuing Currency Conversion
     description: COMING SOON
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
-  - title: ATM
+  - title: MCP Guaranteed Rate
     description: COMING SOON
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
