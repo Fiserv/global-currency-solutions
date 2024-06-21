@@ -1,11 +1,11 @@
 ## Getting Started with FX Solutions
 Integrate FX solutions using the Developer Studio. FX solutions offers a suite of products, including  Dynamic Currency Conversion and Multicurrency Pricing.
 
-<br> To get started: </br>
-<br>1. Review the product offerings on Product Overview</br>
-<br>1. Choose the product that aligns with business goals and cardholder experience </br>
-<br>1. To start using the APIs Create an Account </br>
-<br>1. Once account is created, you can request an API Key & Secret for TEST environment </br>
+<br> To get started: 
+<br>1. Review the product offerings on Product Overview 
+<br>1. Choose the product that aligns with business goals and cardholder experience 
+<br>1. To start using the APIs Create an Account 
+<br>1. Once account is created, you can request an API Key & Secret for TEST environment 
 
 
 ## Use Cases
