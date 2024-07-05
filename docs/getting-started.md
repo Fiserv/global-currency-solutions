@@ -1,11 +1,16 @@
 ## Getting Started with FX Solutions
 Integrate FX solutions using the Developer Studio. FX solutions offers a suite of products, including  Dynamic Currency Conversion and Multicurrency Pricing.
- 
-To get started: 
-<br>1. Review product offerings on PRODUCT OVERVIEW 
-<br>2. Choose the product that aligns with business goals and desired cardholder experience 
-<br>3. To start using the APIs, CREATE AN ACCOUNT
-<br>4. Request an API Key & Secret for TEST environment
+<h3>Introduction </h3>
+There are a few things necessary to get started and make your first FX rate call using Fiserv's Services.
+
+To get started, use the API Explorer:
+<br>1. Review product offerings on <b><i> Product overview</i></b>.
+<br>2. Choose the product that aligns with business goals and desired cardholder experience.
+<br>3. Click <b><i> API explorer </i></b> on the left hand side menu to access the mock server.
+<br>4. Select <b><i> API Explorer > Exchange Rate </i></b> for  Get All Rates and Get Rate APIs used for Dynamic Currency Conversion and Multi-Currency Pricing.
+<br>5. In <b><i> Getting Started > Use Our APIs </i></b> you will find more information regarding response codes.
+<br>6. Validate your use case.
+<br>7. Contact our sales team if you would like to learn more.
 
 
 ## Use Cases
