@@ -23,7 +23,7 @@ All visitors to the Developer Studio can access the API Documentation to integra
 
 ### Access FX Solution APIs
 
-Follow the below steps to get an access to the Developer Studio and use the FX Solutions APIs.
+Follow the below steps to get access to the Developer Studio and use the FX Solutions APIs.
 
 1. Create a developer account in the Developer Studio. To create an account, you will need a valid business email address.
 
