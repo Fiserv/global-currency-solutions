@@ -5,15 +5,7 @@ Multi currency Pricing (MCP) is a Card Not Present (CNP) offering that allows me
 ## Cardholder Experience
 Provides cardholders with pricing in their currency of choice throughout the shopping experience but does not guarantee their final cost in their local currency.
 
-## Features
-- Supports more than 130 global currencies (V,MC,AMEX)
-- Merchant sets all pricing in foreign currency
-- Merchant does not need to do incremental integration work
-- Merchant settlement uses a different FX rate than authorization
-- Enables easy cross-border expansion into markets
-- where merchant may not be domiciled
-
-## MCP  Experience
+## Merchant Experience
 
 Depending on how MCP is implemented, the currency can be chosen by the cardholder, using a drop down for example, or determined by Geo IP. MCP is designed for card not present environments such as ecommerce. Merchants can display their prices in different currencies offering the cardholder the opportunity to transact in their currency of choice while the merchant is settled in their home currency.
 
@@ -23,6 +15,13 @@ Some merchant best practices, include:
 - Merchants must disclose their payment location to consumers as part of the merchant website requirements.
 - Allow the cardholder an easy and quick way to toggle between currencies, or shift back into merchant’s local currency.
 - Price goods in your local currency by default and require that your customer opt to see prices in their local currency, only through conscious choice.
+
+## Features
+- Supports more than 130 global currencies (V,MC,AMEX)
+- Merchant sets all pricing in foreign currency
+- Merchant does not need to do incremental integration work
+- Merchant settlement uses a different FX rate than authorization
+- Enables easy cross-border expansion into markets where merchant may not be domiciled
 
 ## APIs Used
 <!-- type: row -->
