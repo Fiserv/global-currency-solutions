@@ -38,7 +38,7 @@ Follow the below steps to get access to the Developer Studio and use the FX Solu
 | Integration Test | <https://int.api.firstdata.com> |
 
 ### Request Header
-FX Solutions RESTful API has a consistent header structure based on a set of parameters. To create the header, provide the following values:
+FX Solutions RESTful API has a consistent header structure based on a set of parameters. To create the header, provide the following values:  
 
 | Header Name       | Value | Description                                                                                                                   |
 |-------------------|-------|-------------------------------------------------------------------------------------------------------------------------------|
