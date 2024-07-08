@@ -22,13 +22,13 @@ The card scheme-mandated disclosures, include:
 <!-- type: row -->
 <!-- type: card 
 title: Get Rate
-description: This API provides the exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Client cross reference Id and Merchant cross reference Id and Bin to determine the exchange rate.
+description: This API provides the exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses Source currency, Client Cross Reference ID and Merchant Cross Reference ID and Bin to determine the exchange rate.
 link: ../api/?type=post&path=/fx/v1/pricing/request
 -->
 
 <!-- type: card 
-title: Get Bins by Currency
-description: This API will provide the list of available BINS in OpenFX for the given currency code and an optional indicator of inverse=true/false.
+title: Get BINs by Currency
+description: This API will provide the list of available BINs in OpenFX for the given currency code.
 link: ../api/?type=GET&path=/fx/v1/pricing/bin/{currency_code}
 -->
 
