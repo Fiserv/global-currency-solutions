@@ -1,5 +1,5 @@
 ## Getting Started with FX Solutions
-Integrate FX Solutions using the Developer Studio. FX Solutions offers a suite of products, including  Dynamic Currency Conversion and Multicurrency Pricing.
+Integrate FX Solutions using the Developer Studio. FX Solutions offers a suite of products, including  Dynamic Currency Conversion and Multi-Currency Pricing.
 <h3>Introduction </h3>
 A few things are necessary to make your first FX rate call using Fiserv's Services.
 
@@ -27,8 +27,8 @@ Build an integration based on common use cases.
 -->
 
 <!-- type: card
-    title: Multicurrency Pricing
-    Description: Multicurrency Pricing (MCP) is a Card Not Present offering that allows merchants to offer pricing in multiple currencies.
+    title: Multi-Currency Pricing
+    Description: Multi-Currency Pricing (MCP) is a Card Not Present offering that allows merchants to offer pricing in multiple currencies.
 
     link: ?path=docs/multicurrency-pricing.md
 -->

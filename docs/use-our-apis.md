@@ -23,13 +23,13 @@ All visitors to the Developer Studio can access the API Documentation to integra
 
 ### Access FX Solution APIs
 
-Follow the below steps to get an access to the Developer Studio and use the FX Solutions APIs.
+Follow the below steps to get access to the Developer Studio and use the FX Solutions APIs.
 
-1. Request and create a developer account in the Developer Studio. To create an account, you will need account information and a valid business email address.
+1. Create a developer account in the Developer Studio. To create an account, you will need a valid business email address.
 
-1. Receive TEST API Key and Secret. After registration,  the developer will have instant access to the shared sandbox Merchant ID (MID) and FX Solutions Exchange Rate APIs. The developer will also receive a test API Key and Secret via encrypted email. This API Key and Secret will be used for authentication.
+1. Request a TEST API Key and Secret. After account creation,  you will receive access to a shared sandbox Merchant ID (MID) and FX Solutions Exchange Rate APIs. You will also receive a test API Key and Secret via encrypted email. This API Key and Secret will be used for authentication.
 
-1. Construct an API Request to use the FX Solutions APIs in TEST environment. For DCC, use 1) Get RATE call and 2)Get BINS BY CURRENCY. For MCP, recommend Get ALL RATES. 
+1. Construct an API Request to use the Exchange Rate APIs in TEST environment. For DCC, use 1) GET RATE  and 2)GET BINS BY CURRENCY. For MCP, use  GET ALL RATES. 
 
 ### Endpoints
 
@@ -106,7 +106,7 @@ FX Solutions products use conventional HTTP response codes to indicate the succe
 
 Accompanying the 4xx codes will be messages with detail on the parameter causing the error.
 
-#### OpenFX Error Messages/Codes mapping to CommerceHub Error Messages
+#### OpenFX Error Messages/Codes
 
 | HTTP Status                | 	Response Code           | 	Reason	                                                                 | Message                                                                                           |
 |----------------------------|--------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
