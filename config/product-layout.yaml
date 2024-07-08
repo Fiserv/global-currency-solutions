@@ -55,11 +55,11 @@ featuredFeatures:
         description: Getting Started
         link: docs/getting-started.md
   - title: Issuing Currency Conversion
-    description: Issuers can offer a currency conversion experience for their cardholders. <b>Coming Soon</b>
+    description: Issuers can offer a currency conversion experience for their cardholders. Coming Soon.
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
   - title: MCP Enhanced
-    description: Merchants are given transparency about the final settlement amount and cardholders can shop in their preferred currency. <b>Coming Soon</b>
+    description: Merchants are given transparency about the final settlement amount and cardholders can shop in their preferred currency. Coming Soon.
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
 

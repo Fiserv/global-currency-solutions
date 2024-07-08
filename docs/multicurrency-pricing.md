@@ -28,7 +28,7 @@ Some merchant best practices, include:
 <!-- type: row -->
 <!-- type: card 
 title: Get All Rates
-description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Target currency, Client cross reference Id and Merchant cross reference Id to determine the exchnage rate.Target currency are the optional attributes and used as filter criteria while determining the rate.
+description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses Source currency, Target currency, Client Cross Reference ID and Merchant Cross Reference ID to determine the exchange rate.Target currency is an optional attribute and used as a filter criteria while determining the rate.
 link: ../api/?type=post&path=/fx/v1/pricing/request/allrates
 -->
 
