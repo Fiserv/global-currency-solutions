@@ -27,7 +27,7 @@ Build an integration based on common use cases.
 -->
 
 <!-- type: card
-    title: Multi-Currency Pricing
+    title: Multi-Currency Pricing 
     Description: Multi-Currency Pricing (MCP) is a Card Not Present offering that allows merchants to offer pricing in multiple currencies.
 
     link: ?path=docs/multicurrency-pricing.md
