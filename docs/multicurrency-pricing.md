@@ -9,7 +9,7 @@ Provides cardholders with pricing in their currency of choice throughout the sho
 
 Depending on how MCP is implemented, the currency can be chosen by the cardholder, using a drop down for example, or determined by Geo IP. MCP is designed for card not present environments such as ecommerce. Merchants can display their prices in different currencies offering the cardholder the opportunity to transact in their currency of choice while the merchant is settled in their home currency.
 
-Some merchant best practices, include:
+Some merchant best practices include:
 
 - Fully disclose on your website payments page, the country or region in which you are currently operating. Merchants should also inform the customer of the transaction currency used for the purchase. This is particularly important for currencies that are not unique. For example, a dollar may be an Australian, New Zealand, Hong Kong, or U.S. Dollar.
 - Merchants must disclose their payment location to consumers as part of the merchant website requirements.
