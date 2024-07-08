@@ -22,7 +22,7 @@ The card scheme-mandated disclosures, include:
 <!-- type: row -->
 <!-- type: card 
 title: Get Rate
-description: 
+description: This API provides the exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses Source currency, Client cross Reference ID and Merchant Cross Reference ID and Bin to determine the exchange rate.
 link: ../api/?type=post&path=/fx/v1/pricing/request
 -->
 
