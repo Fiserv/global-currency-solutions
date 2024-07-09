@@ -32,13 +32,10 @@
       link: docs/dynamic-currency-conversion.md
     - title: Multicurrency-Pricing
       link: docs/multicurrency-pricing.md
-    - title: Getting Started
-      link: docs/getting-started.md
     - title: Use Our APIs
       link: docs/use-our-apis.md
-      sections:
-        - title: Use Our APIs
-          link: docs/use-our-apis.md
+
+
 - sections:
   - title: Release notes
     sections:
