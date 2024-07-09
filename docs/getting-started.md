@@ -4,10 +4,10 @@ Integrate FX Solutions using the Developer Studio. FX Solutions offers a suite o
 A few things are necessary to make your first FX rate call using Fiserv's Services.
 
 To get started using the API Explorer:
-<br>1. Review product offerings on <b><i> Product overview</i></b>.
+<br>1. Review product offerings on <b><i> <a href="/">Product Overview</a></i></b>.
 <br>2. Choose the product that aligns with business goals and desired cardholder experience.
-<br>3. Click <b><i> API explorer </i></b> on the left hand side menu to access the mock server.
-<br>4. Select <b><i> API Explorer > Exchange Rate </i></b> for  Get All Rates and Get Rate APIs used for Dynamic Currency Conversion and Multi-Currency Pricing.
+<br>3. Click <b><i> API Explorer</i></b> on the left hand side menu to access the mock server.
+<br>4. Select <b><i> API Explorer > Exchange Rate </i></b> for  <a href="?path=/fx/v1/pricing/request/allrates&branch=develop&version=1.0.0">Get All Rates </a> and Get Rate APIs used for Dynamic Currency Conversion and Multi-Currency Pricing.
 <br>5. In <b><i> Getting Started > Use Our APIs </i></b> you will find more information regarding response codes.
 <br>6. Validate your use case.
 <br>7. Contact our sales team if you would like to learn more.
