@@ -23,12 +23,4 @@ Some merchant best practices include:
 - Merchant settlement uses a different FX rate than authorization
 - Enables easy cross-border expansion into markets where merchant may not be domiciled
 
-## APIs Used
-<!-- type: row -->
-<!-- type: card 
-title: Get All Rates
-description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses Source currency, Target currency, Client Cross Reference ID and Merchant Cross Reference ID to determine the exchange rate.Target currency is an optional attribute and used as a filter criteria while determining the rate.
-link: ../api/?type=post&path=/fx/v1/pricing/request/allrates
--->
-
 <!-- type: row-end -->
