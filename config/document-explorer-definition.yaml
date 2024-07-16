@@ -28,8 +28,8 @@
 # the delivery of this work
 ################################################################################
 - sections:
-    - title: Use Our APIs
-      link: docs/use-our-apis.md
+  - title: Use Our APIs
+    link: docs/use-our-apis.md
 - sections:
     - title: Dynamic Currency Conversion
       link: docs/dynamic-currency-conversion.md
