@@ -23,4 +23,7 @@ Some merchant best practices include:
 - Merchant settlement uses a different FX rate than authorization
 - Enables easy cross-border expansion into markets where merchant may not be domiciled
 
+## APIs Used
+<!-- type: row -->
+MCP is available through Commerce Hub. To learn more, please visit the <b><a href="/product/CommerceHub">Commerce Hub Developer Studio</a></b>.
 <!-- type: row-end -->
