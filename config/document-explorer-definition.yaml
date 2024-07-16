@@ -28,12 +28,13 @@
 # the delivery of this work
 ################################################################################
 - sections:
-    - title: Dynamic Currency Conversion
-      link: docs/dynamic-currency-conversion.md
-    - title: Multicurrency-Pricing
-      link: docs/multicurrency-pricing.md
     - title: Use Our APIs
       link: docs/use-our-apis.md
+- sections:
+    - title: Dynamic Currency Conversion
+      link: docs/dynamic-currency-conversion.md
+    - title: Multi-Currency Pricing
+      link: docs/multicurrency-pricing.md
 
 
 - sections:
