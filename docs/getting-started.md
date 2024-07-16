@@ -6,11 +6,11 @@ A few things are necessary to make your first FX rate call using Fiserv's Servic
 To get started using the API Explorer:
 <br>1. Review product offerings on <b><i> <a href="/product/FXSolutions">Product Overview</a></i></b>.
 <br>2. Choose the product that aligns with business goals and desired cardholder experience.
-<br>3. Click <b><i> API Explorer</i></b> on the left hand side menu to access the mock server.
-<br>4. Select <b><i> API Explorer > Exchange Rate </i></b> and access APIs used for current and upcoming product offerings.
-<br>5. In <b><i> Getting Started > Use Our APIs </i></b> you will find more information regarding response codes.
-<br>6. Validate your use case.
-<br>7. Contact our sales team if you would like to learn more.
+<br>3. Click <b><i> API Explorer</i></b> on the left hand side to access APIs used for select product offerings.
+<br>4. Find information about authentication and response codes under <b><i> Documentation > Use Our APIs </i></b>.
+<br>5. Request an API Key & Secret for TEST environment by contacting your sales or product point of contact.
+<br>5. Validate your use case.
+<br>6. Contact our sales team if you would like to learn more.
 
 
 ## Use Cases
