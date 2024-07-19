@@ -46,20 +46,15 @@ getStarted: /docs/getting-started.md
 
 featuredFeatures:
   - title: FX Rate Provider
-    description:  Market makers or treasuries can provide FX rates for Dynamic Currency Conversion transactions.
-    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
+    description:  Market makers or treasuries can provide FX rates for Dynamic Currency Conversion transactions. Coming soon.
+    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion", "FX Solutions" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
-    relatedDocs:
-      - relatedDoc:
-        title: Getting Started
-        description: Getting Started
-        link: docs/getting-started.md
   - title: Issuing Currency Conversion
     description: Issuers can offer a currency conversion experience for their cardholders. Coming Soon.
-    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
+    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion", "FX Solutions" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
   - title: MCP Enhanced
     description: Merchants are given transparency about the final settlement amount and cardholders can shop in their preferred currency. Coming Soon.
-    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion" ]
+    tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion", "FX Solutions" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
 
