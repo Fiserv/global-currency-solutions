@@ -27,9 +27,9 @@ Follow the below steps to get access to the Developer Studio and use the FX Solu
 
 1. Create a developer account in the Developer Studio. To create an account, you will need a valid business email address.
 
-1. Request a TEST API Key and Secret. After account creation,  you will receive access to a shared sandbox Merchant ID (MID) and FX Solutions Exchange Rate APIs. You will also receive a test API Key and Secret via encrypted email. This API Key and Secret will be used for authentication.
+2. Request a TEST API Key and Secret. After account creation,  you will receive access to a shared sandbox Merchant ID (MID) and FX Solutions Exchange Rate APIs. You will also receive a test API Key and Secret via encrypted email. This API Key and Secret will be used for authentication.
 
-1. Construct an API Request to use the Exchange Rate APIs in TEST environment. For DCC, use 1) GET RATE  and 2)GET BINS BY CURRENCY. For MCP, use  GET ALL RATES. 
+3. Construct an API Request to use the Exchange Rate APIs in TEST environment. For DCC, use 1) GET RATE  and 2)GET BINS BY CURRENCY. For MCP, use  GET ALL RATES. 
 
 ### Endpoints
 
