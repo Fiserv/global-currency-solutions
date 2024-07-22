@@ -26,14 +26,12 @@ All visitors to the Developer Studio can access the API Documentation to integra
 Follow the below steps to get access to begin using the FX Solutions APIs: 
 
 1. Explore the FX Solutions Developer Studio experience.
-
-2. Choose the product that will help you achieve your business or revenue goals and explore the corresponding APIs in the overview sections. 
-
-3. Request a TEST API Key and Secret, please contact Fiserv Sales or the FX Solutions Product Team. 
-
-4. You will receive a TEST API Key and Secret and Merchant ID (MID). These credentials and MID can be used for the Exchange Rate APIs used for DCC. Please note MCP can be accessed through the CommerceHub experience and details can be found on the Multi-Currency Pricing tab.  
-
-5. Use the credentials and MID for constructing the API Request to use the Exchange Rate APIs in TEST environment. 
+2. Choose the product that will help you achieve your business or revenue goals and explore the corresponding APIs in the overview sections.
+3. Request a TEST API Key and Secret, please contact your sales or the product point of contact.
+4. You will receive a TEST API Key and Secret and Merchant ID (MID). These credentials and MID can be used for the Exchange Rate APIs used for DCC. Please note MCP can be accessed through the CommerceHub experience and details can be found on the Multi-Currency Pricing tab.
+5. Use the credentials and MID for constructing the API Request to use the Exchange Rate APIs in TEST environment.
+6. Validate the use case. 
+7. Contact sales or the product point of contact if you need additional information. 
 
 ### Endpoints
 
