@@ -1,9 +1,9 @@
 ## Constructing a RESTful API Request
-FX Solutions RESTful API allows a merchant or bank partner to get FX Rates used for MCP or DCC within their own website, software, or terminal. Each request consists of the Header followed by the Request Body.
+FX Solutions' RESTful API allows a merchant or bank partner to test MCP or DCC in their own website, software, or terminal. Each request consists of the Header followed by the Request Body.
 
 ## Environments
 
-FX Solutions has different environments, that allow the consumption of our RESTful APIs for client development and customer testing. For ease of use, only the testing environment will be available.
+FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please <a href="https://www.carat.fiserv.com/en-us/contact/?utm_campaign=currency_content">contact us.  
 
 ## Sandbox
 https://int.api.fiservapps.com
