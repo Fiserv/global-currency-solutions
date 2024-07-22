@@ -3,7 +3,7 @@ FX Solutions' RESTful API allows a merchant or bank partner to test MCP or DCC i
 
 ## Environments
 
-FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please <a href="https://www.carat.fiserv.com/en-us/contact/?utm_campaign=currency_content">contact us.  
+FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please <a href="https://www.carat.fiserv.com/en-us/contact/?utm_campaign=currency_content"> contact us to get started.  
 
 ## Sandbox
 https://int.api.fiservapps.com
