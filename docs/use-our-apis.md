@@ -14,22 +14,26 @@ https://int.api.fiservapps.com
 - Experiment, develop code and fix bugs
 
 ## API Overview
-The FX Solutions APIs use API keys to authenticate requests. You can request your TEST API keys by creating a user account on Developer Studio.
+API keys are used to authenticate requests. You can request TEST API Keys from your Fiserv Sales  or FX Solutions Product team.
 
-Please keep the TEST API keys secure, these belong to you. Do not share your secret API keys in publicly accessible websites such as GitHub, client-side code, and so forth. All API requests must be made over HTTPS. Calls made using HTTP will fail.
+Please keep the TEST API Keys secure, these belong to you. Do not share your secret API Keys in publicly accessible websites. All API requests must be made over HTTPS - calls made using HTTP will fail.
 
 ## Authentication
-All visitors to the Developer Studio can access the API Documentation to integrate you'll need a TEST API key and secret. You'll need to register for an account to get an API key and secret.
+All visitors to the Developer Studio can access the API Documentation to integrate. You'll need a TEST API Key and Secret. Contact your Fiserv Sales or FX Solutions Product team to get a TEST API Key and Secret. 
 
 ### Access FX Solution APIs
 
-Follow the below steps to get access to the Developer Studio and use the FX Solutions APIs.
+Follow the below steps to get access to begin using the FX Solutions APIs: 
 
-1. Create a developer account in the Developer Studio. To create an account, you will need a valid business email address.
+1. Explore the FX Solutions Developer Studio experience.
 
-2. Request a TEST API Key and Secret. After account creation,  you will receive access to a shared sandbox Merchant ID (MID) and FX Solutions Exchange Rate APIs. You will also receive a test API Key and Secret via encrypted email. This API Key and Secret will be used for authentication.
+2. Choose the product that will help you achieve your business or revenue goals and explore the corresponding APIs in the overview sections. 
 
-3. Construct an API Request to use the Exchange Rate APIs in TEST environment. For DCC, use 1) GET RATE  and 2)GET BINS BY CURRENCY. For MCP, use  GET ALL RATES. 
+3. Request a TEST API Key and Secret, please contact Fiserv Sales or the FX Solutions Product Team. 
+
+4. You will receive a TEST API Key and Secret and Merchant ID (MID). These credentials and MID can be used for the Exchange Rate APIs used for DCC. Please note MCP can be accessed through the CommerceHub experience and details can be found on the Multi-Currency Pricing tab.  
+
+5. Use the credentials and MID for constructing the API Request to use the Exchange Rate APIs in TEST environment. 
 
 ### Endpoints
 
@@ -102,7 +106,7 @@ postman.setEnvironmentVariable('key', key);
 ```
 ## HTTP Error Codes
 
-FX Solutions products use conventional HTTP response codes to indicate the success or failure of an API request. At a high-level, 200 code indicates success, 4xx codes indicate an error that failed given the information provided, 5xx codes indicate an error with servers.
+FX Solutions products use conventional response codes to indicate the success or failure of an API request. At a high-level, 200 code indicates success, 4xx codes indicate an error that failed given the information provided, and 5xx codes indicate an error with servers.
 
 Accompanying the 4xx codes will be messages with detail on the parameter causing the error.
 
