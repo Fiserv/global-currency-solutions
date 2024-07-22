@@ -40,7 +40,7 @@ link: ../api/?type=post&path=/fx/v1/pricing/request
 <!-- type: card 
 title: Get BINs by Currency
 description: This API will provide the list of available BINs in OpenFX for the given currency code.
-link: ../api/?type=GET&path=/fx/v1/pricing/bin/{currency_code}
+link: ../api/?type=get&path=/fx/v1/pricing/bin/{currency_code}&branch=develop&version=1.0.0
 -->
 
 <!-- type: row-end -->
