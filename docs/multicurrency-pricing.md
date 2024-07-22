@@ -25,5 +25,5 @@ Some merchant best practices include:
 
 ## APIs Used
 <!-- type: row -->
-MCP is available through Commerce Hub. To learn more, please visit the <b><a href="/product/CommerceHub">Commerce Hub Developer Studio</a></b>.
+MCP is available through Commerce Hub. To learn more, please visit the <b><a href="/product/CommerceHub/docs/?path=docs/Resources/Guides/Global-Currency/Multi-Currency.md&branch=develop">Commerce Hub Developer Studio</a></b>.
 <!-- type: row-end -->
