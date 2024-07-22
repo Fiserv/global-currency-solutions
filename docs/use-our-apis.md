@@ -6,7 +6,7 @@ FX Solutions RESTful API allows a merchant or bank partner to get FX Rates used 
 FX Solutions has different environments, that allow the consumption of our RESTful APIs for client development and customer testing. For ease of use, only the testing environment will be available.
 
 ## Sandbox
-<https://int.api.fiservapps.com>
+https://int.api.fiservapps.com
 
 - Uses Sandbox credentials
 - Test APIs before certifying for production
