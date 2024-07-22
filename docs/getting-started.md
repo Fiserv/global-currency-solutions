@@ -1,7 +1,7 @@
 ## Getting Started with FX Solutions
 Integrate FX Solutions using the Developer Studio. FX Solutions offers a suite of products, including  Dynamic Currency Conversion and Multi-Currency Pricing.
 <h3>Introduction </h3>
-A few things are necessary to make your first FX rate call using Fiserv's Services.
+A few things are necessary to make your first FX rate call. Please note the API experience is only relevant to the DCC offering.
 
 To get started using the API Explorer:
 <br>1. Review product offerings on <b><i> <a href="/product/FXSolutions">Product Overview</a></i></b>.
