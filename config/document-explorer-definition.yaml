@@ -28,6 +28,9 @@
 # the delivery of this work
 ################################################################################
 - sections:
+    - title: Get Started
+      link: docs/getting-started.md
+- sections:
   - title: Use Our APIs
     link: docs/use-our-apis.md
 - sections:
