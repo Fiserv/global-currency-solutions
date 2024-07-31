@@ -34,7 +34,7 @@ header:
   image:
     link: "/assets/images/Fiserv_Logo.jpg"
     altText: Global Currency Solution
-getStarted: docs/getting-started.md
+getStarted: /docs/getting-started.md
 ### not using Benefits section
 #benefits:
 #  - title:
