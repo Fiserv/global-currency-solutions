@@ -28,15 +28,18 @@
 # the delivery of this work
 ################################################################################
 - sections:
+    - title: Get Started
+      link: docs/getting-started.md
+- sections:
+  - title: Use Our APIs
+    link: docs/use-our-apis.md
+- sections:
     - title: Dynamic Currency Conversion
       link: docs/dynamic-currency-conversion.md
-    - title: Multicurrency-Pricing
+    - title: Multi-Currency Pricing
       link: docs/multicurrency-pricing.md
-    - title: Getting Started
-      link: docs/getting-started.md
-      sections:
-        - title: Use Our APIs
-          link: docs/use-our-apis.md
+
+
 - sections:
   - title: Release notes
     sections:

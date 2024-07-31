@@ -15,38 +15,33 @@ paths:
       x-group-name: Boarding
       x-proxy-name: Create or Update Location
       summary: Create or Update Location
-      description: Creates or Updates a location, if the location ID matches an existing location - the location is updated. If it doesn't a new location is created
+      description: Creates or Updates a Location. If the Location ID matches an existing location, the Location is updated. If the Location ID doesn't match an existing location, a new Location is created.
       operationId: createExternalLocation
       parameters:
         - name: Api-Key
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API Key and API Secret Key will be provided as part of servicer boarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format- HMAC {hmacToken}.
           required: true
           schema:
             type: string
-        - name: Client-Request-Id
+        - name: Client-Request-ID
           in: header
           description: A unique random number for each request.
           required: true
           schema:
             type: number
-        - name: clientID
-          in: path
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
@@ -100,30 +95,30 @@ paths:
       tags:
         - Boarding
       x-group-name: Boarding
-      x-proxy-name: Get All sub Client Locations
-      summary: Provides a list of all locations associated with the sub client
-      description: Provides a list of all locations associated with the sub client
+      x-proxy-name: Get All Client Locations
+      summary: Provides a list of all locations associated with the client
+      description: Provides a list of all locations associated with a Client.
       operationId: getAllExternalLocations
       parameters:
         - name: Apikey
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API Key and API Secret Key will be provided as part of servicer boarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
-        - name: Client-Request-Id
+        - name: Client-Request-ID
           in: header
           description: A unique random number for each request.
           required: true
@@ -201,28 +196,28 @@ paths:
       x-group-name: Boarding
       x-proxy-name: Get Client Location
       summary: Provides the exact location detail associated with the sub client
-      description: Provides the exact location detail associated with the sub client
+      description: Provides the exact location detail associated with a Client.
       operationId: getLocation
       parameters:
         - name: Apikey
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API Key and API Secret Key will be provided as part of servicer boarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
-        - name: Client-Request-Id
+        - name: Client-Request-ID
           in: header
           description: A unique random number for each request.
           required: true
@@ -291,7 +286,7 @@ paths:
       x-group-name: Boarding
       x-proxy-name: Create or Update Client
       summary: Create or Update Client
-      description: Creates or Updates a client, if the client ID matches an existing client - the client is updated. If it doesn't a new client is created
+      description: Creates or Updates a Client. If the Client ID matches an existing client, the Client is updated. If the Client ID doesn't match an existing client, a new Client is created.
       operationId: createExternalSubClient
       parameters:
         - name: Api-Key
@@ -302,13 +297,13 @@ paths:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format- HMAC {hmacToken}.
           required: true
           schema:
             type: string
