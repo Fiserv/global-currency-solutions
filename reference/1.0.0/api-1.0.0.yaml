@@ -199,7 +199,7 @@ paths:
       get:
         tags:
           - boarding-controller
-        x-group-name: Boarding APIS
+        x-group-name: Boarding APIs
         x-proxy-name: Get Client Location
         summary: Provides the exact location detail associated with the sub client
         description: Provides the exact location detail associated with the sub client

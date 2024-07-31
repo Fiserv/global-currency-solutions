@@ -15,38 +15,33 @@ paths:
       x-group-name: Exchange Rate
       x-proxy-name: Get Rate
       summary: Provides the rates information for country currency pair and scheme.
-      description: This API provides the exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Client cross reference Id and Merchant cross reference Id and Bin to determine the exchnage rate.
+      description: This API provides the exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses source currency, client cross reference ID and merchant cross reference ID and BIN to determine the exchange rate.
       operationId: rateExchange
       parameters:
         - name: Api-Key
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API Key and API Secret Key will be provided as part of servicer boarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
-        - name: Client-Request-Id
+        - name: Client-Request-ID
           in: header
           description: A unique random number for each request.
           required: true
           schema:
             type: number
-        - name: Client-Request-ID
-          in: header
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
@@ -109,38 +104,33 @@ paths:
       x-group-name: Exchange Rate
       x-proxy-name: Get All Rates
       summary: Provides list of exchange rates information for country currency pair and scheme.
-      description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFx2.0 platfrom. It uses Source currency, Target currency, Client cross reference Id and Merchant cross reference Id to determine the exchnage rate.Target currency are the optional attributes and used as filter criteria while determining the rate.
+      description: This API provides the set of exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses Source currency, target currency, client cross reference ID and merchant cross reference ID to determine the exchange rate.Target currency are the optional attributes and used as filter criteria while determining the rate.
       operationId: getAllRates
       parameters:
         - name: Api-Key
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API Key and API Secret key will be provided as part of servicer boarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
-        - name: Client-Request-Id
+        - name: Client-Request-ID
           in: header
           description: A unique random number for each request.
           required: true
           schema:
             type: number
-        - name: Client-Request-ID
-          in: header
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
@@ -218,30 +208,30 @@ paths:
       tags:
         - Exchange Rate
       x-group-name: Exchange Rate
-      x-proxy-name: Get Bins by Currency
-      summary: Provides a list of all BINs associated for the given currency code
-      description: This API will provide the list of available BINS in OpenFX for the given currency code and an optional indicator of inverse=true/false.
+      x-proxy-name: Get BINs by Currency
+      summary: Provides a list of all BINs associated for the given currency code.
+      description: This API will provide the list of available BINs in OpenFX for the given currency code and an optional indicator of inverse=true/false.
       operationId: getBins
       parameters:
         - name: Apikey
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API Key and API Secret key will be provided as part of servicer boarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system
+          description: Epoch timestamp in the request initiating system.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
-        - name: Client-Request-Id
+        - name: Client-Request-ID
           in: header
           description: A unique random number for each request.
           required: true

@@ -1,12 +1,12 @@
 ## Constructing a RESTful API Request
-FX Solutions RESTful API allows a merchant or bank partner to get FX Rates used for MCP or DCC within their own website, software, or terminal. Each request consists of the Header followed by the Request Body.
+FX Solutions' RESTful API allows a merchant or bank partner to test MCP or DCC in their own website, software, or terminal. Each request consists of the Header followed by the Request Body.
 
 ## Environments
 
-FX Solutions has different environments, that allow the consumption of our RESTful APIs for client development and customer testing. For ease of use, only the testing environment will be available.
+FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please <a href="https://www.carat.fiserv.com/en-us/contact/?utm_campaign=currency_content"> contact us to get started.  
 
 ## Sandbox
-<https://int.api.fiservapps.com>
+https://int.api.fiservapps.com
 
 - Uses Sandbox credentials
 - Test APIs before certifying for production
@@ -14,31 +14,33 @@ FX Solutions has different environments, that allow the consumption of our RESTf
 - Experiment, develop code and fix bugs
 
 ## API Overview
-The FX Solutions APIs use API keys to authenticate requests. You can request your TEST API keys by creating a user account on Developer Studio.
+API keys are used to authenticate requests. You can request TEST API Keys from your Fiserv Sales  or FX Solutions Product team.
 
-Please keep the TEST API keys secure, these belong to you. Do not share your secret API keys in publicly accessible websites such as GitHub, client-side code, and so forth. All API requests must be made over HTTPS. Calls made using HTTP will fail.
+Please keep the TEST API Keys secure, these belong to you. Do not share your secret API Keys in publicly accessible websites. All API requests must be made over HTTPS - calls made using HTTP will fail.
 
 ## Authentication
-All visitors to the Developer Studio can access the API Documentation to integrate you'll need a TEST API key and secret. You'll need to register for an account to get an API key and secret.
+All visitors to the Developer Studio can access the API Documentation to integrate. You'll need a TEST API Key and Secret. Contact your Fiserv Sales or FX Solutions Product team to get a TEST API Key and Secret. 
 
 ### Access FX Solution APIs
 
-Follow the below steps to get an access to the Developer Studio and use the FX Solutions APIs.
+Follow the below steps to get access to begin using the FX Solutions APIs: 
 
-1. Request and create a developer account in the Developer Studio. To create an account, you will need account information and a valid business email address.
-
-1. Receive TEST API Key and Secret. After registration,  the developer will have instant access to the shared sandbox Merchant ID (MID) and FX Solutions Exchange Rate APIs. The developer will also receive a test API Key and Secret via encrypted email. This API Key and Secret will be used for authentication.
-
-1. Construct an API Request to use the FX Solutions APIs in TEST environment. For DCC, use 1) Get RATE call and 2)Get BINS BY CURRENCY. For MCP, recommend Get ALL RATES. 
+1. Explore the FX Solutions Developer Studio experience.
+2. Choose the product that will help you achieve your business or revenue goals and explore the corresponding APIs in the overview sections.
+3. Request a TEST API Key and Secret, please contact your sales or the product point of contact.
+4. You will receive a TEST API Key and Secret and Merchant ID (MID). These credentials and MID can be used for the Exchange Rate APIs used for DCC. Please note MCP can be accessed through the CommerceHub experience and details can be found on the Multi-Currency Pricing tab.
+5. Use the credentials and MID for constructing the API Request to use the Exchange Rate APIs in TEST environment.
+6. Validate the use case. 
+7. Contact sales or the product point of contact if you need additional information. 
 
 ### Endpoints
 
 | Environment      | Host                            | 
 |------------------|---------------------------------|
-| Integration Test | <https://int.api.firstdata.com> |
+| Integration Test | https://int.api.firstdata.com |
 
 ### Request Header
-FX Solutions RESTful API has a consistent header structure based on a set of parameters. To create the header, provide the following values:
+FX Solutions RESTful API has a consistent header structure based on a set of parameters. To create the header, provide the following values:  
 
 | Header Name       | Value | Description                                                                                                                   |
 |-------------------|-------|-------------------------------------------------------------------------------------------------------------------------------|
@@ -102,11 +104,11 @@ postman.setEnvironmentVariable('key', key);
 ```
 ## HTTP Error Codes
 
-FX Solutions products use conventional HTTP response codes to indicate the success or failure of an API request. At a high-level, 200 code indicates success, 4xx codes indicate an error that failed given the information provided, 5xx codes indicate an error with servers.
+FX Solutions products use conventional response codes to indicate the success or failure of an API request. At a high-level, 200 code indicates success, 4xx codes indicate an error that failed given the information provided, and 5xx codes indicate an error with servers.
 
 Accompanying the 4xx codes will be messages with detail on the parameter causing the error.
 
-#### OpenFX Error Messages/Codes mapping to CommerceHub Error Messages
+#### OpenFX Error Messages/Codes
 
 | HTTP Status                | 	Response Code           | 	Reason	                                                                 | Message                                                                                           |
 |----------------------------|--------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
