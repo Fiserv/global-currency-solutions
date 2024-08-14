@@ -1974,14 +1974,14 @@ components:
       value:
         source: GBP
         rateType: TD
-        client: ACCOR
+        client: ADCB
         xref: '520334544000315'
     ExchangeAllRateRequestWithAmountRequest:
       value:
         source: USD
         sourceAmount: 101
         rateType: TD
-        client: COMMERCEHUB
+        client: My Pizza Shop
         xref: '736341798881'
     ExchangeAllRateRequestWithAmountAndTargetCurrencyRequest:
       value:
@@ -1989,14 +1989,14 @@ components:
         target: MXN
         sourceAmount: 101
         rateType: TD
-        client: COMMERCEHUB
+        client: My Pizza Shop
         xref: '736341798881'
     ExchangeAllRateRequestWithTargetCurrencyRequest:
       value:
         source: USD
         target: MXN
         rateType: TD
-        client: COMMERCEHUB
+        client: My Pizza Shop
         xref: '736341798881'
 
     ExchangeAllRateResponse:
