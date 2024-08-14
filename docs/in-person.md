@@ -1,4 +1,5 @@
 ## In Person
+
 Provide a better cardholder experience for Card Present payment transactions, including payment transactions where the customer physically presents the payment source while making a transaction at any merchant terminal. This type of transaction can include swiping a card with a magnetic strip, and inserting or tapping a card with an EMV chip.
 
 Use the following FX Solutions for Card Present transactions:

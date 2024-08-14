@@ -1,4 +1,5 @@
 ## Constructing a RESTful API Request
+
 FX Solutions' RESTful API allows a merchant or bank partner to test MCP or DCC in their own website, software, or terminal. Each request consists of the Header followed by the Request Body.
 
 ## Environments
@@ -6,6 +7,7 @@ FX Solutions' RESTful API allows a merchant or bank partner to test MCP or DCC i
 FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please <a href="https://www.carat.fiserv.com/en-us/contact/?utm_campaign=currency_content"> contact us to get started.  
 
 ## Sandbox
+
 https://int.api.fiservapps.com
 
 - Uses Sandbox credentials
@@ -14,11 +16,13 @@ https://int.api.fiservapps.com
 - Experiment, develop code and fix bugs
 
 ## API Overview
+
 API keys are used to authenticate requests. You can request TEST API Keys from your Fiserv Sales  or FX Solutions Product team.
 
 Please keep the TEST API Keys secure, these belong to you. Do not share your secret API Keys in publicly accessible websites. All API requests must be made over HTTPS - calls made using HTTP will fail.
 
 ## Authentication
+
 All visitors to the Developer Studio can access the API Documentation to integrate. You'll need a TEST API Key and Secret. Contact your Fiserv Sales or FX Solutions Product team to get a TEST API Key and Secret. 
 
 ### Access FX Solution APIs

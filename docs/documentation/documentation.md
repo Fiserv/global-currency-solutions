@@ -1,9 +1,11 @@
 # Documentation
 
 ## Getting Started with FX Solutions
+
 Integrate FX solutions using the Developer Studio. FX solutions include Dynamic Currency Conversion, Multicurrency Pricing.
 
 ## Use Cases
+
 <b>Build an integration based on common use cases.</b>
 
 
