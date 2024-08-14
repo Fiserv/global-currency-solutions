@@ -112,7 +112,7 @@ FX Solutions products use conventional response codes to indicate the success or
 
 Accompanying the 4xx codes will be messages with detail on the parameter causing the error.
 
-#### OpenFX Error Messages/Codes
+### OpenFX Error Messages/Codes
 
 | HTTP Status                | 	Response Code           | 	Reason	                                                                 | Message                                                                                           |
 |----------------------------|--------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
