@@ -66,37 +66,37 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/BadRequest'
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/UnAuthorizedResponse'
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/NotFoundResponse'
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/InternalServerErrorResponse'
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/GatewayErrorResponse'
   /fx/v1/pricing/request/mcp:
     post:
       tags:
@@ -155,37 +155,37 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/BadRequest'
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/UnAuthorizedResponse'
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/NotFoundResponse'
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/InternalServerErrorResponse'
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/GatewayErrorResponse'
   
   /fx/v1/pricing/request/allrates:
     post:
@@ -260,37 +260,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/BadRequest'
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/UnAuthorizedResponse'
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/NotFoundResponse'
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/InternalServerErrorResponse'
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/GatewayErrorResponse'
 
 
   /fx/v1/pricing/bin/{currency_code}:
@@ -356,39 +356,111 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/BadRequest'
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/UnAuthorizedResponse'
         '404':
           description: No BIN available
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/NotFoundResponse'
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/InternalServerErrorResponse'
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/GatewayErrorResponse'
 components:
   schemas:
+    BadRequest:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Status code associated with the response
+          format: int32
+          example: 400
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The request cannot be validated
+    UnAuthorizedResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 401
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The request was unauthorized
+    NotFoundResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 404
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The requested resource does not exist
+    InternalServerErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 500
+        message:
+          type: string
+          description: Status message associated with the response
+          example: An unexpected internal server error occurred
+    ServiceUnavailableResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 503
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The service was unavailable
+    GatewayErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 504
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The request timed out while waiting for a response
     DefaultResponse:
       type: object
       properties:
