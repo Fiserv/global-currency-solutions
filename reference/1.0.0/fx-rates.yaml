@@ -66,37 +66,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequest'
+                type: string
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnAuthorizedResponse'
+                type: string
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundResponse'
+                type: string
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalServerErrorResponse'
+                type: string
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceUnavailableResponse'
+                type: string
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayErrorResponse'
+                type: string
   /fx/v1/pricing/request/mcp:
     post:
       tags:
@@ -260,37 +260,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequest'
+                type: string
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnAuthorizedResponse'
+                type: string
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundResponse'
+                type: string
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalServerErrorResponse'
+                type: string
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceUnavailableResponse'
+                type: string
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayErrorResponse'
+                type: string
 
 
   /fx/v1/pricing/bin/{currency_code}:
