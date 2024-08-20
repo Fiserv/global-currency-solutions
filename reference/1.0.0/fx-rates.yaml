@@ -97,6 +97,96 @@ paths:
             application/json:
               schema:
                 type: string
+  /fx/v1/pricing/request/mcp:
+    post:
+      tags:
+        - Exchange Rate
+      x-group-name: Exchange Rate
+      x-proxy-name: Get MCP Rate
+      summary: Provides list of MCP exchange rates information for country currency pair and scheme.
+      description: This API provides the exchange rate based on merchant hierarchy setup on OpenFX 2.0 platform. It uses source currency, client cross reference ID and merchant cross reference ID and BIN to determine the exchange rate.
+      operationId: MCPRateExchange
+      parameters:
+        - name: Api-Key
+          in: header
+          description: API Key and API Secret Key will be provided as part of servicer boarding.
+          required: true
+          schema:
+            type: string
+        - name: Timestamp
+          in: header
+          description: Epoch timestamp in the request initiating system.
+          required: true
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          required: true
+          schema:
+            type: string
+        - name: Client-Request-ID
+          in: header
+          description: A unique random number for each request.
+          required: true
+          schema:
+            type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeAllRateRequest'
+            examples:
+              ExchangeRate:
+                $ref: '#/components/examples/ExchangeAllRateRequest'
+        required: true
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateResponse'
+              examples:
+                ExchangeRate:
+                  $ref: '#/components/examples/ExchangeRateResponse'
+        '400':
+          description: The request cannot be validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '401':
+          description: The request was unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedResponse'
+        '404':
+          description: The request resource does not exist
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundResponse'
+        '500':
+          description: An unexpected internal server error occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerErrorResponse'
+        '503':
+          description: The service was unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
+        '504':
+          description: The request timed out while waiting for a response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayErrorResponse'
+  
   /fx/v1/pricing/request/allrates:
     post:
       tags:
@@ -170,37 +260,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                type: string
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                type: string
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                type: string
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                type: string
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                type: string
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                type: string
 
 
   /fx/v1/pricing/bin/{currency_code}:
@@ -213,7 +303,7 @@ paths:
       description: This API will provide the list of available BINs in OpenFX for the given currency code and an optional indicator of inverse=true/false.
       operationId: getBins
       parameters:
-        - name: Apikey
+        - name: Api-Key
           in: header
           description: API Key and API Secret key will be provided as part of servicer boarding.
           required: true
@@ -266,39 +356,111 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/BadRequest'
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/UnAuthorizedResponse'
         '404':
           description: No BIN available
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/NotFoundResponse'
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/InternalServerErrorResponse'
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultResponse'
+                $ref: '#/components/schemas/GatewayErrorResponse'
 components:
   schemas:
+    BadRequest:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Status code associated with the response
+          format: int32
+          example: 400
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The request cannot be validated
+    UnAuthorizedResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 401
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The request was unauthorized
+    NotFoundResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 404
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The requested resource does not exist
+    InternalServerErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 500
+        message:
+          type: string
+          description: Status message associated with the response
+          example: An unexpected internal server error occurred
+    ServiceUnavailableResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 503
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The service was unavailable
+    GatewayErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Test Status code associated with the response
+          format: int32
+          example: 504
+        message:
+          type: string
+          description: Status message associated with the response
+          example: The request timed out while waiting for a response
     DefaultResponse:
       type: object
       properties:
@@ -1954,7 +2116,7 @@ components:
         sourceAmount: 1
         targetAmount: 0.27
         rate:
-          provider: PlanetPayment_Visa
+          provider: Visa
           rate: 0.2676
           id: '44625021'
           start: '2024-02-09T00:00:00.000'
@@ -1974,14 +2136,14 @@ components:
       value:
         source: GBP
         rateType: TD
-        client: ACCOR
+        client: DUMMY
         xref: '520334544000315'
     ExchangeAllRateRequestWithAmountRequest:
       value:
         source: USD
         sourceAmount: 101
         rateType: TD
-        client: COMMERCEHUB
+        client: DUMMY
         xref: '736341798881'
     ExchangeAllRateRequestWithAmountAndTargetCurrencyRequest:
       value:
@@ -1989,14 +2151,14 @@ components:
         target: MXN
         sourceAmount: 101
         rateType: TD
-        client: COMMERCEHUB
+        client: DUMMY
         xref: '736341798881'
     ExchangeAllRateRequestWithTargetCurrencyRequest:
       value:
         source: USD
         target: MXN
         rateType: TD
-        client: COMMERCEHUB
+        client: DUMMY
         xref: '736341798881'
 
     ExchangeAllRateResponse:
@@ -2007,7 +2169,7 @@ components:
             id: e8f307e2-4554-4808-bb65-66cff33b4656
             margin: 4.6
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2032,7 +2194,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2053,7 +2215,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2078,7 +2240,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2099,7 +2261,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2121,7 +2283,7 @@ components:
           - eligibility: 'Y'
             id: 234836ce-3351-4718-ab0f-4444b99c7181
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2140,7 +2302,7 @@ components:
             id: 234836ce-3351-4718-ab0f-4444b99c7181
             margin: 4.6
             rate:
-              provider: Fexco
+              provider: Dummy
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
