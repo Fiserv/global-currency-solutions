@@ -6284,7 +6284,7 @@ components:
           example: 8a7f174991138952019123deccad000a
         message:
           type: string
-          example: Success
+          example:
     BaseNodeRef:
       type: object
       properties:
