@@ -155,37 +155,37 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BadRequest'
+                type: string
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnAuthorizedResponse'
+                type: string
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotFoundResponse'
+                type: string
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalServerErrorResponse'
+                type: string
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceUnavailableResponse'
+                type: string
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayErrorResponse'
+                type: string
   
   /fx/v1/pricing/request/allrates:
     post:
@@ -260,37 +260,37 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/BadRequest'
         '401':
           description: The request was unauthorized
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/UnAuthorizedResponse'
         '404':
           description: The request resource does not exist
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/NotFoundResponse'
         '500':
           description: An unexpected internal server error occurred
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/InternalServerErrorResponse'
         '503':
           description: The service was unavailable
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ServiceUnavailableResponse'
         '504':
           description: The request timed out while waiting for a response
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/GatewayErrorResponse'
 
 
   /fx/v1/pricing/bin/{currency_code}:
@@ -2101,12 +2101,12 @@ components:
   examples:
     ExchangeRateRequest:
       value:
-        bin: 400131
+        bin: 123456
         source: AED
-        rateType: TD
+        rateType: AB
         sourceAmount: 1
-        client: ADCB
-        xref: '760076300640'
+        client: Dummy
+        xref: '123412341234'
 
     ExchangeRateResponse:
       value:
@@ -2137,14 +2137,14 @@ components:
         source: GBP
         rateType: TD
         client: DUMMY
-        xref: '520334544000315'
+        xref: '123451234512345'
     ExchangeAllRateRequestWithAmountRequest:
       value:
         source: USD
         sourceAmount: 101
         rateType: TD
         client: DUMMY
-        xref: '736341798881'
+        xref: '123451234512'
     ExchangeAllRateRequestWithAmountAndTargetCurrencyRequest:
       value:
         source: USD
@@ -2152,14 +2152,14 @@ components:
         sourceAmount: 101
         rateType: TD
         client: DUMMY
-        xref: '736341798881'
+        xref: '123451234512'
     ExchangeAllRateRequestWithTargetCurrencyRequest:
       value:
         source: USD
         target: MXN
         rateType: TD
         client: DUMMY
-        xref: '736341798881'
+        xref: '123451234512'
 
     ExchangeAllRateResponse:
       value:
