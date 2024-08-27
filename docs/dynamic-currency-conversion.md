@@ -7,7 +7,7 @@ Dynamic Currency Conversion (DCC) is a Card Present (CP) and Card Not Present (C
 Provides cardholders with choice to pay in cardholder currency or merchant's local currency at the time of purchase. Cardholder is presented with all of the important information needed to make an informed decision, including the local amount, foreign amount, exchange rate, and any markup added ot the transaction. 
 
 ## Merchant Experience
-Merchants provide their customers with a simple and transparent currency choice at the point-of-sale (POS). DCC enables merchants to deliver an enhanced checkout experience to their customers while earning additional revenue on DCC transactions. 
+Merchants provide customers with a simple and transparent currency choice at the point-of-sale (POS). DCC enables merchants to deliver an enhanced checkout experience to their customers while earning additional revenue on DCC transactions. 
 
 The DCC choice is determined by interrogating the BIN of the card to determine whether the card is foreign issued and eligible for conversion. If determined to be eligible, disclosures must be presented to the cardholder to allow them to make an active choice to pay in their card billing currency or the merchant’s local currency (for US merchant, USD).
 
