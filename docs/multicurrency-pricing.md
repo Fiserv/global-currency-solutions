@@ -1,26 +1,27 @@
 ## Multi-Currency Pricing
 
-Multi-Currency Pricing (MCP) is a Card Not Present (CNP) offering that allows merchants to offer pricing in multiple currencies. The currency for MCP is determined by the cardholder upon entering the website or by using Geo IP. This service is offered for Visa, Mastercard and Amex credit transactions and cardholders can pay in more than 140 presentment currencies.
+Multi-Currency Pricing (MCP) is a Card Not Present (CNP) offering that allows merchants to present and authorize in more than 130 global currencies, giving their customers a in-country shopping experience. Different currency selection options can be employed, including GeoIP detection or customer selection via country/currency drop-down selection. This service is offered for Visa, Mastercard and certain Amex credit transactions.
 
 ## Cardholder Experience
-Provides cardholders with pricing in their currency of choice throughout the shopping experience but does not guarantee their final cost in their local currency. Cardholder selects currency upon entering the website or determined using Geo-IP.
+Removes confusion by allowing the cardholder to shop and pay in a local, familiar currency. Cardholder selects currency upon entering the website or currency is determined by merchant using Geo-IP.
 
 ## Merchant Experience
 
-Depending on how MCP is implemented, the currency can be chosen by the cardholder, using a drop down for example, or determined by Geo IP. MCP is designed for card not present environments such as ecommerce. Merchants can display their prices in different currencies offering the cardholder the opportunity to transact in their currency of choice while the merchant is settled in their home currency.
+Depending on how MCP is implemented, the currency can be chosen by the cardholder, using a drop down for example, or determined by Geo IP. MCP is designed for card not present environments such as eCommerce. Merchants can display their prices in different currencies offering the cardholder the opportunity to transact in their currency of choice while the merchant is settled in their home currency.
 
 Some merchant best practices include:
 
-- Fully disclose on your website payments page, the country or region in which you are currently operating. Merchants should also inform the customer of the transaction currency used for the purchase. This is particularly important for currencies that are not unique. For example, a dollar may be an Australian, New Zealand, Hong Kong, or U.S. Dollar.
-- Merchants must disclose their payment location to consumers as part of the merchant website requirements.
+- Fully disclose on your website payments page, the country or region in which you are currently operating. 
+- Merchants should use a currency symbol or alpha code for displaying pricing on their site / app and any follow-on receipt. This is particularly important to avoid customer confusion, which could result in a dispute. (Example: AUD 100, A$100, AU$100)
+- Once a currency selection has been made by, or selected on behalf of the cardholder, only pricing in the selected currency should be visible on the site. Merchants should not comingle local and foreign pricing on the page. 
 - Allow the cardholder an easy and quick way to toggle between currencies, or shift back into merchant’s local currency.
-- Price goods in your local currency by default and require that your customer opt to see prices in their local currency, only through conscious choice.
+- The transaction must be completed with the price and currency selected by the cardholder, with no currency conversion performed by the merchant at checkout.
 
 ## Features
 - Supports more than 130 global currencies (V,MC,AMEX)
-- Merchant sets all pricing in foreign currency
-- Merchant does not need to do incremental integration work
-- Merchant settlement uses a different FX rate than authorization
+- Merchant sets pricing in foreign currency
+- Minimal integration work
+- Merchant is  settled in local currency using prevailing scheme FX rate
 - Enables easy cross-border expansion into markets where merchant may not be domiciled
 
 ## APIs Used
