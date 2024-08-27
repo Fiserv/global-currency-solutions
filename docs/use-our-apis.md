@@ -41,7 +41,7 @@ Follow the below steps to get access to begin using the FX Solutions APIs:
 
 | Environment      | Host                            | 
 |------------------|---------------------------------|
-| Integration Test | https://int.api.firstdata.com |
+| Integration Test | https://int.api.fiservapps.com |
 
 ### Request Header
 FX Solutions RESTful API has a consistent header structure based on a set of parameters. To create the header, provide the following values:  

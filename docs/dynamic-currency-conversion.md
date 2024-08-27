@@ -1,9 +1,10 @@
 ## Dynamic Currency Conversion
 
-Dynamic Currency Conversion (DCC) is a Card Present (CP) and Card Not Present (CNP) offering that allows merchants to offer international credit cardholders the choice to pay in either their own currency or the merchant’s base currency. Merchants benefit by offering their foreign customers the choice, convenience, and transparency to pay in their card billing. This service is offered for Visa and Mastercard credit transactions and  for more than 70 global Visa and Mastercard-supported currencies. 
+Dynamic Currency Conversion (DCC) is a Card Present (CP) and Card Not Present (CNP) offering that allows merchants to offer international credit cardholders the choice to pay in either their own currency or the merchant’s base currency. Merchants benefit by offering their foreign customers the choice, convenience, and transparency to pay in their card billing. This service is offered for Visa and Mastercard credit transactions and supports more than 70 global currencies. 
 ![Dynamic Currency Conversion](../assets/images/Clover-pos.png)
 
 ## Cardholder Experience
+
 
 Provides cardholders with choice to pay in cardholder currency or local currency at the time of purchase. The Card BIN is used to determine the DCC Choice. Guarantees purchase amount to cardholder.
 
@@ -11,8 +12,16 @@ Provides cardholders with choice to pay in cardholder currency or local currency
 
 The DCC choice is determined by interrogating the BIN of the card to determine whether the card is eligible for conversion. If determined to be eligible, disclosures must be presented to the cardholder to allow them to make an active choice to pay in their card billing currency or the merchant’s local currency (for US merchant, USD). The card associations mandate rules for offering DCC to protect the cardholder and merchants. The fundamental principles of DCC are:
 
+Provides cardholders with choice to pay in cardholder currency or merchant's local currency at the time of purchase. Cardholder is presented with all of the important information needed to make an informed decision, including the local amount, foreign amount, exchange rate, and any markup added ot the transaction. 
+
+## Merchant Experience
+Merchants provide their customers with a simple and transparent currency choice at the point-of-sale (POS). DCC enables merchants to deliver an enhanced checkout experience to their customers while earning additional revenue on DCC transactions. 
+
+The DCC choice is determined by interrogating the BIN of the card to determine whether the card is foreign issued and eligible for conversion. If determined to be eligible, disclosures must be presented to the cardholder to allow them to make an active choice to pay in their card billing currency or the merchant’s local currency (for US merchant, USD).
+
+The card associations mandate rules for offering DCC to protect the cardholder and merchants. The fundamental principles of DCC are:
 1. <b>Cardholder Choice:</b> The DCC merchant must offer the cardholder a choice to transact in the merchant’s local currency or in their card billing currency
-2. <b>Transparency & Disclosure:</b> For a cardholder to make an informed choice, merchants must disclose all charges associated with DCC. DCC disclosures must occur at the time the DCC offer is made and before the cardholder is asked to actively choose the transaction currency.
+2. <b>Transparency & Disclosure:</b> Merchants must disclose all relevant details to allow the cardholder to make an informed currency choice. These disclosures must occur at the time the DCC offer is made and before the cardholder is asked to choose their preferred transaction currency.
 3. <b>Steering:</b> The merchant must not use any language or procedures that may cause the cardholder to choose DCC by default.
 
 The card scheme-mandated disclosures, include:
@@ -28,8 +37,8 @@ The card scheme-mandated disclosures, include:
 
 - Supports Visa and Mastercard transactions 
 - Easy to configure DCC margins by scheme or currency
-- Select preferred rate provider
-- Flexible currency management  
+- Multiple rate provider options
+- No disruption to funding timelines
 
 
 ## APIs Used
