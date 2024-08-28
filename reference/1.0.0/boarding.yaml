@@ -42,6 +42,11 @@ paths:
           required: true
           schema:
             type: number
+        - name: ClientID
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -100,7 +105,7 @@ paths:
       description: Provides a list of all locations associated with a Client.
       operationId: getAllExternalLocations
       parameters:
-        - name: Apikey
+        - name: Api-Key
           in: header
           description: API Key and API Secret Key will be provided as part of servicer boarding.
           required: true
@@ -199,7 +204,7 @@ paths:
       description: Provides the exact location detail associated with a Client.
       operationId: getLocation
       parameters:
-        - name: Apikey
+        - name: Api-Key
           in: header
           description: API Key and API Secret Key will be provided as part of servicer boarding.
           required: true
