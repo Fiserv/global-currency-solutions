@@ -20,19 +20,19 @@ paths:
       parameters:
         - name: Api-Key
           in: header
-          description: API Key and API Secret Key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          description: Authorization information for the request. Use API Key and Secret to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -109,19 +109,19 @@ paths:
       parameters:
         - name: Api-Key
           in: header
-          description: API Key and API Secret Key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          description: Authorization information for the request.  Use API Key and Secret to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -186,7 +186,7 @@ paths:
             application/json:
               schema:
                 type: string
-  
+
   /fx/v1/pricing/request/allrates:
     post:
       tags:
@@ -199,19 +199,19 @@ paths:
       parameters:
         - name: Api-Key
           in: header
-          description: API Key and API Secret key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          description: Authorization information for the request. Use API Key and Secret to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -300,24 +300,24 @@ paths:
       x-group-name: Exchange Rate
       x-proxy-name: Get BINs by Currency
       summary: Provides a list of all BINs associated for the given currency code.
-      description: This API will provide the list of available BINs in OpenFX for the given currency code and an optional indicator of inverse=true/false.
+      description: Request to download a list of all BINs for a specific source currency to limit the number of lookups being performed. There is an optional query parameter 'inverse' that will cause the response to be the inverse; that is, a BIN list that includes all but the specified source currency.
       operationId: getBins
       parameters:
         - name: Api-Key
           in: header
-          description: API Key and API Secret key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          description: Authorization information for the request. Use API Key and Secret to build the HMAC signature Format - HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -327,13 +327,13 @@ paths:
           required: true
           schema:
             type: number
-        - name: currency_code
+        - name: Currency_code
           in: path
-          description: 'A specific source currency to be used in alpha to get the BINs list. ex: USD'
+          description: '3-character ISO-4217 alpha currency code representing the foreign currency of the rate request. Example: USD'
           required: true
           schema:
             type: string
-        - name: inverse
+        - name: Inverse
           in: query
           description: |-
             An optional query parameter 'inverse' that will cause
@@ -477,6 +477,7 @@ components:
       type: object
       properties:
         source:
+          description: The 3 character ISO-4217 alpha currency code representing the base currency of the rate request.
           type: string
           enum:
             - Unknown
