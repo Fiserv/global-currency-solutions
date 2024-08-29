@@ -2112,7 +2112,7 @@ components:
         source: AED
         rateType: AB
         sourceAmount: 1
-        client: Dummy
+        client: CUSTOMER
         xref: '123412341234'
 
     ExchangeRateResponse:
@@ -2143,14 +2143,14 @@ components:
       value:
         source: GBP
         rateType: TD
-        client: DUMMY
+        client: CUSTOMER
         xref: '123451234512345'
     ExchangeAllRateRequestWithAmountRequest:
       value:
         source: USD
         sourceAmount: 101
         rateType: TD
-        client: DUMMY
+        client: CLIENT
         xref: '123451234512'
     ExchangeAllRateRequestWithAmountAndTargetCurrencyRequest:
       value:
@@ -2158,14 +2158,14 @@ components:
         target: MXN
         sourceAmount: 101
         rateType: TD
-        client: DUMMY
+        client: CLIENT
         xref: '123451234512'
     ExchangeAllRateRequestWithTargetCurrencyRequest:
       value:
         source: USD
         target: MXN
         rateType: TD
-        client: DUMMY
+        client: CLIENT
         xref: '123451234512'
 
     ExchangeAllRateResponse:
@@ -2176,7 +2176,7 @@ components:
             id: e8f307e2-4554-4808-bb65-66cff33b4656
             margin: 4.6
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2201,7 +2201,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2222,7 +2222,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2247,7 +2247,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2268,7 +2268,7 @@ components:
             sourceAmount: 101
             targetAmount: 1803.68
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2290,7 +2290,7 @@ components:
           - eligibility: 'Y'
             id: 234836ce-3351-4718-ab0f-4444b99c7181
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
@@ -2309,7 +2309,7 @@ components:
             id: 234836ce-3351-4718-ab0f-4444b99c7181
             margin: 4.6
             rate:
-              provider: Dummy
+              provider: rateprovider
               rate: 17.8582534
               id: 0f8faf46-36da-4212-a942-bf80cacffd63
               start: '2024-02-20T00:00:00.000'
