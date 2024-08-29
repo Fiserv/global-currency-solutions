@@ -20,19 +20,19 @@ paths:
       parameters:
         - name: Api-Key
           in: header
-          description: API Key and API Secret Key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of the customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format- HMAC {hmacToken}.
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -102,19 +102,19 @@ paths:
       parameters:
         - name: Apikey
           in: header
-          description: API Key and API Secret Key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of the customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -126,6 +126,7 @@ paths:
             type: number
         - name: clientID
           in: path
+          description: The unique identifier of the client submitting the request.
           required: true
           schema:
             type: string
@@ -201,19 +202,19 @@ paths:
       parameters:
         - name: Apikey
           in: header
-          description: API Key and API Secret Key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of the customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format - HMAC {hmacToken}.
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}.
           required: true
           schema:
             type: string
@@ -225,11 +226,13 @@ paths:
             type: number
         - name: clientID
           in: path
+          description: The unique identifier of the client submitting the request. 
           required: true
           schema:
             type: string
         - name: locationID
           in: path
+          description: The unique identifier of the Location submitting the transaction.
           required: true
           schema:
             type: string
@@ -291,19 +294,19 @@ paths:
       parameters:
         - name: Api-Key
           in: header
-          description: API and Secret key will be provided as part of servicer boarding.
+          description: API and Secret key will be provided as part of the customer onboarding.
           required: true
           schema:
             type: string
         - name: Timestamp
           in: header
-          description: Epoch timestamp in the request initiating system.
+          description: Use Epoch timestamp in milliseconds in the request.
           required: true
           schema:
             type: string
         - name: Authorization
           in: header
-          description: Authorization information for the request. Use API Key and API Secret Key to build the HMAC signature Format- HMAC {hmacToken}.
+          description: Authorization information for the request. use API key and secret to build the HMAC signature Format- HMAC {hmacToken}.
           required: true
           schema:
             type: string
