@@ -2110,7 +2110,7 @@ components:
       value:
         bin: 123456
         source: AED
-        rateType: AB
+        rateType: TD
         sourceAmount: 1
         client: CUSTOMER
         xref: '123412341234'
