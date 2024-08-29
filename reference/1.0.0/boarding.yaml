@@ -36,13 +36,13 @@ paths:
           required: true
           schema:
             type: string
-        - name: Client-Request-ID
+        - name: Client-Request-Id
           in: header
           description: A unique random number for each request.
           required: true
           schema:
             type: number
-        - name: ClientID
+        - name: clientID
           in: path
           required: true
           schema:
@@ -123,7 +123,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: Client-Request-ID
+        - name: Client-Request-Id
           in: header
           description: A unique random number for each request.
           required: true
@@ -222,7 +222,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: Client-Request-ID
+        - name: Client-Request-Id
           in: header
           description: A unique random number for each request.
           required: true
