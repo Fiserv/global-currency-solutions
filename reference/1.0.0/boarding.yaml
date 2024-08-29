@@ -44,6 +44,7 @@ paths:
             type: number
         - name: clientID
           in: path
+          description: The unique identifier of the client submitting the request.
           required: true
           schema:
             type: string
@@ -231,7 +232,7 @@ paths:
             type: number
         - name: clientID
           in: path
-          description: The unique identifier of the client submitting the request. 
+          description: The unique identifier of the client submitting the request.
           required: true
           schema:
             type: string
@@ -323,6 +324,7 @@ paths:
             type: number
         - name: agentID
           in: path
+          description: The unique identifier of the agent submitting the request.
           required: true
           schema:
             type: string
