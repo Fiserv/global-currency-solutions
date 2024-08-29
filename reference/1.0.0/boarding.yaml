@@ -36,12 +36,17 @@ paths:
           required: true
           schema:
             type: string
-        - name: Client-Request-ID
+        - name: Client-Request-Id
           in: header
           description: A unique random number for each request.
           required: true
           schema:
             type: number
+        - name: clientID
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -100,7 +105,7 @@ paths:
       description: Provides a list of all locations associated with a Client.
       operationId: getAllExternalLocations
       parameters:
-        - name: Apikey
+        - name: Api-Key
           in: header
           description: API and Secret key will be provided as part of the customer onboarding.
           required: true
@@ -118,7 +123,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: Client-Request-ID
+        - name: Client-Request-Id
           in: header
           description: A unique random number for each request.
           required: true
@@ -200,7 +205,7 @@ paths:
       description: Provides the exact location detail associated with a Client.
       operationId: getLocation
       parameters:
-        - name: Apikey
+        - name: Api-Key
           in: header
           description: API and Secret key will be provided as part of the customer onboarding.
           required: true
@@ -218,7 +223,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: Client-Request-ID
+        - name: Client-Request-Id
           in: header
           description: A unique random number for each request.
           required: true
