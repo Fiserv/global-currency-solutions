@@ -675,12 +675,16 @@ components:
         rateType:
           $ref: '#/components/schemas/RateType'
         client:
+          description: The unique identifier of the Client submitting the transaction. Client is the parent level of the Location or xref.
           type: string
         xref:
+          description: The cross-reference value that ties the Location to an external system. Location is the child of the Client.
           type: string
         bin:
+          description: The card Bank Identification Number (BIN). A valid BIN is between 6-9 digits in length.
           type: string
         sourceAmount:
+          description: The amount of the transaction for which the FX rate will apply. The number of decimal places should match the minor units defined for the base or merchant currency.
           type: number
           format: double
     Currency:
@@ -740,6 +744,7 @@ components:
       type: object
       properties:
         source:
+          description: The 3 character ISO-4217 alpha currency code representing the base currency of the rate request.
           type: string
           enum:
             - Unknown
@@ -937,10 +942,13 @@ components:
         rateType:
           $ref: '#/components/schemas/RateType'
         client:
+          description: The unique identifier of the Client submitting the transaction. Client is the parent level of the Location or xref.
           type: string
         xref:
+          description: The cross-reference value that ties the Location to an external system. Location is the child of the Client.
           type: string
         target:
+          description: The 3 character ISO-4217 alpha currency code representing the foreign currency of the rate request (used if no BIN presented)
           type: string
           enum:
             - Unknown
@@ -1136,6 +1144,7 @@ components:
             - BRC
             - ARX
         sourceAmount:
+          description: The amount of the transaction for which the FX rate will apply. The number of decimal places should match the minor units defined for the base or merchant currency.
           type: number
           format: double
     BinInfo:
@@ -2091,11 +2100,8 @@ components:
       readOnly: true
       default: TD
       enum:
-        - TD
-        - TM
-        - PD
-        - PM
-        - IC
+        - TD = Transactional, Dynamic Currency Conversion
+
   #-------------------------------------
   # Example
   #-------------------------------------
