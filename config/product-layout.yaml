@@ -46,7 +46,7 @@ getStarted: /docs/getting-started.md
 
 featuredFeatures:
   - title: FX Rate Provider
-    description:  Coming Soon Market makers or treasuries can provide FX rates for Dynamic Currency Conversion transactions.
+    description:  Coming Soon! Market makers or treasuries can provide FX rates for Dynamic Currency Conversion transactions.
     tags: [ "Global Currency Solution", "FXExchange", "Currency Conversion", "FX Solutions" ]
     bullets: [ "Global Currency Solution", "Currency Conversion" ]
   - title: Issuing Currency Conversion
