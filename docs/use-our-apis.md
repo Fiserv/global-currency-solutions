@@ -2,8 +2,8 @@
 FX Solutions' RESTful API allows a merchant or bank partner to test MCP or DCC in their own website, software, or terminal. Each request consists of the Header followed by the Request Body.
 
 ## Environments
+FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please contact us to get started.
 
-FX Solutions has different environments for client development and customer testing. For ease of use, only the testing environment will be available for prospective customers. If you are not a prospective customer, please <a href="https://www.carat.fiserv.com/en-us/contact/?utm_campaign=currency_content"> contact us to get started.  
 
 ## Sandbox
 https://int.api.fiservapps.com
@@ -110,18 +110,18 @@ Accompanying the 4xx codes will be messages with detail on the parameter causing
 
 #### OpenFX Error Messages/Codes
 
-| HTTP Status                | 	Response Code           | 	Reason	                                                                 | Message                                                                                           |
-|----------------------------|--------------------------|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| OK[Eligible = Y]	          | 200	                     | RateSupplied                                                             |                                                                                                   |
-| OK[Eligible = D]	          | 200	                     | SourceAndTargetCannotBeSame                                              |                                                                                                   |
-| OK[Eligible = N]	          | 200	                     | CardBrandNotSupported                                                    |                                                                                                   |
-| BAD_REQUEST	               | 400	                     | NoLocationInfo	                                                          | Invalid client: {CLIENT_ID}_{LOCATION_ID}                                                         |
-| BAD_REQUEST	               | 400	                     | TargetCurrencyInExclusion	                                               | Target currency not permitted for client                                                          |                                                      
-| BAD_REQUEST	               | 400                      | 	TargetCurrencyNotSupported  InvalidSourceAmount                         |                                                                                                   |
-| NOT_FOUND	                 | 404	                     | SourceCurrencyInExclusion  SourceCurrencyNotSupported  NoRatesAvailable	 | No rate available                                                                                 |                                
+| HTTP Status                | 	Response Code           | 	Reason	                                                                 | Message                                                                                          |
+|----------------------------|--------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| OK[Eligible = Y]	          | 200	                     | RateSupplied                                                             |                                                                                                  |
+| OK[Eligible = D]	          | 200	                     | SourceAndTargetCannotBeSame                                              |                                                                                                  |
+| OK[Eligible = N]	          | 200	                     | CardBrandNotSupported                                                    |                                                                                                  |
+| BAD_REQUEST	               | 400	                     | NoLocationInfo	                                                          | Invalid client: {CLIENT_ID}_{LOCATION_ID}, Location not boarded                                  |
+| BAD_REQUEST	               | 400	                     | TargetCurrencyInExclusion	                                               | Target currency not permitted for client                                                         |                                                      
+| BAD_REQUEST	               | 400                      | 	TargetCurrencyNotSupported  InvalidSourceAmount                         |                                                                                                  |
+| NOT_FOUND	                 | 404	                     | SourceCurrencyInExclusion  SourceCurrencyNotSupported  NoRatesAvailable	 | No rate available                                                                                |                                
 | NOT_FOUND	                 | 404	                     | NoSourceCurrencySpecified	                                               | Field error: rateRequest.source Field is limited to the 3 character ISO-4217 alpha currency code. |
-| NOT_FOUND	                 | 404	                     | NoBinInfoAvailable  BinNotSupported                                      | 	BIN or closest match not found: <BIN>                                                            |
-| NOT_FOUND	                 | 404	                     | CountryNotSupported  NoPricingTypeSpecified  PricingTypeNotSupported     |                                                                                                   |
-| INTERNAL_SERVER_ERROR	     | 504                      | 	Timeout                                                                 |                                                                                                   |
-| INTERNAL_SERVER_ERROR	500	 | Unhandled Exception    	 |                                                                          |                                                                                                   |
+| NOT_FOUND	                 | 404	                     | NoBinInfoAvailable  BinNotSupported                                      | 	BIN or closest match not found: <BIN>                                                           |
+| NOT_FOUND	                 | 404	                     | CountryNotSupported  NoPricingTypeSpecified  PricingTypeNotSupported     |                                                                                                  |
+| INTERNAL_SERVER_ERROR	     | 504                      | 	Timeout                                                                 |                                                                                                  |
+| INTERNAL_SERVER_ERROR	500	 | Unhandled Exception    	 |                                                                          |                                                                                                  |
 
