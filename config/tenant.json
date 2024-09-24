@@ -3,6 +3,7 @@
   "name": "FXSolutions",
   "brand": "Fiserv",
   "brandLogoURL": "https://raw.githubusercontent.com/Fiserv/global-currency-solutions/develop/assets/images/Fiserv_Logo.jpg",
+  "coastURL": "https://fiserv.coastdemo.com/share/66e326ca71bfdfa72887ddd8?mode=link&zoom=90&layoutType=web",
   "solution": [
     "merchants"
   ],
@@ -70,3 +71,4 @@
     }
   ]
 }
+
