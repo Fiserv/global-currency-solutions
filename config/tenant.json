@@ -21,7 +21,7 @@
   "getStartedFilePath": "/docs/getting-started.md",
   "product": {
     "featured": true,
-    "description": "To onboard properly into the Developer Studio as a tenant each product must support these APIs so that we can retrieve product specific API specifications and documentation.",
+    "description": "Powering cross-border transactions.",
     "longDescription": "To onboard properly into the Developer Studio as a tenant each product must support these APIs so that we can retrieve product specific API specifications and documentation.",
     "apiSpecification": "/v1/apis/FXSolutions",
     "layout": "/v1/layouts/FXSolutions",
