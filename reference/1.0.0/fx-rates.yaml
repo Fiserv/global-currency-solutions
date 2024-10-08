@@ -41,7 +41,7 @@ paths:
           description: A unique random number for each request.
           required: true
           schema:
-            type: number
+            type: string
       requestBody:
         content:
           application/json:
@@ -131,7 +131,7 @@ paths:
           description: A unique random number for each request.
           required: true
           schema:
-            type: number
+            type: string
       requestBody:
         content:
           application/json:
@@ -237,7 +237,7 @@ paths:
           description: A unique random number for each request.
           required: true
           schema:
-            type: number
+            type: string
         - name: currency_code
           in: path
           description: '3-character ISO-4217 alpha currency code representing the foreign currency of the rate request. Example: USD'
