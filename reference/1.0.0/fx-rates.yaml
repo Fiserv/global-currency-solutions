@@ -2019,7 +2019,7 @@ components:
   examples:
     ExchangeRateRequest:
       value:
-        bin: 123456
+        bin: '123456'
         source: AED
         rateType: TD
         sourceAmount: 1
