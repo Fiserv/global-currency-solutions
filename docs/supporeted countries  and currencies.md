@@ -177,6 +177,6 @@ Note:
                                                                                                                                                                         
 1.List of supported currencies for DCC is for Fiserv North America acquiring; list of supported currencies may vary based on where the bank partner or merchant is headquartered. Please contact your sales representative to get more information.
                                                                                                                                                                          
-2.Amex processing with Multi-Currency Pricing (MCP) requires additional setup by the merchant through International Amex. For AMEX support, please visit this page.      
+2.Amex processing with Multi-Currency Pricing (MCP) requires additional setup by the merchant through International Amex. For AMEX support, please visit this <b><i> <a href="https://www.americanexpress.com/content/dam/amex/us/merchant/pdf/Global_MCCY_Currency_List_dec2018.pdf">page</a></i></b>.      
                                                                                                                                                                          
 3.Shows currency not eligible for DCC from perspective of merchant settled in USD.  Merchant settled in USD cannot offer DCC on USD cards.                               
