@@ -40,7 +40,7 @@ Please note:
 | Barbadosble Marka                      | BRB                   | Barbados Dollar              | BBD                    | 2           | LATAM  | YES             | YES       | YES                  |
 | Belarus                                | BLR                   | Belarus Ruble                | BYN                    | 2           | EMEA   | NO              | NO        | NO                   |
 | Belgium                                | BEL                   | Euro                         | EUR                    | 2           | EMEA   | YES             | YES       | YES                  |
-| Belize                                 | ABLZ                  | Belize Dollar                | BZD                    | 2           | LATAM  | YES             | YES       | YES                  |
+| Belize                                 | BLZ                   | Belize Dollar                | BZD                    | 2           | LATAM  | YES             | YES       | YES                  |
 | Benin                                  | BEN                   | CFA Franc BCEAO              | XOF                    | 0           | EMEA   | NO              | YES       | YES                  |
 | Bermuda                                | BMU                   | Bermudian Dollar             | BMD                    | 2           | LATAM  | YES             | YES       | YES                  |
 | Bhutan                                 | BTN                   | Ngultrum                     | BTN                    | 2           | APAC   | NO              | YES       | YES                  |
@@ -61,7 +61,7 @@ Please note:
 | Canada                                 | CAN                   | Canadian Dollar              | CAD                    | 2           | NA     | YES             | YES       | YES                  |
 | Cayman Islands (the)                   | CYM                   | Cayman Islands Dollar        | KYD                    | 2           | LATAM  | NO              | YES       | YES                  |
 | Central African Republic (the)         | CAF                   | CFA Franc BEAC               | XAF                    | 0           | EMEA   | NO              | YES       | YES                  |
-| Chad                                   | ATCD                  | CFA Franc BEAC               | XAF                    | 0           | EMEA   | NO              | YES       | YES                  |
+| Chad                                   | TCD                   | CFA Franc BEAC               | XAF                    | 0           | EMEA   | NO              | YES       | YES                  |
 | Chile                                  | CHL                   | Chilean Peso                 | CLP                    | 0           | LATAM  | YES             | YES       | YES                  |
 | China                                  | CHN                   | Chinese Yuan                 | CNY                    | 2           | APAC   | DP ONLY         | YES       | YES                  |
 | Christmas Island                       | CXR                   | Australian Dollar            | AUD                    | 2           | APAC   | YES             | YES       | YES                  |
@@ -85,7 +85,7 @@ Please note:
 | Ecuador                                | ECU                   | United States Dollar         | USD                    | 2           | LATAM  | USD             | YES       | YES                  |
 | Egypt                                  | EGY                   | Egyptian Pound               | EGP                    | 2           | EMEA   | YES             | YES       | YES                  |
 | El Salvador                            | SLV                   | United States Dollar         | USD                    | 2           | LATAM  | USD             | YES       | YES                  |
-| Equatorial Guinea                      | AGNQ                  | CFA Franc BEAC               | XAF                    | 0           | EMEA   | NO              | YES       | YES                  |
+| Equatorial Guinea                      | GNQ                   | CFA Franc BEAC               | XAF                    | 0           | EMEA   | NO              | YES       | YES                  |
 | Eritrea                                | ERI                   | Nakfa                        | ERN                    | 2           | EMEA   | NO              | YES       | NO                   |
 | Estonia                                | EST                   | Euro                         | EUR                    | 2           | EMEA   | YES             | YES       | YES                  |
 | Eswatini                               | SWZ                   | Lilangeni                    | SZL                    | 2           | EMEA   | NO              | YES       | YES                  |
@@ -111,7 +111,7 @@ Please note:
 | Guam                                   | GUM                   | United States Dollar         | USD                    | 2           | APAC   | USD             | YES       | YES                  |
 | Guatemala                              | GTM                   | Guatemalan Quetzal           | GTQ                    | 2           | LATAM  | YES             | YES       | YES                  |
 | Guernsey                               | GGY                   | British Pound                | GBP                    | 2           | EMEA   | YES             | YES       | YES                  |
-| Guinea                                 | AGIN                  | Guinea Franc                 | GNF                    | 0           | EMEA   | NO              | YES       | YES                  |
+| Guinea                                 | GIN                   | Guinea Franc                 | GNF                    | 0           | EMEA   | NO              | YES       | YES                  |
 | Guinea-Bissau                          | GNB                   | CFA Franc BCEAO              | XOF                    | 0           | EMEA   | NO              | YES       | YES                  |
 | Guyana                                 | GUY                   | Guyana Dollar                | GYD                    | 2           | LATAM  | NO              | YES       | YES                  |
 | Haiti                                  | HTI                   | Haitian Gourde               | HTG                    | 2           | LATAM  | NO              | YES       | YES                  |
@@ -134,7 +134,7 @@ Please note:
 | Jersey                                 | JEY                   | British Pound                | GBP                    | 2           | EMEA   | YES             | YES       | YES                  |
 | Jordan                                 | JOR                   | Jordanian Dinar              | JOD                    | 3           | EMEA   | NO              | YES       | YES                  |
 | Kazakhstan                             | KAZ                   | Tenge                        | KZT                    | 2           | EMEA   | YES             | YES       | YES                  |
-| Kenya                                  | AKEN                  | Kenyan Shilling              | KES                    | 2           | EMEA   | YES             | YES       | YES                  |
+| Kenya                                  | KEN                   | Kenyan Shilling              | KES                    | 2           | EMEA   | YES             | YES       | YES                  |
 | Kiribati                               | KIR                   | Australian Dollar            | AUD                    | 2           | APAC   | YES             | YES       | YES                  |
 | Korea (the Republic of)                | KOR                   | Won                          | KRW                    | 0           | APAC   | YES             | YES       | YES                  |
 | Kosovo                                 | XKX                   | Euro                         | EUR                    | 2           | EMEA   | YES             | YES       | YES                  |
