@@ -180,4 +180,6 @@ Note:
                                                                                                                                                                          
 2.Amex processing with Multi-Currency Pricing (MCP) requires additional setup by the merchant through International Amex. For AMEX support, please visit this <b><i> <a href="https://www.americanexpress.com/content/dam/amex/us/merchant/pdf/Global_MCCY_Currency_List_dec2018.pdf">page</a></i></b>.      
                                                                                                                                                                          
-3.Shows currency not eligible for DCC from perspective of merchant settled in USD.  Merchant settled in USD cannot offer DCC on USD cards.                               
+3.U.S. Dollar (USD) is not eligible for DCC conversion for U.S. merchants. For purposes of DCC eligibility in the U.S., USD can be interpreted as NO.
+
+.                               
