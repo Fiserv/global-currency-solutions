@@ -181,4 +181,4 @@ Note:
                                                                                                                                                                          
 <p>³ U.S. Dollar (USD) is not eligible for DCC conversion for U.S. merchants. For purposes of DCC eligibility in the U.S., USD can be interpreted as NO.
 
-.                               
+                               
