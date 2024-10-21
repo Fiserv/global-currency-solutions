@@ -2,19 +2,7 @@
 
 FX Solutions support presentment and authorization in 140+ currencies across 200+ countries. With an expansive footprint, you’ll be able to serve customers around the world. 
 
-The table below contains the ISO 3166 country name and alpha 3 code, ISO 4217 currency and alpha 3 code, minor units, associated region, and current support by solution. 
-If you have a specific question about country or currency support, please contact <a href="mailto:your-email@example.com">globalcurrency@fiserv.com.</a>
- 
-
-Please note: 
-
-- 3-minor unit currencies are supported on Nashville FE but are not supported on Compass FE, which may affect compatibility with certified gateways (e.g., BHD, JOD, KWD, OMR, and TND)
-- OFAC-prohibited currencies cannot be supported (e.g., BYN, MMK, CUP, CDF, IRR, IQD, LRD, KPW, SDG, SYP, and ZWL)
-- BRL acceptance varies by issuing bank as some Brazilian issuers have elected to reject transactions conducted in BRL when transactions occur outside of Brazil
-- RUB is not supported as a currency for any FX Solutions
-- Support for AMD and PAB currencies vary
-- Amex processing with Multi-Currency Pricing (MCP) requires additional setup by the merchant through International Amex
-- List of supported currencies for DCC is a standard list for Fiserv acquiring merchants in the U.S. This list is subject to change and may vary based on channel, acquirer or other variables. Please contact your sales representative for more information
+The table below contains the Country Name, Country Code, Currency, Currency Code, minor units, associated region, and current support by solution. Supported countries and currencies will vary based on your implementation. If you have a specific question about country or currency support, please contact your sales representative.
 
 
 | Currency Name (ISO 3166)                                   | Country(Alpha 3-Code) | Currency                      | Currency(Alpha 3-Code) | Minor Units | Region | DCC<sup>1</sup> | MCP VI/MC | MCP AMEX<sup>2</sup> |  
@@ -29,7 +17,7 @@ Please note:
 | Anguilla                                                   | AIA                   | East Caribbean Dollar         | XCD                    | 2           | LATAM  | YES             | YES       | YES                  |
 | Antigua and Barbuda                                        | ATG                   | East Caribbean Dollar         | XCD                    | 2           | LATAM  | YES             | YES       | YES                  |
 | Argentina                                                  | ARG                   | Argentine Peso                | ARS                    | 2           | LATAM  | NO              | YES       | NO                   |
-| Armenia                                                    | ARM                   | Armenian Dram                 | AMD                    | 2           | EMEA   | YES             | YES       | YES                  |
+| Armenia                                                    | ARM                   | Armenian Dram                 | AMD<sup>3</sup>        | 2           | EMEA   | YES             | YES       | YES                  |
 | Aruba                                                      | ABW                   | Aruban Guilder                | AWG                    | 2           | LATAM  | NO              | YES       | YES                  |
 | Australia                                                  | AUS                   | Australian Dollar             | AUD                    | 2           | APAC   | YES             | YES       | YES                  |
 | Austria                                                    | AUT                   | Euro                          | EUR                    | 2           | EMEA   | YES             | YES       | YES                  |
@@ -270,10 +258,10 @@ Please note:
                                                                                                                                                                         
 Note:                                                                                                                                                                   
                                                                                                                                                                         
-<p>¹ List of supported currencies for DCC is for Fiserv North America acquiring; list of supported currencies may vary based on where the bank partner or merchant is headquartered. Please contact your sales representative to get more information.
+<p>¹ List of supported Countries and Currencies and support for 3-minor unit currencies will vary based on your implementation – please contact your sales representative for more information.
                                                                                                                                                                          
 <p>² Amex processing with Multi-Currency Pricing (MCP) requires additional setup by the merchant through International Amex. For AMEX support, please visit this <b><i> <a href="https://www.americanexpress.com/content/dam/amex/us/merchant/pdf/Global_MCCY_Currency_List_dec2018.pdf">page</a></i></b>.      
                                                                                                                                                                          
-<p>³ U.S. Dollar (USD) is not eligible for DCC conversion for U.S. merchants. For purposes of DCC eligibility in the U.S., USD can be interpreted as NO.
+<p>³ AMD and PAB will vary based on your implementation.
 
                                
